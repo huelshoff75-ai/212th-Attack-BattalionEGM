@@ -143,7 +143,7 @@
         .sound-toggle {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--card-border);
-            color: var(--primary-orange);
+            color: var(--text-muted);
             width: 36px;
             height: 36px;
             border-radius: 50%;
@@ -157,6 +157,7 @@
         .sound-toggle:hover {
             background: rgba(255, 102, 0, 0.2);
             box-shadow: 0 0 10px var(--orange-glow);
+            color: var(--primary-orange);
         }
 
         /* Container & Tabs */
@@ -540,6 +541,12 @@
 </head>
 <body>
 
+    <!-- Audio Element (Eingebettetes MP3 - Vode An) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://vop.baidu.com/buildIn/audio/sound/20260302_023727_262841_1.mp3" type="audio/mpeg">
+        Dein Browser unterstützt das Audio-Element nicht.
+    </audio>
+
     <!-- Live Ticker Banner -->
     <div class="holo-ticker">
         <div class="holo-ticker-content">
@@ -568,8 +575,8 @@
         </nav>
 
         <div class="header-controls">
-            <button class="sound-toggle" onclick="toggleSound()" title="Sound Effekte Ein/Aus" id="soundBtn">
-                <i class="fa-solid fa-volume-high"></i>
+            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Musik Ein/Aus" id="musicBtn">
+                <i class="fa-solid fa-music"></i>
             </button>
         </div>
     </header>
@@ -1118,12 +1125,11 @@
         const FE_PASSWORD = "212"; 
 
         let isFeLoggedIn = false;
-        let soundEnabled = true;
+        let isMusicPlaying = false;
 
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
         function playClickSound() {
-            if (!soundEnabled) return;
             try {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
                 const osc = audioCtx.createOscillator();
@@ -1145,7 +1151,6 @@
         }
 
         function playActionSound() {
-            if (!soundEnabled) return;
             try {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
                 const osc = audioCtx.createOscillator();
@@ -1166,18 +1171,37 @@
             } catch (e) {}
         }
 
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const btn = document.getElementById('soundBtn');
-            if (soundEnabled) {
-                btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-                btn.style.color = 'var(--primary-orange)';
-                playClickSound();
+        function toggleBackgroundMusic() {
+            const audio = document.getElementById('bgMusic');
+            const btn = document.getElementById('musicBtn');
+
+            if (!isMusicPlaying) {
+                audio.play().then(() => {
+                    isMusicPlaying = true;
+                    btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                    btn.style.color = 'var(--primary-orange)';
+                    btn.style.boxShadow = '0 0 10px var(--orange-glow)';
+                    btn.style.borderColor = 'var(--primary-orange)';
+                }).catch(err => {
+                    console.log("Autoplay blockiert:", err);
+                });
             } else {
-                btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                audio.pause();
+                isMusicPlaying = false;
+                btn.innerHTML = '<i class="fa-solid fa-music"></i>';
                 btn.style.color = 'var(--text-muted)';
+                btn.style.boxShadow = 'none';
+                btn.style.borderColor = 'var(--card-border)';
             }
         }
+
+        // Versuche Musik zu starten, wenn der Nutzer das erste Mal irgendwo auf der Seite klickt
+        document.addEventListener('click', function startOnFirstClick() {
+            if (!isMusicPlaying) {
+                toggleBackgroundMusic();
+            }
+            document.removeEventListener('click', startOnFirstClick);
+        }, { once: true });
 
         function switchTab(tabId, btn) {
             playClickSound();
