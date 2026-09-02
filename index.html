@@ -134,18 +134,23 @@
             border-color: var(--primary-orange);
         }
 
+        /* Header Audio Controls */
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
         }
 
         .sound-toggle {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--card-border);
             color: var(--text-muted);
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -158,6 +163,34 @@
             background: rgba(255, 102, 0, 0.2);
             box-shadow: 0 0 10px var(--orange-glow);
             color: var(--primary-orange);
+        }
+
+        /* Lautstärkeregler Styling */
+        .volume-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+            background: #2a2a35;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--orange-glow);
+            transition: transform 0.1s;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
         }
 
         /* Container & Tabs */
@@ -301,7 +334,7 @@
             line-height: 1.5;
         }
 
-        /* Status-Badges für Planeten */
+        /* Status-Badges */
         .status-badge {
             display: inline-block;
             padding: 4px 10px;
@@ -541,7 +574,7 @@
 </head>
 <body>
 
-    <!-- Lokale Audio-Datei (Sucht vode_an.mp3 im selben Ordner) -->
+    <!-- Lokale Audio-Datei -->
     <audio id="bgMusic" loop preload="auto">
         <source src="vode_an.mp3" type="audio/mpeg">
         Dein Browser unterstützt das Audio-Element nicht.
@@ -578,6 +611,8 @@
             <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Musik Ein/Aus" id="musicBtn">
                 <i class="fa-solid fa-music"></i>
             </button>
+            <!-- Lautstärkeregler (Standard mäßig auf 30% Lautstärke gestellt) -->
+            <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)" title="Lautstärke regeln">
         </div>
     </header>
 
@@ -617,7 +652,6 @@
                 <p>Status der Planeten der Galaktischen Republik und bevorstehende Offensive-Ziele.</p>
             </div>
 
-            <!-- Fortschritts-Anzeige -->
             <div class="progress-bar-container">
                 <div class="progress-title">
                     <span><i class="fa-solid fa-chart-line"></i> Kontrolle der Galaxis durch die Republik</span>
@@ -629,7 +663,6 @@
             </div>
 
             <div class="grid">
-                <!-- Planet: Coruscant -->
                 <div class="card">
                     <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
                     <div class="card-icon"><i class="fa-solid fa-city"></i></div>
@@ -641,7 +674,6 @@
                     </div>
                 </div>
 
-                <!-- Planet: Kamino -->
                 <div class="card">
                     <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
                     <div class="card-icon"><i class="fa-solid fa-water"></i></div>
@@ -653,7 +685,6 @@
                     </div>
                 </div>
 
-                <!-- Planet: Utapau -->
                 <div class="card">
                     <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
                     <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
@@ -665,7 +696,6 @@
                     </div>
                 </div>
 
-                <!-- Planet: Felucia -->
                 <div class="card" style="border-color: var(--warning-yellow);">
                     <span class="status-badge status-contested"><i class="fa-solid fa-triangle-exclamation"></i> Umkämpft</span>
                     <div class="card-icon" style="color: var(--warning-yellow);"><i class="fa-solid fa-tree"></i></div>
@@ -677,7 +707,6 @@
                     </div>
                 </div>
 
-                <!-- Planet: Geonosis -->
                 <div class="card" style="border-color: var(--danger-red);">
                     <span class="status-badge status-enemy"><i class="fa-solid fa-crosshairs"></i> Einzunehmen (KUS)</span>
                     <div class="card-icon" style="color: var(--danger-red);"><i class="fa-solid fa-skull-crossbones"></i></div>
@@ -689,7 +718,6 @@
                     </div>
                 </div>
 
-                <!-- Planet: Umbara -->
                 <div class="card" style="border-color: var(--danger-red);">
                     <span class="status-badge status-enemy"><i class="fa-solid fa-crosshairs"></i> Einzunehmen (KUS)</span>
                     <div class="card-icon" style="color: var(--danger-red);"><i class="fa-solid fa-moon"></i></div>
@@ -806,7 +834,6 @@
             </div>
 
             <div class="grid">
-                <!-- Ghost Company -->
                 <div class="card" style="border-top: 4px solid var(--primary-orange);">
                     <div class="card-icon"><i class="fa-solid fa-ghost"></i></div>
                     <h3>Ghost Company (GHC)</h3>
@@ -825,7 +852,6 @@
                     </div>
                 </div>
 
-                <!-- 2nd Airborne Company -->
                 <div class="card" style="border-top: 4px solid #00a2ff;">
                     <div class="card-icon" style="color: #00a2ff;"><i class="fa-solid fa-jet-fighter-up"></i></div>
                     <h3>2nd Airborne Company</h3>
@@ -1049,7 +1075,6 @@
                 <p>Personen auf dieser Liste sind dauerhaft oder temporär von der 212th ausgeschlossen.</p>
             </div>
 
-            <!-- Loginbereich für Führungsebene -->
             <div class="card" style="margin-bottom: 2rem; background-color: #16161e;">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <div>
@@ -1059,7 +1084,6 @@
                     <button class="btn-submit" id="feLoginBtn" onclick="toggleFeLogin()" style="width: auto; padding: 8px 16px;"><i class="fa-solid fa-key"></i> FE Login</button>
                 </div>
 
-                <!-- Formular für neue Blacklist-Einträge -->
                 <div id="feBlacklistFormContainer" style="display: none; margin-top: 1.5rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
                     <h3 style="margin-bottom: 1rem; color: var(--danger-red);"><i class="fa-solid fa-user-slash"></i> Neuen Blacklist-Eintrag hinzufügen</h3>
                     
@@ -1091,7 +1115,6 @@
                 </div>
             </div>
 
-            <!-- Blacklist Tabelle -->
             <div class="table-wrapper">
                 <table id="blacklistTable">
                     <thead>
@@ -1128,6 +1151,22 @@
         let isMusicPlaying = false;
 
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        // Musik-Lautstärke auf den Standardwert des Sliders setzen (30%)
+        window.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bgMusic');
+            const slider = document.getElementById('volumeControl');
+            if (audio && slider) {
+                audio.volume = slider.value;
+            }
+        });
+
+        function changeVolume(val) {
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = val;
+            }
+        }
 
         function playClickSound() {
             try {
@@ -1196,7 +1235,6 @@
             }
         }
 
-        // Versuche Musik zu starten, sobald der Nutzer einmal irgendwo klickt
         document.addEventListener('click', function startOnFirstClick() {
             if (!isMusicPlaying) {
                 toggleBackgroundMusic();
