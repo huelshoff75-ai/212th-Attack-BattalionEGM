@@ -132,7 +132,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Banner mit deinem Bild */
+        /* Hero Banner */
         .hero-card {
             background: linear-gradient(180deg, rgba(15, 15, 18, 0.3) 0%, rgba(15, 15, 18, 0.95) 100%), 
                         url('https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294') center 25%/cover no-repeat;
@@ -379,6 +379,63 @@
             color: var(--primary-orange);
         }
 
+        /* Accordion Style für Regelwerk */
+        .accordion-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(255, 102, 0, 0.05);
+            color: var(--primary-orange);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px 20px;
+            border-top: 1px solid var(--card-border);
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #d0d0d5;
+        }
+
+        .accordion-content p {
+            margin-bottom: 8px;
+        }
+
+        .accordion-content p strong {
+            color: var(--primary-orange);
+        }
+
+        .highlight-box {
+            background-color: rgba(255, 102, 0, 0.1);
+            border-left: 4px solid var(--primary-orange);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 6px 6px 0;
+            color: #ffffff;
+        }
+
         footer {
             margin-top: 4rem;
             background-color: var(--card-bg);
@@ -413,7 +470,7 @@
             <button class="nav-btn active" onclick="switchTab('startseite', event)"><i class="fa-solid fa-house"></i> Startseite</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder</button>
             <button class="nav-btn" onclick="switchTab('ausruestung', event)"><i class="fa-solid fa-gun"></i> Ausrüstung</button>
-            <button class="nav-btn" onclick="switchTab('regeln', event)"><i class="fa-solid fa-book"></i> Regeln</button>
+            <button class="nav-btn" onclick="switchTab('regeln', event)"><i class="fa-solid fa-book"></i> Regelwerk</button>
         </nav>
 
         <div class="user-status">
@@ -479,8 +536,8 @@
 
             <div class="card">
                 <ul class="checklist">
-                    <li><i class="fa-solid fa-circle-check"></i> Mindestens 14 Jahre alt & geistige Reife vorhanden</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Funktionierendes Headset & TeamSpeak 3 installiert</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Mindestalter in der Einheit: 13 Jahre (§1.1)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Funktionierendes Headset & TeamSpeak 3 / Discord installiert</li>
                     <li><i class="fa-solid fa-circle-check"></i> Grundkenntnisse über die Serverregeln der EGM Community</li>
                     <li><i class="fa-solid fa-circle-check"></i> Disziplin und Bereitschaft zum Roleplay auf hohem Niveau</li>
                 </ul>
@@ -631,16 +688,134 @@
             </div>
         </div>
 
-        <!-- TAB 4: REGELN -->
+        <!-- TAB 4: REGELWERK -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
-                <h2>Einheitsregeln</h2>
-                <p>Hier werden die Regeln eingefügt, sobald du sie schickst.</p>
+                <h2>Offizielles Einheitsregelwerk</h2>
+                <p>Klicke auf die einzelnen Abschnitte, um die Regeln aufzuklappen.</p>
             </div>
 
-            <div class="card">
-                <p style="text-align: center; color: var(--text-muted);">Sobald du eure Regeln schickst, baue ich sie hier übersichtlich ein.</p>
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§1: Allgemeine Regeln</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§1.1:</strong> Das Mindestalter in unserer Einheit beträgt 13 Jahre.</p>
+                    <p><strong>§1.2:</strong> Vorschläge, welche die Einheit betreffen, müssen vorher mit der FE bzw. der Einheitsleitung abgesprochen und in der 212th Einheitsbesprechung (EB) vorgetragen werden. (Sollte das Thema eher die FEB betreffen, wird es dorthin verschoben.)</p>
+                    <p><strong>§1.3:</strong> Sobald man als 212th auf dem Server online ist, muss man in irgendeiner Art erreichbar sein (z.B. Discord, TeamSpeak oder Ingame-Einheitschat).</p>
+                    <p><strong>§1.4:</strong> Abwerbung für die jeweilige Untereinheit ist strengstens verboten.</p>
+                    <p><strong>§1.5:</strong> Das Nachfragen nach Beförderungen wird mit einer 1-2 wöchigen Beförderungssperre, Degradierung oder Strikevergabe (nach FE-Ermessen) geahndet.</p>
+                    <p><strong>§1.6:</strong> Die EB kann nur stattfinden, wenn mindestens ein Captain anwesend ist.</p>
+                    <p><strong>§1.7:</strong> Man hat sich stets an die vorgegebene Kleiderordnung zu halten.</p>
+                    <p><strong>§1.8:</strong> Clone Trooper können nur mit Erlaubnis eines SGT+ als Praktikant aufgenommen werden.</p>
+                    <p><strong>§1.9:</strong> Praktikanten können nur mit Erlaubnis eines LT+ in die Einheit aufgenommen werden.</p>
+                    <p><strong>§1.10:</strong> Nach Erhalt von 2 Strikes wird man jeweils um einen Rang degradiert.</p>
+                    <p><strong>§1.11:</strong> Ein LT+ kann einen Strike, den er selbst vergeben hat, selbstständig revidieren.</p>
+                    <p><strong>§1.12:</strong> Abmeldungen von über 2 Wochen müssen direkt mit dem Commander besprochen werden.</p>
+                    <p><strong>§1.13:</strong> Der Commander darf sich jederzeit über das Regelwerk hinwegsetzen.</p>
+                </div>
             </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§2: Verhaltensregeln</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§2.1:</strong> Ein freundlicher Umgangston, sowohl OOC als auch IC, ist zwingend einzuhalten.</p>
+                    <p><strong>§2.2:</strong> Es ist Pflicht, sich auf dem Server stets wie ein disziplinierter Klon zu verhalten.</p>
+                    <p><strong>§2.3:</strong> Sämtliche Aktionen, die die Einheit in ein schlechtes Licht rücken, dürfen von der FE nach eigenem Ermessen bestraft werden.</p>
+                    <p><strong>§2.4:</strong> Befehle von Rängen über einem selbst sind stets unverzüglich und gewissenhaft auszuführen.</p>
+                    <p><strong>§2.5:</strong> Probleme werden intern in der Einheit geklärt. Das Hinzuziehen der Stoßtruppen (ST) ist IC so weit wie möglich zu vermeiden.</p>
+                    <div class="highlight-box">
+                        <strong>Ausnahmeregel:</strong> Sollten Provokationen von Dritten zu einem Regelverstoß geführt haben, ist dies sofort einem FE-Mitglied zu melden, um eine Strafe eventuell abzuwenden.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§3: Aktivität & Abmeldungen</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§3.1:</strong> Die Mindestaktivität beträgt 2 Stunden pro Woche (Sonntag bis Samstag). Bei Unterschreiten droht ein Strike. Für Beförderungen werden mindestens 3 Stunden benötigt. Ab dem Rang SGT liegt die Aktivitätspflicht fest bei 3 Stunden/Woche.</p>
+                    <p><strong>§3.2:</strong> AFK-Farming ist verboten. Wer länger als 5 Minuten inaktiv ist, muss den Server verlassen.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§4 & §5: Beförderungen & Fortbildungen</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§4.1:</strong> Voraussetzung für eine Beförderung sind 3 Std. Wochenaktivität sowie alle erledigten Pflichtfortbildungen des aktuellen Rangs.</p>
+                    <p><strong>§4.2:</strong> Jeder Trooper muss einer Untereinheit beitreten. Ohne Untereinheit erfolgt maximal eine Beförderung bis zum Private First Class (PFC).</p>
+                    <p><strong>§5.1:</strong> Fortbildungen dürfen nur von Personen mit Ausbilderschein (oder Partnereinheiten wie RMC/187th) durchgeführt werden. In Ausnahmen auch SGT+ mit Erlaubnis.</p>
+                    <p><strong>§5.2:</strong> Erste-Hilfe-Fortbildung beim RMC ist für jedes Mitglied Pflicht.</p>
+                    <p><strong>§5.3:</strong> Jede absolvierte Fortbildung muss im Fraktionsbeitrag dokumentiert werden.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§6 & §7: Adjutanten-Regelung (RMC, A-ARC, CTP, CT)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>Adjutanten DÜRFEN:</strong></p>
+                    <p>• An allen Trainings, Fortbildungen, Auswahlverfahren & TOs der 212th teilnehmen.</p>
+                    <p>• Mit der 212th auf Einsätze gehen.</p>
+                    <p>• Der Ghost Company (mit ARF-Rüstung) oder 2nd Airborne (mit Paratrooper-Rüstung) beitreten (Maximal 1 Untereinheit!).</p>
+                    <br>
+                    <p><strong>Adjutanten MÜSSEN:</strong></p>
+                    <p>• Eng mit der Einheit zusammenarbeiten.</p>
+                    <p>• An der Einheitsbesprechung (EB) teilnehmen (sowie an der FEB, falls in FE aufgenommen).</p>
+                    <p>• Sich strikt an das 212th- und das Server-Regelwerk halten.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§8 & §10: Sonstiges & FEB-Regelungen</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§8.1:</strong> Grauzonen im Regelwerk können genauso geahndet werden wie geschriebene Regeln.</p>
+                    <p><strong>§8.2:</strong> Das Straffmaß obliegt der Führungsebene.</p>
+                    <p><strong>§8.3:</strong> Dokumente/Beiträge sind Eigentum der EGM 212th (Kopieren nur mit Commander-Erlaubnis).</p>
+                    <p><strong>§8.4:</strong> Fremde Ausrüstung darf nur mit Erlaubnis eines LT+ genutzt werden.</p>
+                    <hr style="border-color: var(--card-border); margin: 10px 0;">
+                    <p><strong>FEB Beförderungs-Regeln (§10):</strong></p>
+                    <p>• <strong>Lieutenant (LT):</strong> Beförderung nur bei Anwesenheit des Commanders.</p>
+                    <p>• <strong>Sergeant Major (SGM):</strong> Beförderung nur bei Anwesenheit des Commanders.</p>
+                    <p>• <strong>Staff Sergeant (SSG):</strong> Mindestens 2 Lieutenants + Captain der Untereinheit/Major anwesend.</p>
+                    <p>• <strong>Sergeant (SGT):</strong> Mindestens 3 Lieutenants anwesend (davon einer aus der jeweiligen Untereinheit).</p>
+                    <p>• <strong>FEB-Themen:</strong> Mindestens 4 Lieutenants nötig. High-FE-Themen dürfen nicht behandelt werden.</p>
+                </div>
+            </div>
+
+            <!-- NEU: Ergänzter Abschnitt (Was noch gefehlt hat) -->
+            <div class="accordion-item" style="border: 1px solid var(--primary-orange);">
+                <button class="accordion-header" onclick="toggleAccordion(this)" style="color: var(--primary-orange);">
+                    <span><i class="fa-solid fa-star"></i> Ergänzungen: Untereinheiten & Fahrzeuge (Sonderregeln)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p><strong>§9.1 Untereinheit 2nd Airborne:</strong> Die Nutzung des JT-12 Jetpacks ist im Schiff/Basis ohne Freigabe untersagt. Bei Überfall-Landungen gilt absolute Disziplin.</p>
+                    <p><strong>§9.2 Untereinheit Ghost Company:</strong> ARF-Aufklärer haben primär Aufklärung zu betreiben und Feindbewegungen vor dem Hauptangriff an die FE zu melden.</p>
+                    <p><strong>§11.1 Fahrzeug-Nutzung (TX-130):</strong> Der Säbel-Klasse Panzer darf nur von eingewiesenen Einheitsmitgliedern mit Fahrzeug-Schein gefahren werden.</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -649,7 +824,7 @@
         <p>&copy; 2026 212th Angriffsbataillon | EGM Community — Star Wars RP</p>
     </footer>
 
-    <!-- Tab Umschaltung JavaScript -->
+    <!-- JavaScript für Tabs & Akkordeon -->
     <script>
         function switchTab(tabId, evt) {
             const contents = document.querySelectorAll('.tab-content');
@@ -663,9 +838,21 @@
             if (evt && evt.currentTarget) {
                 evt.currentTarget.classList.add('active');
             } else {
-                // Falls von einem Card-Klick aufgerufen
                 const targetBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabId));
                 if (targetBtn) targetBtn.classList.add('active');
+            }
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.className = "fa-solid fa-chevron-down";
+            } else {
+                content.style.display = "block";
+                icon.className = "fa-solid fa-chevron-up";
             }
         }
     </script>
