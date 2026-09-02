@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>212th Angriffsbataillon | EGM Community</title>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -43,7 +44,7 @@
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .brand {
@@ -84,6 +85,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            position: relative;
+            z-index: 1001;
         }
 
         nav button:hover {
@@ -390,6 +393,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
         <div class="brand">
             <img src="https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294" alt="212th Logo" class="brand-logo-img">
@@ -397,12 +401,12 @@
         </div>
 
         <nav>
-            <button class="nav-btn active" onclick="switchTab('startseite', event)"><i class="fa-solid fa-house"></i> Startseite</button>
-            <button class="nav-btn" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder</button>
-            <button class="nav-btn" onclick="switchTab('partner', event)"><i class="fa-solid fa-handshake"></i> Partnereinheiten</button>
-            <button class="nav-btn" onclick="switchTab('regeln', event)"><i class="fa-solid fa-book"></i> Regelwerk</button>
-            <button class="nav-btn" onclick="switchTab('abmeldung', event)"><i class="fa-solid fa-calendar-xmark"></i> Abmeldung</button>
-            <button class="nav-btn" onclick="switchTab('blacklist', event)"><i class="fa-solid fa-ban"></i> Blacklist</button>
+            <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Startseite</button>
+            <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
+            <button class="nav-btn" onclick="switchTab('partner', this)"><i class="fa-solid fa-handshake"></i> Partnereinheiten</button>
+            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regelwerk</button>
+            <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-xmark"></i> Abmeldung</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Blacklist</button>
         </nav>
 
         <div class="user-status">
@@ -413,6 +417,7 @@
 
     <div class="container">
         
+        <!-- TAB 1: STARTSEITE -->
         <div id="startseite" class="tab-content active">
             <div class="hero-card">
                 <span class="badge">● EINHEITS- & KARRIEREPORTAL</span>
@@ -439,6 +444,7 @@
             </div>
         </div>
 
+        <!-- TAB 2: MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsmitglieder & Führungsebene</h2>
@@ -509,6 +515,7 @@
             </div>
         </div>
 
+        <!-- TAB 3: PARTNEREINHEITEN -->
         <div id="partner" class="tab-content">
             <div class="section-title">
                 <h2>Befreundete Partnereinheiten</h2>
@@ -545,6 +552,7 @@
             </div>
         </div>
 
+        <!-- TAB 4: REGELWERK -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsregelwerk</h2>
@@ -597,6 +605,7 @@
             </div>
         </div>
 
+        <!-- TAB 5: ABMELDUNG -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Abmeldung</h2>
@@ -640,6 +649,7 @@
             </div>
         </div>
 
+        <!-- TAB 6: BLACKLIST -->
         <div id="blacklist" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Blacklist</h2>
@@ -671,4 +681,90 @@
     </div>
 
     <footer>
-        <p>&
+        <p>&copy; 2026 212th Angriffsbataillon | EGM Community — Star Wars RP</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId, btnElement) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.className = "fa-solid fa-chevron-down";
+            } else {
+                content.style.display = "block";
+                icon.className = "fa-solid fa-chevron-up";
+            }
+        }
+
+        /* DISCORD WEBHOOK INTEGRATION */
+        function sendToDiscord(event) {
+            event.preventDefault();
+
+            const webhookURL = "https://discord.com/api/webhooks/1544515038071623751/kP0aGZAu49ugT6qt-yrGCgv3j_7jLmkCr4Y0d1i7HxTIxDMBOlydPEhQp7do4gEOW37O";
+
+            const name = document.getElementById('name').value;
+            const untereinheit = document.getElementById('untereinheit').value;
+            const von = document.getElementById('von').value;
+            const bis = document.getElementById('bis').value;
+            const grund = document.getElementById('grund').value || "Kein Grund angegeben";
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = "Wird gesendet...";
+
+            const requestPayload = {
+                embeds: [{
+                    title: "📋 Neue 212th Abmeldung eingegangen",
+                    color: 16737280,
+                    fields: [
+                        { name: "Name & Rang", value: name, inline: true },
+                        { name: "Untereinheit", value: untereinheit, inline: true },
+                        { name: "Zeitraum", value: `Von: **${von}**\nBis: **${bis}**`, inline: false },
+                        { name: "Grund", value: grund, inline: false }
+                    ],
+                    footer: { text: "212th Angriffsbataillon | Webseiten-System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestPayload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Deine Abmeldung wurde erfolgreich an Discord übermittelt!');
+                    document.getElementById('abmeldungForm').reset();
+                } else {
+                    alert('Fehler beim Senden der Abmeldung.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Netzwerkfehler beim Senden an Discord.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
+            });
+        }
+    </script>
+</body>
+</html>
