@@ -56,12 +56,12 @@
             letter-spacing: 0.5px;
         }
 
-        .brand-icon {
-            background-color: rgba(255, 102, 0, 0.15);
-            color: var(--primary-orange);
-            padding: 8px 10px;
+        .brand-logo-img {
+            width: 38px;
+            height: 38px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 102, 0, 0.3);
+            object-fit: cover;
+            border: 1px solid var(--primary-orange);
         }
 
         nav {
@@ -132,13 +132,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Banner (Star Wars Hintergrund) */
+        /* Hero Banner mit deinem Bild */
         .hero-card {
-            background: linear-gradient(180deg, rgba(15, 15, 18, 0.4) 0%, rgba(15, 15, 18, 0.95) 100%), 
-                        url('https://images.alphacoders.com/270/270241.jpg') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(15, 15, 18, 0.3) 0%, rgba(15, 15, 18, 0.95) 100%), 
+                        url('https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294') center 25%/cover no-repeat;
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 4rem 2.5rem 3rem 2.5rem;
+            padding: 5rem 2.5rem 3rem 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             position: relative;
@@ -162,7 +162,7 @@
             font-weight: 800;
             margin-bottom: 1rem;
             color: var(--text-main);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
         .hero-card h1 span {
@@ -170,12 +170,12 @@
         }
 
         .hero-card p {
-            color: #d0d0d5;
+            color: #e0e0e5;
             font-size: 1.05rem;
             line-height: 1.6;
             max-width: 750px;
             margin-bottom: 2rem;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.9);
         }
 
         .hero-buttons {
@@ -209,14 +209,14 @@
         }
 
         .btn-secondary {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.7);
             color: var(--text-main);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             transform: translateY(-2px);
         }
 
@@ -360,6 +360,25 @@
             color: var(--text-main);
         }
 
+        /* Checkliste für Tryouts */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .checklist i {
+            color: var(--primary-orange);
+        }
+
         footer {
             margin-top: 4rem;
             background-color: var(--card-bg);
@@ -386,15 +405,15 @@
     <!-- Header Navigation -->
     <header>
         <div class="brand">
-            <div class="brand-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <img src="https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294" alt="212th Logo" class="brand-logo-img">
             212th Angriffsbataillon
         </div>
 
         <nav>
-            <button class="nav-btn active" onclick="switchTab('startseite')"><i class="fa-solid fa-house"></i> Startseite</button>
-            <button class="nav-btn" onclick="switchTab('mitglieder')"><i class="fa-solid fa-users"></i> Mitglieder</button>
-            <button class="nav-btn" onclick="switchTab('ausruestung')"><i class="fa-solid fa-gun"></i> Ausrüstung</button>
-            <button class="nav-btn" onclick="switchTab('regeln')"><i class="fa-solid fa-book"></i> Regeln</button>
+            <button class="nav-btn active" onclick="switchTab('startseite', event)"><i class="fa-solid fa-house"></i> Startseite</button>
+            <button class="nav-btn" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder</button>
+            <button class="nav-btn" onclick="switchTab('ausruestung', event)"><i class="fa-solid fa-gun"></i> Ausrüstung</button>
+            <button class="nav-btn" onclick="switchTab('regeln', event)"><i class="fa-solid fa-book"></i> Regeln</button>
         </nav>
 
         <div class="user-status">
@@ -415,8 +434,8 @@
                     Hier findest du alle Informationen über unsere Spezialeinheiten, Mitglieder, Waffen und Einsatzmittel.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="switchTab('mitglieder')"><i class="fa-solid fa-users"></i> Mitglieder ansehen</button>
-                    <button class="btn btn-secondary" onclick="switchTab('ausruestung')"><i class="fa-solid fa-gun"></i> Ausrüstung & Panzer</button>
+                    <button class="btn btn-primary" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder ansehen</button>
+                    <button class="btn btn-secondary" onclick="switchTab('ausruestung', event)"><i class="fa-solid fa-gun"></i> Ausrüstung & Panzer</button>
                 </div>
             </div>
 
@@ -426,29 +445,45 @@
                 <p>Tryouts finden regelmäßig auf dem EGM Clone Wars RP Server statt.</p>
             </div>
 
+            <!-- Taktische Einsatzbereiche -->
             <div class="section-title">
-                <h2>Einheits-Übersicht</h2>
-                <p>Nutze die oberen Tabs oder klicke auf die Karten, um mehr zu erfahren.</p>
+                <h2>Einsatzbereiche & Spezialisierungen</h2>
+                <p>Die Kernkompetenzen unserer Einheit auf dem Schlachtfeld.</p>
             </div>
 
             <div class="grid">
-                <div class="card" onclick="switchTab('mitglieder')" style="cursor: pointer;">
-                    <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
-                    <h3>Führungsebene & Kader</h3>
-                    <p>Blick in das Roster der Ghost Company, 2nd Airborne sowie unserer Einheitsjedi.</p>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <h3>2nd Airborne Company</h3>
+                    <p>Luftlandeeinheit für schnelle Verlegung hinter feindliche Linien mittels Jetpacks und Fallschirm-Taktiken.</p>
                 </div>
 
-                <div class="card" onclick="switchTab('ausruestung')" style="cursor: pointer;">
-                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                    <h3>Arsenal & Fahrzeuge</h3>
-                    <p>Übersicht aller Waffen (DC-15A, RPS-6), Spezial-Rüstungen und des TX-130 Panzers.</p>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Ghost Company</h3>
+                    <p>Die schwere Infanterie-Kompagnie für direkte Frontangriffe, Grabenkämpfe und städtische Offensive.</p>
                 </div>
 
-                <div class="card" onclick="switchTab('regeln')" style="cursor: pointer;">
-                    <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
-                    <h3>Verhaltenskodex</h3>
-                    <p>Die offiziellen Richtlinien und Verhaltenskodizes auf dem EGM-Server.</p>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-binoculars"></i></div>
+                    <h3>Recon Squad / ARF</h3>
+                    <p>Spezialisierte Aufklärer zur Lagebeurteilung, Zielmarkierung und verdeckten Operationen.</p>
                 </div>
+            </div>
+
+            <!-- Tryout-Voraussetzungen -->
+            <div class="section-title">
+                <h2>Voraussetzungen für ein Tryout</h2>
+                <p>Das solltest du vor deinem Beitritt beachten:</p>
+            </div>
+
+            <div class="card">
+                <ul class="checklist">
+                    <li><i class="fa-solid fa-circle-check"></i> Mindestens 14 Jahre alt & geistige Reife vorhanden</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Funktionierendes Headset & TeamSpeak 3 installiert</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Grundkenntnisse über die Serverregeln der EGM Community</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Disziplin und Bereitschaft zum Roleplay auf hohem Niveau</li>
+                </ul>
             </div>
         </div>
 
@@ -616,20 +651,22 @@
 
     <!-- Tab Umschaltung JavaScript -->
     <script>
-        function switchTab(tabId) {
-            // Alle Inhalte verstecken
+        function switchTab(tabId, evt) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // Alle Buttons deaktivieren
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(button => button.classList.remove('active'));
 
-            // Ausgewählten Tab anzeigen
             document.getElementById(tabId).classList.add('active');
 
-            // Passenden Button als aktiv markieren
-            event.target.closest('button').classList.add('active');
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            } else {
+                // Falls von einem Card-Klick aufgerufen
+                const targetBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabId));
+                if (targetBtn) targetBtn.classList.add('active');
+            }
         }
     </script>
 
