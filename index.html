@@ -294,7 +294,7 @@
             line-height: 1.5;
         }
 
-        /* Tags für Ausrüstung */
+        /* Tags */
         .tag-list {
             display: flex;
             flex-wrap: wrap;
@@ -310,6 +310,57 @@
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 600;
+        }
+
+        .tag-sub {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid var(--card-border);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        /* Mitglieder Tabelle Styles */
+        .table-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        th {
+            background-color: #1a1a20;
+            color: var(--primary-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .rank-badge {
+            font-weight: 700;
+            color: var(--text-main);
         }
 
         footer {
@@ -344,8 +395,8 @@
 
         <nav>
             <a href="#" class="active"><i class="fa-solid fa-house"></i> Startseite</a>
-            <a href="#ausruestung"><i class="fa-solid fa-gun"></i> Ausrüstung</a>
             <a href="#mitglieder"><i class="fa-solid fa-users"></i> Mitglieder</a>
+            <a href="#ausruestung"><i class="fa-solid fa-gun"></i> Ausrüstung</a>
             <a href="#regeln"><i class="fa-solid fa-book"></i> Regeln</a>
         </nav>
 
@@ -363,10 +414,10 @@
             <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
             <p>
                 Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
-                Hier findest du alle wichtigen Informationen über unsere Waffen, Spezialausrüstungen, Mitglieder und Verhaltensregeln.
+                Hier findest du alle wichtigen Informationen über unsere Mitglieder, Waffen, Spezialausrüstungen und Verhaltensregeln.
             </p>
             <div class="hero-buttons">
-                <a href="#ausruestung" class="btn btn-primary"><i class="fa-solid fa-gun"></i> Ausrüstung ansehen</a>
+                <a href="#mitglieder" class="btn btn-primary"><i class="fa-solid fa-users"></i> Mitgliederliste</a>
                 <a href="#regeln" class="btn btn-secondary"><i class="fa-solid fa-scroll"></i> Einheitsregeln</a>
             </div>
         </div>
@@ -376,6 +427,99 @@
             <div class="icon"><i class="fa-solid fa-check"></i></div>
             <h3>Aktuell Rekrutierung aktiv</h3>
             <p>Tryouts finden regelmäßig auf dem EGM Clone Wars RP Server statt.</p>
+        </div>
+
+        <!-- Mitglieder Bereich -->
+        <div class="section-title" id="mitglieder">
+            <h2>Einheitsmitglieder & Führungsebene</h2>
+            <p>Aktuelle Mitgliederübersicht des 212th Angriffsbataillons.</p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Name</th>
+                        <th>Abteilung</th>
+                        <th>Zusatz / Adjutant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank-badge">Commander</span></td>
+                        <td>Cody | Nymphix</td>
+                        <td><span class="tag">Ghost Company</span></td>
+                        <td>Einheitsleitung</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Major</span></td>
+                        <td>Thunder | Comet</td>
+                        <td><span class="tag-sub">Hohe Führungsebene</span></td>
+                        <td><span class="tag-sub">Adjutant: CTP</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Captain</span></td>
+                        <td>Ref</td>
+                        <td><span class="tag">Ghost Company</span></td>
+                        <td><span class="tag-sub">Adjutant: RMC</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Captain</span></td>
+                        <td>Whiteaxe | Derbi</td>
+                        <td><span class="tag">2nd Airborne Company</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">First Lieutenant</span></td>
+                        <td>Vuiq</td>
+                        <td><span class="tag">Ghost Company</span></td>
+                        <td><span class="tag-sub">Recon Squad</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Lieutenant</span></td>
+                        <td>Demon</td>
+                        <td><span class="tag">2nd Airborne Company</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Lieutenant</span></td>
+                        <td>Able | Raphi</td>
+                        <td><span class="tag">2nd Airborne Company</span></td>
+                        <td><span class="tag-sub">Testzeit</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Sergeant</span></td>
+                        <td>Tentef</td>
+                        <td><span class="tag">2nd Airborne Company</span></td>
+                        <td><span class="tag-sub">Parjai Squad</span> <span class="tag-sub">Adjutant: RMC</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Sergeant</span></td>
+                        <td>Slick</td>
+                        <td><span class="tag">2nd Airborne Company</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Sergeant</span></td>
+                        <td>Peel | Ender</td>
+                        <td><span class="tag">Ghost Company</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Hoher General</span></td>
+                        <td>Obi-Wan Kenobi | Glow</td>
+                        <td><span class="tag-sub">Einheitsjedi</span></td>
+                        <td>Führungsebene</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Captain (Jedi)</span></td>
+                        <td>Nexar Tyne</td>
+                        <td><span class="tag-sub">Einheitsjedi</span></td>
+                        <td>Führungsebene</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Ausrüstung Bereich -->
@@ -425,24 +569,14 @@
             </div>
         </div>
 
-        <!-- Platzhalter für Mitglieder -->
-        <div class="section-title" id="mitglieder">
-            <h2>Mitglieder & Ränge</h2>
-            <p>Sobald du bereit bist, schicke mir eure Mitgliederliste, um sie hier einzufügen!</p>
-        </div>
-
-        <div class="card">
-            <p style="text-align: center; color: var(--text-muted);">Mitgliederliste wird in Kürze hinzugefügt...</p>
-        </div>
-
         <!-- Platzhalter für Regeln -->
         <div class="section-title" id="regeln">
             <h2>Einheitsregeln</h2>
-            <p>Sobald du bereit bist, schicke mir eure Regeln, um sie hier einzufügen!</p>
+            <p>Schicke mir eure Verhaltensregeln, um sie als Nächstes einzufügen!</p>
         </div>
 
         <div class="card">
-            <p style="text-align: center; color: var(--text-muted);">Regeln werden in Kürze hinzugefügt...</p>
+            <p style="text-align: center; color: var(--text-muted);">Sobald du eure Regeln schickst, füge ich sie hier ein.</p>
         </div>
 
     </div>
