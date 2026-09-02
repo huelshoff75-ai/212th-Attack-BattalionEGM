@@ -380,6 +380,14 @@
             background-color: var(--orange-hover);
         }
 
+        .btn-danger {
+            background-color: var(--danger-red);
+        }
+
+        .btn-danger:hover {
+            background-color: #cc0000;
+        }
+
         footer {
             margin-top: 4rem;
             background-color: var(--card-bg);
@@ -448,7 +456,7 @@
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsmitglieder & Führungsebene</h2>
-                <p>Aktuelle Mitgliederübersicht des 212th Angriffsbataillons (laut Trello).</p>
+                <p>Aktuelle Mitgliederübersicht des 212th Angriffsbataillons.</p>
             </div>
 
             <div class="table-wrapper">
@@ -680,6 +688,48 @@
                 <p>Personen auf dieser Liste sind dauerhaft oder temporär von der 212th ausgeschlossen.</p>
             </div>
 
+            <!-- Loginbereich für Führungsebene -->
+            <div class="card" style="margin-bottom: 2rem; background-color: #1a1a22;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div>
+                        <h4 style="color: var(--primary-orange);"><i class="fa-solid fa-lock"></i> Führungsebenen-Zugang</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um neue Blacklist-Einträge zu erstellen.</p>
+                    </div>
+                    <button class="btn-submit" id="feLoginBtn" onclick="toggleFeLogin()" style="width: auto; padding: 8px 16px;"><i class="fa-solid fa-key"></i> FE Login</button>
+                </div>
+
+                <!-- Verstecktes Formular für neue Blacklist-Einträge -->
+                <div id="feBlacklistFormContainer" style="display: none; margin-top: 1.5rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
+                    <h3 style="margin-bottom: 1rem; color: var(--danger-red);"><i class="fa-solid fa-user-slash"></i> Neuen Blacklist-Eintrag hinzufügen</h3>
+                    
+                    <form id="blacklistForm" onsubmit="sendBlacklistToDiscord(event)">
+                        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                            <div class="form-group">
+                                <label>Name / ID des Spielers:</label>
+                                <input type="text" id="blName" placeholder="z.B. Max / 1234" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dauer der Sperre:</label>
+                                <input type="text" id="blDauer" placeholder="z.B. Permanent oder 2 Wochen" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Eingetragen von (FE Name):</label>
+                                <input type="text" id="blFE" placeholder="z.B. Commander Cody" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Grund für den Eintrag:</label>
+                            <textarea id="blGrund" rows="2" placeholder="Grund für die Blacklist angebene..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit btn-danger" id="blSubmitBtn"><i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden</button>
+                    </form>
+                </div>
+            </div>
+
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -690,7 +740,7 @@
                             <th>Dauer</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="blacklistTableBody">
                         <tr>
                             <td><strong style="color: var(--danger-red);">MusterMann / 1111</strong></td>
                             <td>Schwerer Regelbruch / Fehlverhalten</td>
@@ -709,6 +759,9 @@
     </footer>
 
     <script>
+        // PASSWORT FÜR FÜHRUNGSEBENE (Kannst du hier anpassen!)
+        const FE_PASSWORT = "212thFE";
+
         function switchTab(tabId, btnElement) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -736,7 +789,29 @@
             }
         }
 
-        /* DISCORD WEBHOOK INTEGRATION */
+        /* FE-LOGIN FÜR BLACKLIST */
+        let isFeLoggedIn = false;
+
+        function toggleFeLogin() {
+            if (isFeLoggedIn) {
+                isFeLoggedIn = false;
+                document.getElementById('feBlacklistFormContainer').style.display = 'none';
+                document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-key"></i> FE Login';
+                alert('Erfolgreich ausgeloggt.');
+            } else {
+                const password = prompt('Bitte gib das Führungsebenen-Passwort ein:');
+                if (password === FE_PASSWORT) {
+                    isFeLoggedIn = true;
+                    document.getElementById('feBlacklistFormContainer').style.display = 'block';
+                    document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> FE Logout';
+                    alert('Erfolgreich als FE angemeldet!');
+                } else if (password !== null) {
+                    alert('Falsches Passwort!');
+                }
+            }
+        }
+
+        /* DISCORD WEBHOOK INTEGRATION - ABMELDUNG */
         function sendToDiscord(event) {
             event.preventDefault();
 
@@ -787,6 +862,72 @@
             .finally(() => {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
+            });
+        }
+
+        /* DISCORD WEBHOOK INTEGRATION - BLACKLIST */
+        function sendBlacklistToDiscord(event) {
+            event.preventDefault();
+
+            const webhookURL = "https://discord.com/api/webhooks/1544521263458816020/gWs-6ShU_tFlPcfJhpyYZx_rEZlJ89dFrFsFkzmUvRKIG4kt-ycLtRg2OpVlON1jMLMH";
+
+            const blName = document.getElementById('blName').value;
+            const blDauer = document.getElementById('blDauer').value;
+            const blFE = document.getElementById('blFE').value;
+            const blGrund = document.getElementById('blGrund').value;
+
+            const btn = document.getElementById('blSubmitBtn');
+            btn.disabled = true;
+            btn.innerText = "Wird übertragen...";
+
+            const requestPayload = {
+                embeds: [{
+                    title: "🚨 Neuer Blacklist-Eintrag (212th)",
+                    color: 16711680, // Rot
+                    fields: [
+                        { name: "Betroffener Spieler / ID", value: `**${blName}**`, inline: true },
+                        { name: "Dauer", value: blDauer, inline: true },
+                        { name: "Eingetragen von", value: blFE, inline: true },
+                        { name: "Grund", value: blGrund, inline: false }
+                    ],
+                    footer: { text: "212th Blacklist System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestPayload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Blacklist-Eintrag wurde erfolgreich auf der Website hinzugefügt und an Discord gesendet!');
+                    
+                    // Eintrag dynamisch in die Tabelle auf der Webseite einfügen
+                    const tbody = document.getElementById('blacklistTableBody');
+                    const newRow = `
+                        <tr>
+                            <td><strong style="color: var(--danger-red);">${blName}</strong></td>
+                            <td>${blGrund}</td>
+                            <td>${blFE}</td>
+                            <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">${blDauer}</span></td>
+                        </tr>
+                    `;
+                    tbody.innerHTML = newRow + tbody.innerHTML;
+
+                    document.getElementById('blacklistForm').reset();
+                } else {
+                    alert('Fehler beim Senden an Discord.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Netzwerkfehler beim Senden an Discord.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden';
             });
         }
     </script>
