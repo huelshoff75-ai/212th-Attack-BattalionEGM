@@ -541,9 +541,9 @@
 </head>
 <body>
 
-    <!-- Audio Element (Eingebettetes MP3 - Vode An) -->
+    <!-- Lokale Audio-Datei (Sucht vode_an.mp3 im selben Ordner) -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="https://vop.baidu.com/buildIn/audio/sound/20260302_023727_262841_1.mp3" type="audio/mpeg">
+        <source src="vode_an.mp3" type="audio/mpeg">
         Dein Browser unterstützt das Audio-Element nicht.
     </audio>
 
@@ -554,7 +554,7 @@
         </div>
     </div>
 
-    <!-- Einzige Navigation im Header (oben) -->
+    <!-- Navigation Header -->
     <header>
         <div class="brand">
             <img src="https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294" alt="212th Logo" class="brand-logo-img">
@@ -1183,7 +1183,8 @@
                     btn.style.boxShadow = '0 0 10px var(--orange-glow)';
                     btn.style.borderColor = 'var(--primary-orange)';
                 }).catch(err => {
-                    console.log("Autoplay blockiert:", err);
+                    console.log("Musik konnte nicht abgespielt werden:", err);
+                    alert("Konnte vode_an.mp3 nicht abspielen. Stelle sicher, dass die Datei genau so heißt und im selben Ordner wie diese HTML-Datei liegt!");
                 });
             } else {
                 audio.pause();
@@ -1195,7 +1196,7 @@
             }
         }
 
-        // Versuche Musik zu starten, wenn der Nutzer das erste Mal irgendwo auf der Seite klickt
+        // Versuche Musik zu starten, sobald der Nutzer einmal irgendwo klickt
         document.addEventListener('click', function startOnFirstClick() {
             if (!isMusicPlaying) {
                 toggleBackgroundMusic();
