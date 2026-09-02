@@ -68,7 +68,7 @@
 
         nav {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
@@ -76,15 +76,15 @@
             background: none;
             border: none;
             color: var(--text-muted);
-            padding: 8px 16px;
-            font-size: 0.95rem;
+            padding: 8px 14px;
+            font-size: 0.9rem;
             font-weight: 600;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             position: relative;
             z-index: 1001;
         }
@@ -388,6 +388,26 @@
             background-color: #cc0000;
         }
 
+        .btn-delete-action {
+            background-color: rgba(255, 51, 51, 0.2);
+            color: var(--danger-red);
+            border: 1px solid var(--danger-red);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .btn-delete-action:hover {
+            background-color: var(--danger-red);
+            color: white;
+        }
+
+        .fe-only-col {
+            display: none;
+        }
+
         footer {
             margin-top: 4rem;
             background-color: var(--card-bg);
@@ -409,10 +429,12 @@
         </div>
 
         <nav>
-            <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Startseite</button>
+            <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
-            <button class="nav-btn" onclick="switchTab('partner', this)"><i class="fa-solid fa-handshake"></i> Partnereinheiten</button>
-            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regelwerk</button>
+            <button class="nav-btn" onclick="switchTab('partner', this)"><i class="fa-solid fa-handshake"></i> Partner</button>
+            <button class="nav-btn" onclick="switchTab('guides', this)"><i class="fa-solid fa-graduation-cap"></i> Guides & Codes</button>
+            <button class="nav-btn" onclick="switchTab('orden', this)"><i class="fa-solid fa-award"></i> Auszeichnungen</button>
+            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regeln</button>
             <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-xmark"></i> Abmeldung</button>
             <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Blacklist</button>
         </nav>
@@ -547,7 +569,69 @@
             </div>
         </div>
 
-        <!-- TAB 3: PARTNEREINHEITEN -->
+        <!-- TAB 3: GUIDES & FUNKCODES (NEU) -->
+        <div id="guides" class="tab-content">
+            <div class="section-title">
+                <h2>Einheits-Guides & Funkcodes</h2>
+                <p>Wichtige Informationen für Rekruten und Truppler im Einsatz.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-walkie-talkie"></i></div>
+                    <h3>Wichtige 10er-Funkcodes</h3>
+                    <p><strong>10-4:</strong> Verstanden / Bestätigt</p>
+                    <p><strong>10-8:</strong> Einsatzbereit im Dienst</p>
+                    <p><strong>10-20:</strong> Derzeitiger Standort</p>
+                    <p><strong>10-33:</strong> Notruf / Benötige sofort Verstärkung!</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-chess-board"></i></div>
+                    <h3>Standard-Formationen</h3>
+                    <p><strong>Linie:</strong> Nebeneinander aufschließen für maximale Feuerkraft nach vorne.</p>
+                    <p><strong>Pfeil (V-Form):</strong> Gut geeignet für Vorstöße im Gelände.</p>
+                    <p><strong>Schildwall / Reihe:</strong> Hintereinander aufreihen bei engen Gängen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: AUSZEICHNUNGEN (NEU) -->
+        <div id="orden" class="tab-content">
+            <div class="section-title">
+                <h2>Orden & Auszeichnungen</h2>
+                <p>Besondere Verdienste und Verleihungen innerhalb des 212th Bataillons.</p>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Auszeichnung</th>
+                            <th>Träger</th>
+                            <th>Grund der Verleihung</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: gold;"><i class="fa-solid fa-medal"></i> Ehrenkreuz der Republik</strong></td>
+                            <td>Commander Cody</td>
+                            <td>Herausragende Führung in der Schlacht von Utapau.</td>
+                            <td>12. Aug 2026</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: silver;"><i class="fa-solid fa-award"></i> Tapferkeitsmedaille II. Klasse</strong></td>
+                            <td>Captain Ref</td>
+                            <td>Mutiger Einsatz zur Rettung verwundeter Brüder unter Beschuss.</td>
+                            <td>20. Aug 2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 5: PARTNEREINHEITEN -->
         <div id="partner" class="tab-content">
             <div class="section-title">
                 <h2>Befreundete Partnereinheiten</h2>
@@ -584,7 +668,7 @@
             </div>
         </div>
 
-        <!-- TAB 4: REGELWERK -->
+        <!-- TAB 6: REGELWERK -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsregelwerk</h2>
@@ -637,7 +721,7 @@
             </div>
         </div>
 
-        <!-- TAB 5: ABMELDUNG -->
+        <!-- TAB 7: ABMELDUNG -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Abmeldung</h2>
@@ -681,7 +765,7 @@
             </div>
         </div>
 
-        <!-- TAB 6: BLACKLIST -->
+        <!-- TAB 8: BLACKLIST -->
         <div id="blacklist" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Blacklist</h2>
@@ -693,12 +777,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <div>
                         <h4 style="color: var(--primary-orange);"><i class="fa-solid fa-lock"></i> Führungsebenen-Zugang</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um neue Blacklist-Einträge zu erstellen.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um Einträge hinzuzufügen oder zu löschen.</p>
                     </div>
                     <button class="btn-submit" id="feLoginBtn" onclick="toggleFeLogin()" style="width: auto; padding: 8px 16px;"><i class="fa-solid fa-key"></i> FE Login</button>
                 </div>
 
-                <!-- Verstecktes Formular für neue Blacklist-Einträge -->
+                <!-- Formular für neue Blacklist-Einträge -->
                 <div id="feBlacklistFormContainer" style="display: none; margin-top: 1.5rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
                     <h3 style="margin-bottom: 1rem; color: var(--danger-red);"><i class="fa-solid fa-user-slash"></i> Neuen Blacklist-Eintrag hinzufügen</h3>
                     
@@ -722,7 +806,7 @@
 
                         <div class="form-group">
                             <label>Grund für den Eintrag:</label>
-                            <textarea id="blGrund" rows="2" placeholder="Grund für die Blacklist angebene..." required></textarea>
+                            <textarea id="blGrund" rows="2" placeholder="Grund für die Blacklist angeben..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn-submit btn-danger" id="blSubmitBtn"><i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden</button>
@@ -738,6 +822,7 @@
                             <th>Grund</th>
                             <th>Eingetragen von</th>
                             <th>Dauer</th>
+                            <th class="fe-only-col">Aktion</th>
                         </tr>
                     </thead>
                     <tbody id="blacklistTableBody">
@@ -746,6 +831,7 @@
                             <td>Schwerer Regelbruch / Fehlverhalten</td>
                             <td>Commander Cody</td>
                             <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">Permanent</span></td>
+                            <td class="fe-only-col"><button class="btn-delete-action" onclick="deleteBlacklistEntry(this, 'MusterMann / 1111')"><i class="fa-solid fa-trash"></i> Löschen</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -759,7 +845,7 @@
     </footer>
 
     <script>
-        // PASSWORT FÜR FÜHRUNGSEBENE (Kannst du hier anpassen!)
+        // PASSWORT FÜR FÜHRUNGSEBENE
         const FE_PASSWORT = "212thFE";
 
         function switchTab(tabId, btnElement) {
@@ -789,7 +875,7 @@
             }
         }
 
-        /* FE-LOGIN FÜR BLACKLIST */
+        /* FE-LOGIN */
         let isFeLoggedIn = false;
 
         function toggleFeLogin() {
@@ -797,6 +883,9 @@
                 isFeLoggedIn = false;
                 document.getElementById('feBlacklistFormContainer').style.display = 'none';
                 document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-key"></i> FE Login';
+                
+                // FE Aktions-Spalte ausblenden
+                document.querySelectorAll('.fe-only-col').forEach(el => el.style.display = 'none');
                 alert('Erfolgreich ausgeloggt.');
             } else {
                 const password = prompt('Bitte gib das Führungsebenen-Passwort ein:');
@@ -804,6 +893,9 @@
                     isFeLoggedIn = true;
                     document.getElementById('feBlacklistFormContainer').style.display = 'block';
                     document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> FE Logout';
+                    
+                    // FE Aktions-Spalte einblenden
+                    document.querySelectorAll('.fe-only-col').forEach(el => el.style.display = 'table-cell');
                     alert('Erfolgreich als FE angemeldet!');
                 } else if (password !== null) {
                     alert('Falsches Passwort!');
@@ -811,7 +903,7 @@
             }
         }
 
-        /* DISCORD WEBHOOK INTEGRATION - ABMELDUNG */
+        /* DISCORD WEBHOOK - ABMELDUNG */
         function sendToDiscord(event) {
             event.preventDefault();
 
@@ -865,7 +957,7 @@
             });
         }
 
-        /* DISCORD WEBHOOK INTEGRATION - BLACKLIST */
+        /* DISCORD WEBHOOK - BLACKLIST HINZUFÜGEN */
         function sendBlacklistToDiscord(event) {
             event.preventDefault();
 
@@ -883,7 +975,7 @@
             const requestPayload = {
                 embeds: [{
                     title: "🚨 Neuer Blacklist-Eintrag (212th)",
-                    color: 16711680, // Rot
+                    color: 16711680,
                     fields: [
                         { name: "Betroffener Spieler / ID", value: `**${blName}**`, inline: true },
                         { name: "Dauer", value: blDauer, inline: true },
@@ -904,17 +996,16 @@
                 if (response.ok) {
                     alert('Blacklist-Eintrag wurde erfolgreich auf der Website hinzugefügt und an Discord gesendet!');
                     
-                    // Eintrag dynamisch in die Tabelle auf der Webseite einfügen
                     const tbody = document.getElementById('blacklistTableBody');
-                    const newRow = `
-                        <tr>
-                            <td><strong style="color: var(--danger-red);">${blName}</strong></td>
-                            <td>${blGrund}</td>
-                            <td>${blFE}</td>
-                            <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">${blDauer}</span></td>
-                        </tr>
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td><strong style="color: var(--danger-red);">${blName}</strong></td>
+                        <td>${blGrund}</td>
+                        <td>${blFE}</td>
+                        <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">${blDauer}</span></td>
+                        <td class="fe-only-col" style="display: table-cell;"><button class="btn-delete-action" onclick="deleteBlacklistEntry(this, '${blName}')"><i class="fa-solid fa-trash"></i> Löschen</button></td>
                     `;
-                    tbody.innerHTML = newRow + tbody.innerHTML;
+                    tbody.prepend(newRow);
 
                     document.getElementById('blacklistForm').reset();
                 } else {
@@ -929,6 +1020,42 @@
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden';
             });
+        }
+
+        /* BLACKLIST EINTRAG LÖSCHEN */
+        function deleteBlacklistEntry(button, name) {
+            if (!confirm(`Möchtest du den Blacklist-Eintrag von "${name}" wirklich löschen?`)) {
+                return;
+            }
+
+            const feUser = prompt("Gib deinen FE-Namen ein (für die Discord-Meldung):", "FE-Mitglied");
+            if (!feUser) return;
+
+            const webhookURL = "https://discord.com/api/webhooks/1544521263458816020/gWs-6ShU_tFlPcfJhpyYZx_rEZlJ89dFrFsFkzmUvRKIG4kt-ycLtRg2OpVlON1jMLMH";
+
+            const requestPayload = {
+                embeds: [{
+                    title: "✅ Blacklist-Eintrag ENTFERNT (212th)",
+                    color: 65280, // Grün
+                    fields: [
+                        { name: "Entfernter Spieler / ID", value: `**${name}**`, inline: true },
+                        { name: "Gelöscht von FE", value: feUser, inline: true }
+                    ],
+                    footer: { text: "212th Blacklist System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestPayload)
+            });
+
+            // Zeile aus Tabelle entfernen
+            const row = button.closest('tr');
+            row.remove();
+            alert(`Der Eintrag für "${name}" wurde entfernt.`);
         }
     </script>
 </body>
