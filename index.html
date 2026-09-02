@@ -15,6 +15,7 @@
             --card-border: #26262b;
             --text-main: #ffffff;
             --text-muted: #9a9a9e;
+            --danger-red: #ff3333;
         }
 
         * {
@@ -67,6 +68,7 @@
         nav {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         nav button {
@@ -141,7 +143,6 @@
             padding: 5rem 2.5rem 3rem 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            position: relative;
         }
 
         .badge {
@@ -175,74 +176,9 @@
             line-height: 1.6;
             max-width: 750px;
             margin-bottom: 2rem;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.9);
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: none;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-orange);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--orange-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            transform: translateY(-2px);
-        }
-
-        /* Status Ticker */
-        .ticker-card {
-            background-color: rgba(0, 200, 81, 0.05);
-            border: 1px solid rgba(0, 200, 81, 0.2);
-            border-radius: 12px;
-            padding: 1.2rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .ticker-card .icon {
-            background-color: rgba(0, 200, 81, 0.2);
-            color: #00c851;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 8px;
-        }
-
-        /* Grid Cards */
+        /* Section Titles */
         .section-title {
             text-align: center;
             margin: 2rem 0 1.5rem 0;
@@ -258,6 +194,7 @@
             font-size: 0.95rem;
         }
 
+        /* Grid Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -295,7 +232,6 @@
             line-height: 1.5;
         }
 
-        /* Tags */
         .tag-list {
             display: flex;
             flex-wrap: wrap;
@@ -322,7 +258,7 @@
             font-size: 0.75rem;
         }
 
-        /* Mitglieder Tabelle */
+        /* Tabellen */
         .table-wrapper {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -355,30 +291,6 @@
             background-color: rgba(255, 255, 255, 0.02);
         }
 
-        .rank-badge {
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        /* Checkliste für Tryouts */
-        .checklist {
-            list-style: none;
-            padding: 0;
-        }
-
-        .checklist li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-
-        .checklist i {
-            color: var(--primary-orange);
-        }
-
         /* Accordion Style für Regelwerk */
         .accordion-item {
             background-color: var(--card-bg);
@@ -401,7 +313,6 @@
             align-items: center;
             cursor: pointer;
             text-align: left;
-            transition: background 0.2s;
         }
 
         .accordion-header:hover {
@@ -423,17 +334,46 @@
             margin-bottom: 8px;
         }
 
-        .accordion-content p strong {
-            color: var(--primary-orange);
+        /* Formular */
+        .form-group {
+            margin-bottom: 1.2rem;
         }
 
-        .highlight-box {
-            background-color: rgba(255, 102, 0, 0.1);
-            border-left: 4px solid var(--primary-orange);
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 0 6px 6px 0;
-            color: #ffffff;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: #111115;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--orange-hover);
         }
 
         footer {
@@ -444,16 +384,6 @@
             padding: 1.5rem;
             color: var(--text-muted);
             font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero-card h1 {
-                font-size: 1.8rem;
-            }
         }
     </style>
 </head>
@@ -469,13 +399,15 @@
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', event)"><i class="fa-solid fa-house"></i> Startseite</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder</button>
-            <button class="nav-btn" onclick="switchTab('ausruestung', event)"><i class="fa-solid fa-gun"></i> Ausrüstung</button>
+            <button class="nav-btn" onclick="switchTab('partner', event)"><i class="fa-solid fa-handshake"></i> Partnereinheiten</button>
             <button class="nav-btn" onclick="switchTab('regeln', event)"><i class="fa-solid fa-book"></i> Regelwerk</button>
+            <button class="nav-btn" onclick="switchTab('abmeldung', event)"><i class="fa-solid fa-calendar-xmark"></i> Abmeldung</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', event)"><i class="fa-solid fa-ban"></i> Blacklist</button>
         </nav>
 
         <div class="user-status">
             <i class="fa-solid fa-circle-user"></i>
-            <span>EGM Community Portal</span>
+            <span>EGM Community</span>
         </div>
     </header>
 
@@ -488,59 +420,22 @@
                 <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
                 <p>
                     Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
-                    Hier findest du alle Informationen über unsere Spezialeinheiten, Mitglieder, Waffen und Einsatzmittel.
+                    Verwalte hier deine Abmeldungen, prüfe das Einheitsregelwerk und informiere dich über unsere Partnereinheiten.
                 </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="switchTab('mitglieder', event)"><i class="fa-solid fa-users"></i> Mitglieder ansehen</button>
-                    <button class="btn btn-secondary" onclick="switchTab('ausruestung', event)"><i class="fa-solid fa-gun"></i> Ausrüstung & Panzer</button>
-                </div>
-            </div>
-
-            <div class="ticker-card">
-                <div class="icon"><i class="fa-solid fa-check"></i></div>
-                <h3>Aktuell Rekrutierung aktiv</h3>
-                <p>Tryouts finden regelmäßig auf dem EGM Clone Wars RP Server statt.</p>
-            </div>
-
-            <!-- Taktische Einsatzbereiche -->
-            <div class="section-title">
-                <h2>Einsatzbereiche & Spezialisierungen</h2>
-                <p>Die Kernkompetenzen unserer Einheit auf dem Schlachtfeld.</p>
             </div>
 
             <div class="grid">
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-plane-arrival"></i></div>
                     <h3>2nd Airborne Company</h3>
-                    <p>Luftlandeeinheit für schnelle Verlegung hinter feindliche Linien mittels Jetpacks und Fallschirm-Taktiken.</p>
+                    <p>Luftlandeeinheit für schnelle Verlegung hinter feindliche Linien mittels Jetpacks.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3>Ghost Company</h3>
-                    <p>Die schwere Infanterie-Kompagnie für direkte Frontangriffe, Grabenkämpfe und städtische Offensive.</p>
+                    <p>Schwere Infanterie für direkte Frontangriffe und städtische Offensive.</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-binoculars"></i></div>
-                    <h3>Recon Squad / ARF</h3>
-                    <p>Spezialisierte Aufklärer zur Lagebeurteilung, Zielmarkierung und verdeckten Operationen.</p>
-                </div>
-            </div>
-
-            <!-- Tryout-Voraussetzungen -->
-            <div class="section-title">
-                <h2>Voraussetzungen für ein Tryout</h2>
-                <p>Das solltest du vor deinem Beitritt beachten:</p>
-            </div>
-
-            <div class="card">
-                <ul class="checklist">
-                    <li><i class="fa-solid fa-circle-check"></i> Mindestalter in der Einheit: 13 Jahre (§1.1)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Funktionierendes Headset & TeamSpeak 3 / Discord installiert</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Grundkenntnisse über die Serverregeln der EGM Community</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Disziplin und Bereitschaft zum Roleplay auf hohem Niveau</li>
-                </ul>
             </div>
         </div>
 
@@ -563,74 +458,38 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="rank-badge">Commander</span></td>
+                            <td><strong>Commander</strong></td>
                             <td>Cody | Nymphix</td>
                             <td><span class="tag">Ghost Company</span></td>
                             <td>Einheitsleitung</td>
                         </tr>
                         <tr>
-                            <td><span class="rank-badge">Major</span></td>
+                            <td><strong>Major</strong></td>
                             <td>Thunder | Comet</td>
-                            <td><span class="tag-sub">Hohe Führungsebene</span></td>
+                            <td><span class="tag-sub">Hohe FE</span></td>
                             <td><span class="tag-sub">Adjutant: CTP</span></td>
                         </tr>
                         <tr>
-                            <td><span class="rank-badge">Captain</span></td>
+                            <td><strong>Captain</strong></td>
                             <td>Ref</td>
                             <td><span class="tag">Ghost Company</span></td>
                             <td><span class="tag-sub">Adjutant: RMC</span></td>
                         </tr>
                         <tr>
-                            <td><span class="rank-badge">Captain</span></td>
+                            <td><strong>Captain</strong></td>
                             <td>Whiteaxe | Derbi</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
+                            <td><span class="tag">2nd Airborne</span></td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td><span class="rank-badge">First Lieutenant</span></td>
+                            <td><strong>First Lieutenant</strong></td>
                             <td>Vuiq</td>
                             <td><span class="tag">Ghost Company</span></td>
                             <td><span class="tag-sub">Recon Squad</span></td>
                         </tr>
                         <tr>
-                            <td><span class="rank-badge">Lieutenant</span></td>
-                            <td>Demon</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Lieutenant</span></td>
-                            <td>Able | Raphi</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td><span class="tag-sub">Testzeit</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Sergeant</span></td>
-                            <td>Tentef</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td><span class="tag-sub">Parjai Squad</span> <span class="tag-sub">Adjutant: RMC</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Sergeant</span></td>
-                            <td>Slick</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Sergeant</span></td>
-                            <td>Peel | Ender</td>
-                            <td><span class="tag">Ghost Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Hoher General</span></td>
+                            <td><strong>Hoher General</strong></td>
                             <td>Obi-Wan Kenobi | Glow</td>
-                            <td><span class="tag-sub">Einheitsjedi</span></td>
-                            <td>Führungsebene</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">Captain (Jedi)</span></td>
-                            <td>Nexar Tyne</td>
                             <td><span class="tag-sub">Einheitsjedi</span></td>
                             <td>Führungsebene</td>
                         </tr>
@@ -639,50 +498,38 @@
             </div>
         </div>
 
-        <!-- TAB 3: AUSRÜSTUNG -->
-        <div id="ausruestung" class="tab-content">
+        <!-- TAB 3: PARTNEREINHEITEN (Aus deinen Screenshots!) -->
+        <div id="partner" class="tab-content">
             <div class="section-title">
-                <h2>Waffen, Rüstungen & Fahrzeuge</h2>
-                <p>Die vollständige Ausrüstung der 212th Einheiten.</p>
+                <h2>Befreundete Partnereinheiten</h2>
+                <p>Einheiten, mit denen die 212th eng auf dem Schlachtfeld zusammenarbeitet.</p>
             </div>
 
             <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                    <h3>Standard-Bewaffnung</h3>
-                    <p>Primäre Blastergewehre für Präzision und Dauerfeuer im Nah- sowie Fernkampf.</p>
+                <div class="card" style="border-top: 4px solid #0066cc;">
+                    <div class="card-icon" style="color: #0066cc;"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>501st Legion</h3>
+                    <p>Enge Zusammenarbeit bei Frontoffensive und Sturmangriffen unter Captain Rex und General Skywalker.</p>
                     <div class="tag-list">
-                        <span class="tag">DC-15A Blastergewehr</span>
-                        <span class="tag">DC-15S Blasterkarabiner</span>
+                        <span class="tag-sub">Partnereinheit</span>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-explosion"></i></div>
-                    <h3>Schwere Artillerie</h3>
-                    <p>Zur effektiven Bekämpfung feindlicher Stellungen und Panzerfahrzeuge.</p>
+                <div class="card" style="border-top: 4px solid #888888;">
+                    <div class="card-icon" style="color: #aaaaaa;"><i class="fa-solid fa-paw"></i></div>
+                    <h3>104th Wolfpack</h3>
+                    <p>Spezialisiert auf Wüsten- und Rettungseinsätze unter Commander Wolffe.</p>
                     <div class="tag-list">
-                        <span class="tag">RPS-6 Raketenwerfer</span>
+                        <span class="tag-sub">Partnereinheit</span>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-vest-patches"></i></div>
-                    <h3>Spezial-Rüstungen & Jetpacks</h3>
-                    <p>Ausrüstung für Aufklärer und Luftlande-Einheiten.</p>
+                <div class="card" style="border-top: 4px solid #cc0000;">
+                    <div class="card-icon" style="color: #cc0000;"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3>Galactic Marines</h3>
+                    <p>Spezialeinheit für extreme Umweltbedingungen und schwere Belagerungen.</p>
                     <div class="tag-list">
-                        <span class="tag">ARF Rüstung</span>
-                        <span class="tag">Airborne Rüstung</span>
-                        <span class="tag">JT-12 Jetpack</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-truck-monster"></i></div>
-                    <h3>Gepanzerte Fahrzeuge</h3>
-                    <p>Gepanzerte Kampffahrzeuge für massive Bodeneinsätze.</p>
-                    <div class="tag-list">
-                        <span class="tag">TX-130 Säbel-Klasse Panzer</span>
+                        <span class="tag-sub">Partnereinheit</span>
                     </div>
                 </div>
             </div>
@@ -691,131 +538,102 @@
         <!-- TAB 4: REGELWERK -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
-                <h2>Offizielles Einheitsregelwerk</h2>
-                <p>Klicke auf die einzelnen Abschnitte, um die Regeln aufzuklappen.</p>
+                <h2>Einheitsregelwerk</h2>
+                <p>Lies dir das Regelwerk aufmerksam durch.</p>
             </div>
 
-            <!-- Accordion Item 1 -->
             <div class="accordion-item">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
                     <span>§1: Allgemeine Regeln</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="accordion-content">
-                    <p><strong>§1.1:</strong> Das Mindestalter in unserer Einheit beträgt 13 Jahre.</p>
-                    <p><strong>§1.2:</strong> Vorschläge, welche die Einheit betreffen, müssen vorher mit der FE bzw. der Einheitsleitung abgesprochen und in der 212th Einheitsbesprechung (EB) vorgetragen werden. (Sollte das Thema eher die FEB betreffen, wird es dorthin verschoben.)</p>
-                    <p><strong>§1.3:</strong> Sobald man als 212th auf dem Server online ist, muss man in irgendeiner Art erreichbar sein (z.B. Discord, TeamSpeak oder Ingame-Einheitschat).</p>
-                    <p><strong>§1.4:</strong> Abwerbung für die jeweilige Untereinheit ist strengstens verboten.</p>
-                    <p><strong>§1.5:</strong> Das Nachfragen nach Beförderungen wird mit einer 1-2 wöchigen Beförderungssperre, Degradierung oder Strikevergabe (nach FE-Ermessen) geahndet.</p>
-                    <p><strong>§1.6:</strong> Die EB kann nur stattfinden, wenn mindestens ein Captain anwesend ist.</p>
-                    <p><strong>§1.7:</strong> Man hat sich stets an die vorgegebene Kleiderordnung zu halten.</p>
-                    <p><strong>§1.8:</strong> Clone Trooper können nur mit Erlaubnis eines SGT+ als Praktikant aufgenommen werden.</p>
-                    <p><strong>§1.9:</strong> Praktikanten können nur mit Erlaubnis eines LT+ in die Einheit aufgenommen werden.</p>
-                    <p><strong>§1.10:</strong> Nach Erhalt von 2 Strikes wird man jeweils um einen Rang degradiert.</p>
-                    <p><strong>§1.11:</strong> Ein LT+ kann einen Strike, den er selbst vergeben hat, selbstständig revidieren.</p>
-                    <p><strong>§1.12:</strong> Abmeldungen von über 2 Wochen müssen direkt mit dem Commander besprochen werden.</p>
-                    <p><strong>§1.13:</strong> Der Commander darf sich jederzeit über das Regelwerk hinwegsetzen.</p>
+                    <p><strong>§1.1:</strong> Mindestalter beträgt 13 Jahre.</p>
+                    <p><strong>§1.2:</strong> Vorschläge müssen vorher mit der FE besprochen werden.</p>
+                    <p><strong>§1.3:</strong> Ingame/Discord/TS Erreichbarkeit ist Pflicht.</p>
+                    <p><strong>§1.5:</strong> Beförderungsfragen werden mit Sperre oder Degradierung geahndet.</p>
+                    <p><strong>§1.11:</strong> Abmeldungen über 2 Wochen müssen direkt mit dem Commander besprochen werden.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§2: Verhaltensregeln</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§2.1:</strong> Ein freundlicher Umgangston, sowohl OOC als auch IC, ist zwingend einzuhalten.</p>
-                    <p><strong>§2.2:</strong> Es ist Pflicht, sich auf dem Server stets wie ein disziplinierter Klon zu verhalten.</p>
-                    <p><strong>§2.3:</strong> Sämtliche Aktionen, die die Einheit in ein schlechtes Licht rücken, dürfen von der FE nach eigenem Ermessen bestraft werden.</p>
-                    <p><strong>§2.4:</strong> Befehle von Rängen über einem selbst sind stets unverzüglich und gewissenhaft auszuführen.</p>
-                    <p><strong>§2.5:</strong> Probleme werden intern in der Einheit geklärt. Das Hinzuziehen der Stoßtruppen (ST) ist IC so weit wie möglich zu vermeiden.</p>
-                    <div class="highlight-box">
-                        <strong>Ausnahmeregel:</strong> Sollten Provokationen von Dritten zu einem Regelverstoß geführt haben, ist dies sofort einem FE-Mitglied zu melden, um eine Strafe eventuell abzuwenden.
+        <!-- TAB 5: ABMELDUNG -->
+        <div id="abmeldung" class="tab-content">
+            <div class="section-title">
+                <h2>Einheits-Abmeldung</h2>
+                <p>Trage hier deine Abmeldung ein, falls du inaktiv bist.</p>
+            </div>
+
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <form onsubmit="alert('Abmeldung wurde eingereicht!'); return false;">
+                    <div class="form-group">
+                        <label>Ingame Name & Rang:</label>
+                        <input type="text" placeholder="z.B. SGT 1234 Test" required>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label>Untereinheit:</label>
+                        <select required>
+                            <option value="">Bitte wählen...</option>
+                            <option value="2nd">2nd Airborne Company</option>
+                            <option value="ghc">Ghost Company</option>
+                            <option value="keine">Keine (PFC)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Abgemeldet von:</label>
+                        <input type="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Abgemeldet bis:</label>
+                        <input type="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Grund (Optional/Privat):</label>
+                        <textarea rows="3" placeholder="Grund angeben..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung einreichen</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB 6: BLACKLIST -->
+        <div id="blacklist" class="tab-content">
+            <div class="section-title">
+                <h2>Einheits-Blacklist</h2>
+                <p>Personen auf dieser Liste sind dauerhaft oder temporär von der 212th ausgeschlossen.</p>
             </div>
 
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§3: Aktivität & Abmeldungen</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§3.1:</strong> Die Mindestaktivität beträgt 2 Stunden pro Woche (Sonntag bis Samstag). Bei Unterschreiten droht ein Strike. Für Beförderungen werden mindestens 3 Stunden benötigt. Ab dem Rang SGT liegt die Aktivitätspflicht fest bei 3 Stunden/Woche.</p>
-                    <p><strong>§3.2:</strong> AFK-Farming ist verboten. Wer länger als 5 Minuten inaktiv ist, muss den Server verlassen.</p>
-                </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name / ID</th>
+                            <th>Grund</th>
+                            <th>Eingetragen von</th>
+                            <th>Dauer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: var(--danger-red);">MusterMann / 1111</strong></td>
+                            <td>Schwerer Regelbruch / Fehlverhalten</td>
+                            <td>Commander Cody</td>
+                            <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">Permanent</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: var(--danger-red);">BeispielUser / 2222</strong></td>
+                            <td>Aktivitätsvergehen & Respektlosigkeit</td>
+                            <td>Major Thunder</td>
+                            <td><span class="tag-sub">Bis 31.12.2026</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <!-- Accordion Item 4 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§4 & §5: Beförderungen & Fortbildungen</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§4.1:</strong> Voraussetzung für eine Beförderung sind 3 Std. Wochenaktivität sowie alle erledigten Pflichtfortbildungen des aktuellen Rangs.</p>
-                    <p><strong>§4.2:</strong> Jeder Trooper muss einer Untereinheit beitreten. Ohne Untereinheit erfolgt maximal eine Beförderung bis zum Private First Class (PFC).</p>
-                    <p><strong>§5.1:</strong> Fortbildungen dürfen nur von Personen mit Ausbilderschein (oder Partnereinheiten wie RMC/187th) durchgeführt werden. In Ausnahmen auch SGT+ mit Erlaubnis.</p>
-                    <p><strong>§5.2:</strong> Erste-Hilfe-Fortbildung beim RMC ist für jedes Mitglied Pflicht.</p>
-                    <p><strong>§5.3:</strong> Jede absolvierte Fortbildung muss im Fraktionsbeitrag dokumentiert werden.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 5 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§6 & §7: Adjutanten-Regelung (RMC, A-ARC, CTP, CT)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>Adjutanten DÜRFEN:</strong></p>
-                    <p>• An allen Trainings, Fortbildungen, Auswahlverfahren & TOs der 212th teilnehmen.</p>
-                    <p>• Mit der 212th auf Einsätze gehen.</p>
-                    <p>• Der Ghost Company (mit ARF-Rüstung) oder 2nd Airborne (mit Paratrooper-Rüstung) beitreten (Maximal 1 Untereinheit!).</p>
-                    <br>
-                    <p><strong>Adjutanten MÜSSEN:</strong></p>
-                    <p>• Eng mit der Einheit zusammenarbeiten.</p>
-                    <p>• An der Einheitsbesprechung (EB) teilnehmen (sowie an der FEB, falls in FE aufgenommen).</p>
-                    <p>• Sich strikt an das 212th- und das Server-Regelwerk halten.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 6 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§8 & §10: Sonstiges & FEB-Regelungen</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§8.1:</strong> Grauzonen im Regelwerk können genauso geahndet werden wie geschriebene Regeln.</p>
-                    <p><strong>§8.2:</strong> Das Straffmaß obliegt der Führungsebene.</p>
-                    <p><strong>§8.3:</strong> Dokumente/Beiträge sind Eigentum der EGM 212th (Kopieren nur mit Commander-Erlaubnis).</p>
-                    <p><strong>§8.4:</strong> Fremde Ausrüstung darf nur mit Erlaubnis eines LT+ genutzt werden.</p>
-                    <hr style="border-color: var(--card-border); margin: 10px 0;">
-                    <p><strong>FEB Beförderungs-Regeln (§10):</strong></p>
-                    <p>• <strong>Lieutenant (LT):</strong> Beförderung nur bei Anwesenheit des Commanders.</p>
-                    <p>• <strong>Sergeant Major (SGM):</strong> Beförderung nur bei Anwesenheit des Commanders.</p>
-                    <p>• <strong>Staff Sergeant (SSG):</strong> Mindestens 2 Lieutenants + Captain der Untereinheit/Major anwesend.</p>
-                    <p>• <strong>Sergeant (SGT):</strong> Mindestens 3 Lieutenants anwesend (davon einer aus der jeweiligen Untereinheit).</p>
-                    <p>• <strong>FEB-Themen:</strong> Mindestens 4 Lieutenants nötig. High-FE-Themen dürfen nicht behandelt werden.</p>
-                </div>
-            </div>
-
-            <!-- NEU: Ergänzter Abschnitt (Was noch gefehlt hat) -->
-            <div class="accordion-item" style="border: 1px solid var(--primary-orange);">
-                <button class="accordion-header" onclick="toggleAccordion(this)" style="color: var(--primary-orange);">
-                    <span><i class="fa-solid fa-star"></i> Ergänzungen: Untereinheiten & Fahrzeuge (Sonderregeln)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§9.1 Untereinheit 2nd Airborne:</strong> Die Nutzung des JT-12 Jetpacks ist im Schiff/Basis ohne Freigabe untersagt. Bei Überfall-Landungen gilt absolute Disziplin.</p>
-                    <p><strong>§9.2 Untereinheit Ghost Company:</strong> ARF-Aufklärer haben primär Aufklärung zu betreiben und Feindbewegungen vor dem Hauptangriff an die FE zu melden.</p>
-                    <p><strong>§11.1 Fahrzeug-Nutzung (TX-130):</strong> Der Säbel-Klasse Panzer darf nur von eingewiesenen Einheitsmitgliedern mit Fahrzeug-Schein gefahren werden.</p>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -824,7 +642,6 @@
         <p>&copy; 2026 212th Angriffsbataillon | EGM Community — Star Wars RP</p>
     </footer>
 
-    <!-- JavaScript für Tabs & Akkordeon -->
     <script>
         function switchTab(tabId, evt) {
             const contents = document.querySelectorAll('.tab-content');
@@ -837,9 +654,6 @@
 
             if (evt && evt.currentTarget) {
                 evt.currentTarget.classList.add('active');
-            } else {
-                const targetBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabId));
-                if (targetBtn) targetBtn.classList.add('active');
             }
         }
 
@@ -856,6 +670,5 @@
             }
         }
     </script>
-
 </body>
 </html>
