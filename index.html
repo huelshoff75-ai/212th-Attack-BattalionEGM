@@ -388,26 +388,6 @@
             background-color: #cc0000;
         }
 
-        .btn-delete-action {
-            background-color: rgba(255, 51, 51, 0.2);
-            color: var(--danger-red);
-            border: 1px solid var(--danger-red);
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s;
-        }
-
-        .btn-delete-action:hover {
-            background-color: var(--danger-red);
-            color: white;
-        }
-
-        .fe-only-col {
-            display: none;
-        }
-
         footer {
             margin-top: 4rem;
             background-color: var(--card-bg);
@@ -431,6 +411,7 @@
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
+            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
             <button class="nav-btn" onclick="switchTab('partner', this)"><i class="fa-solid fa-handshake"></i> Partner</button>
             <button class="nav-btn" onclick="switchTab('guides', this)"><i class="fa-solid fa-graduation-cap"></i> Guides & Codes</button>
             <button class="nav-btn" onclick="switchTab('orden', this)"><i class="fa-solid fa-award"></i> Auszeichnungen</button>
@@ -468,7 +449,7 @@
 
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Ghost Company</h3>
+                    <h3>Ghost Company (GHC)</h3>
                     <p>Schwere Infanterie für direkte Frontangriffe und städtische Offensive.</p>
                 </div>
             </div>
@@ -569,7 +550,55 @@
             </div>
         </div>
 
-        <!-- TAB 3: GUIDES & FUNKCODES (NEU) -->
+        <!-- NEUER TAB: UNTEREINHEITEN -->
+        <div id="untereinheiten" class="tab-content">
+            <div class="section-title">
+                <h2>Untereinheiten der 212th</h2>
+                <p>Übersicht der Spezialeinheiten und Squads innerhalb des Bataillons.</p>
+            </div>
+
+            <div class="grid">
+                <!-- Ghost Company -->
+                <div class="card" style="border-top: 4px solid var(--primary-orange);">
+                    <div class="card-icon"><i class="fa-solid fa-ghost"></i></div>
+                    <h3>Ghost Company (GHC)</h3>
+                    <p style="margin-bottom: 1rem;">Die Hauptkampfkraft des Bataillons. Spezialisiert auf städtischen Häuserkampf, schweres Gefecht an der Frontlinie und strategische Angriffe.</p>
+                    
+                    <h4 style="color: var(--primary-orange); font-size: 0.95rem; margin-top: 1rem;">Spezialisierungen & Squads:</h4>
+                    <ul style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6;">
+                        <li><strong>Recon Squad:</strong> Aufklärungs- und Infiltrationstrupp für verdeckte Operationen.</li>
+                        <li><strong>JT-12 Jetpack & Paratrooper:</strong> Taktische Luftunterstützung bei städtischen Einsätzen.</li>
+                        <li><strong>Formationen & Taktik:</strong> Erfahrene Führung bei komplexen Truppenbewegungen.</li>
+                    </ul>
+
+                    <div class="tag-list" style="margin-top: 1.5rem;">
+                        <span class="tag">GHC Leader: Cody & Ref</span>
+                        <span class="tag-sub">Recon Squad: Vuiq</span>
+                    </div>
+                </div>
+
+                <!-- 2nd Airborne Company -->
+                <div class="card" style="border-top: 4px solid #00a2ff;">
+                    <div class="card-icon" style="color: #00a2ff;"><i class="fa-solid fa-jet-fighter-up"></i></div>
+                    <h3>2nd Airborne Company</h3>
+                    <p style="margin-bottom: 1rem;">Die Eliteluftlandeeinheit der 212th. Spezialisiert auf Luftlandungen aus großer Höhe, hochmobile Gefechtsführung und Drop-Zone-Sicherung.</p>
+                    
+                    <h4 style="color: #00a2ff; font-size: 0.95rem; margin-top: 1rem;">Spezialisierungen & Squads:</h4>
+                    <ul style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6;">
+                        <li><strong>Parjai Squad:</strong> Elitesquad für Hochrisiko-Luftlandeoperationen und feindliche Stellungen.</li>
+                        <li><strong>Jetpack Spezialisten:</strong> Beherrschen den vertikalen Kampf und schnelle Verlegung.</li>
+                        <li><strong>Luft-Boden-Koordination:</strong> Sicherung von Landezonen für Verstärkung.</li>
+                    </ul>
+
+                    <div class="tag-list" style="margin-top: 1.5rem;">
+                        <span class="tag" style="background-color: rgba(0, 162, 255, 0.1); color: #00a2ff; border-color: rgba(0, 162, 255, 0.3);">Airborne Leader: Whiteaxe</span>
+                        <span class="tag-sub">Parjai Squad: Tentef</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: GUIDES & FUNKCODES -->
         <div id="guides" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Guides & Funkcodes</h2>
@@ -596,7 +625,7 @@
             </div>
         </div>
 
-        <!-- TAB 4: AUSZEICHNUNGEN (NEU) -->
+        <!-- TAB 4: AUSZEICHNUNGEN -->
         <div id="orden" class="tab-content">
             <div class="section-title">
                 <h2>Orden & Auszeichnungen</h2>
@@ -740,7 +769,7 @@
                         <select id="untereinheit" required>
                             <option value="">Bitte wählen...</option>
                             <option value="2nd Airborne Company">2nd Airborne Company</option>
-                            <option value="Ghost Company">Ghost Company</option>
+                            <option value="Ghost Company (GHC)">Ghost Company (GHC)</option>
                             <option value="Haupteinheit (PFC)">Haupteinheit (PFC)</option>
                         </select>
                     </div>
@@ -809,29 +838,28 @@
                             <textarea id="blGrund" rows="2" placeholder="Grund für die Blacklist angeben..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-submit btn-danger" id="blSubmitBtn"><i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden</button>
+                        <button type="submit" class="btn-submit btn-danger" id="blSubmitBtn"><i class="fa-solid fa-ban"></i> Eintrag auf Discord senden</button>
                     </form>
                 </div>
             </div>
 
+            <!-- Blacklist Tabelle -->
             <div class="table-wrapper">
-                <table>
+                <table id="blacklistTable">
                     <thead>
                         <tr>
-                            <th>Name / ID</th>
+                            <th>Spieler Name / ID</th>
+                            <th>Dauer</th>
                             <th>Grund</th>
                             <th>Eingetragen von</th>
-                            <th>Dauer</th>
-                            <th class="fe-only-col">Aktion</th>
                         </tr>
                     </thead>
-                    <tbody id="blacklistTableBody">
+                    <tbody>
                         <tr>
-                            <td><strong style="color: var(--danger-red);">MusterMann / 1111</strong></td>
-                            <td>Schwerer Regelbruch / Fehlverhalten</td>
-                            <td>Commander Cody</td>
-                            <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">Permanent</span></td>
-                            <td class="fe-only-col"><button class="btn-delete-action" onclick="deleteBlacklistEntry(this, 'MusterMann / 1111')"><i class="fa-solid fa-trash"></i> Löschen</button></td>
+                            <td><strong style="color: var(--danger-red);">Beispieluser / 9999</strong></td>
+                            <td>Permanent</td>
+                            <td>Massives Trolling & Insubordination</td>
+                            <td>FE Leitung</td>
                         </tr>
                     </tbody>
                 </table>
@@ -841,30 +869,32 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 212th Angriffsbataillon | EGM Community — Star Wars RP</p>
+        <p>&copy; 2026 212th Angriffsbataillon | EGM Community. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script>
-        // PASSWORT FÜR FÜHRUNGSEBENE
-        const FE_PASSWORT = "212thFE";
+        // TRAGE HIER DEINEN DISCORD WEBHOOK URL EIN!
+        const DISCORD_WEBHOOK_URL = "DEIN_DISCORD_WEBHOOK_URL_HIER"; 
+        const FE_PASSWORD = "212"; // Passwort für die Führungsebene
 
-        function switchTab(tabId, btnElement) {
+        let isFeLoggedIn = false;
+
+        // Navigation Tabs umschalten
+        function switchTab(tabId, btn) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            const buttons = document.querySelectorAll('.nav-btn');
+            const buttons = document.querySelectorAll('nav button');
             buttons.forEach(button => button.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
-
-            if (btnElement) {
-                btnElement.classList.add('active');
-            }
+            btn.classList.add('active');
         }
 
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('i');
+        // Accordion umschalten
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
 
             if (content.style.display === "block") {
                 content.style.display = "none";
@@ -875,39 +905,33 @@
             }
         }
 
-        /* FE-LOGIN */
-        let isFeLoggedIn = false;
-
+        // FE Login Umschalten
         function toggleFeLogin() {
-            if (isFeLoggedIn) {
+            if (!isFeLoggedIn) {
+                const inputPassword = prompt("Bitte gebe das Führungsebenen-Passwort ein:");
+                if (inputPassword === FE_PASSWORD) {
+                    isFeLoggedIn = true;
+                    document.getElementById('feBlacklistFormContainer').style.display = 'block';
+                    document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-unlock"></i> FE Ausloggen';
+                    alert("Erfolgreich als Führungsebene angemeldet.");
+                } else if (inputPassword !== null) {
+                    alert("Falsches Passwort!");
+                }
+            } else {
                 isFeLoggedIn = false;
                 document.getElementById('feBlacklistFormContainer').style.display = 'none';
                 document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-key"></i> FE Login';
-                
-                // FE Aktions-Spalte ausblenden
-                document.querySelectorAll('.fe-only-col').forEach(el => el.style.display = 'none');
-                alert('Erfolgreich ausgeloggt.');
-            } else {
-                const password = prompt('Bitte gib das Führungsebenen-Passwort ein:');
-                if (password === FE_PASSWORT) {
-                    isFeLoggedIn = true;
-                    document.getElementById('feBlacklistFormContainer').style.display = 'block';
-                    document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> FE Logout';
-                    
-                    // FE Aktions-Spalte einblenden
-                    document.querySelectorAll('.fe-only-col').forEach(el => el.style.display = 'table-cell');
-                    alert('Erfolgreich als FE angemeldet!');
-                } else if (password !== null) {
-                    alert('Falsches Passwort!');
-                }
+                alert("Erfolgreich ausgeloggt.");
             }
         }
 
-        /* DISCORD WEBHOOK - ABMELDUNG */
-        function sendToDiscord(event) {
+        // Abmeldung an Discord senden
+        async function sendToDiscord(event) {
             event.preventDefault();
 
-            const webhookURL = "https://discord.com/api/webhooks/1544515038071623751/kP0aGZAu49ugT6qt-yrGCgv3j_7jLmkCr4Y0d1i7HxTIxDMBOlydPEhQp7do4gEOW37O";
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Wird gesendet...";
 
             const name = document.getElementById('name').value;
             const untereinheit = document.getElementById('untereinheit').value;
@@ -915,147 +939,109 @@
             const bis = document.getElementById('bis').value;
             const grund = document.getElementById('grund').value || "Kein Grund angegeben";
 
-            const btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.innerText = "Wird gesendet...";
-
-            const requestPayload = {
+            const payload = {
                 embeds: [{
-                    title: "📋 Neue 212th Abmeldung eingegangen",
-                    color: 16737280,
+                    title: "📋 Neue Einheits-Abmeldung",
+                    color: 16737792, // Orange Color
                     fields: [
-                        { name: "Name & Rang", value: name, inline: true },
-                        { name: "Untereinheit", value: untereinheit, inline: true },
-                        { name: "Zeitraum", value: `Von: **${von}**\nBis: **${bis}**`, inline: false },
-                        { name: "Grund", value: grund, inline: false }
+                        { name: "👤 Name & Rang", value: name, inline: true },
+                        { name: "🛡️ Untereinheit", value: untereinheit, inline: true },
+                        { name: "📅 Zeitraum", value: `Von: **${von}**\nBis: **${bis}**`, inline: false },
+                        { name: "📝 Grund", value: grund, inline: false }
                     ],
-                    footer: { text: "212th Angriffsbataillon | Webseiten-System" },
+                    footer: { text: "212th Portal System" },
                     timestamp: new Date()
                 }]
             };
 
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestPayload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Deine Abmeldung wurde erfolgreich an Discord übermittelt!');
-                    document.getElementById('abmeldungForm').reset();
+            try {
+                if (DISCORD_WEBHOOK_URL === "DEIN_DISCORD_WEBHOOK_URL_HIER") {
+                    alert("Fehler: Bitte hinterlege zuerst eine gültige Discord Webhook URL im JavaScript Code!");
                 } else {
-                    alert('Fehler beim Senden der Abmeldung.');
+                    const response = await fetch(DISCORD_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        alert("Abmeldung erfolgreich übermittelt!");
+                        document.getElementById('abmeldungForm').reset();
+                    } else {
+                        alert("Fehler beim Senden an Discord. Prüfe deine Webhook-URL.");
+                    }
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Netzwerkfehler beim Senden an Discord.');
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
-            });
+            } catch (error) {
+                console.error("Fehler:", error);
+                alert("Fehler beim Verarbeiten der Anfrage.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
+            }
         }
 
-        /* DISCORD WEBHOOK - BLACKLIST HINZUFÜGEN */
-        function sendBlacklistToDiscord(event) {
+        // Blacklist an Discord senden
+        async function sendBlacklistToDiscord(event) {
             event.preventDefault();
 
-            const webhookURL = "https://discord.com/api/webhooks/1544521263458816020/gWs-6ShU_tFlPcfJhpyYZx_rEZlJ89dFrFsFkzmUvRKIG4kt-ycLtRg2OpVlON1jMLMH";
+            const submitBtn = document.getElementById('blSubmitBtn');
+            submitBtn.disabled = true;
 
             const blName = document.getElementById('blName').value;
             const blDauer = document.getElementById('blDauer').value;
             const blFE = document.getElementById('blFE').value;
             const blGrund = document.getElementById('blGrund').value;
 
-            const btn = document.getElementById('blSubmitBtn');
-            btn.disabled = true;
-            btn.innerText = "Wird übertragen...";
-
-            const requestPayload = {
+            const payload = {
                 embeds: [{
-                    title: "🚨 Neuer Blacklist-Eintrag (212th)",
-                    color: 16711680,
+                    title: "⛔ Neuer Blacklist-Eintrag",
+                    color: 16724787, // Red Color
                     fields: [
-                        { name: "Betroffener Spieler / ID", value: `**${blName}**`, inline: true },
-                        { name: "Dauer", value: blDauer, inline: true },
-                        { name: "Eingetragen von", value: blFE, inline: true },
-                        { name: "Grund", value: blGrund, inline: false }
+                        { name: "👤 Name / ID", value: blName, inline: true },
+                        { name: "⏳ Dauer", value: blDauer, inline: true },
+                        { name: "🛡️ Eingetragen von", value: blFE, inline: true },
+                        { name: "📝 Grund", value: blGrund, inline: false }
                     ],
-                    footer: { text: "212th Blacklist System" },
+                    footer: { text: "212th Portal System - Blacklist" },
                     timestamp: new Date()
                 }]
             };
 
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestPayload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Blacklist-Eintrag wurde erfolgreich auf der Website hinzugefügt und an Discord gesendet!');
-                    
-                    const tbody = document.getElementById('blacklistTableBody');
-                    const newRow = document.createElement('tr');
-                    newRow.innerHTML = `
-                        <td><strong style="color: var(--danger-red);">${blName}</strong></td>
-                        <td>${blGrund}</td>
-                        <td>${blFE}</td>
-                        <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">${blDauer}</span></td>
-                        <td class="fe-only-col" style="display: table-cell;"><button class="btn-delete-action" onclick="deleteBlacklistEntry(this, '${blName}')"><i class="fa-solid fa-trash"></i> Löschen</button></td>
-                    `;
-                    tbody.prepend(newRow);
-
-                    document.getElementById('blacklistForm').reset();
+            try {
+                if (DISCORD_WEBHOOK_URL === "DEIN_DISCORD_WEBHOOK_URL_HIER") {
+                    alert("Fehler: Bitte hinterlege zuerst eine gültige Discord Webhook URL im JavaScript Code!");
                 } else {
-                    alert('Fehler beim Senden an Discord.');
+                    const response = await fetch(DISCORD_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        alert("Blacklist-Eintrag erfolgreich an Discord gesendet!");
+                        
+                        // Dynamisch zur Tabelle hinzufügen
+                        const tbody = document.querySelector('#blacklistTable tbody');
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><strong style="color: var(--danger-red);">${blName}</strong></td>
+                            <td>${blDauer}</td>
+                            <td>${blGrund}</td>
+                            <td>${blFE}</td>
+                        `;
+                        tbody.appendChild(row);
+
+                        document.getElementById('blacklistForm').reset();
+                    } else {
+                        alert("Fehler beim Senden an Discord. Prüfe deine Webhook-URL.");
+                    }
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Netzwerkfehler beim Senden an Discord.');
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-ban"></i> Eintrag hinzufügen & an Discord senden';
-            });
-        }
-
-        /* BLACKLIST EINTRAG LÖSCHEN */
-        function deleteBlacklistEntry(button, name) {
-            if (!confirm(`Möchtest du den Blacklist-Eintrag von "${name}" wirklich löschen?`)) {
-                return;
+            } catch (error) {
+                console.error("Fehler:", error);
+                alert("Fehler beim Verarbeiten der Anfrage.");
+            } finally {
+                submitBtn.disabled = false;
             }
-
-            const feUser = prompt("Gib deinen FE-Namen ein (für die Discord-Meldung):", "FE-Mitglied");
-            if (!feUser) return;
-
-            const webhookURL = "https://discord.com/api/webhooks/1544521263458816020/gWs-6ShU_tFlPcfJhpyYZx_rEZlJ89dFrFsFkzmUvRKIG4kt-ycLtRg2OpVlON1jMLMH";
-
-            const requestPayload = {
-                embeds: [{
-                    title: "✅ Blacklist-Eintrag ENTFERNT (212th)",
-                    color: 65280, // Grün
-                    fields: [
-                        { name: "Entfernter Spieler / ID", value: `**${name}**`, inline: true },
-                        { name: "Gelöscht von FE", value: feUser, inline: true }
-                    ],
-                    footer: { text: "212th Blacklist System" },
-                    timestamp: new Date()
-                }]
-            };
-
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestPayload)
-            });
-
-            // Zeile aus Tabelle entfernen
-            const row = button.closest('tr');
-            row.remove();
-            alert(`Der Eintrag für "${name}" wurde entfernt.`);
         }
     </script>
 </body>
