@@ -16,6 +16,7 @@
             --text-main: #ffffff;
             --text-muted: #9a9a9e;
             --danger-red: #ff3333;
+            --success-green: #28a745;
         }
 
         * {
@@ -370,6 +371,7 @@
             font-weight: 700;
             cursor: pointer;
             width: 100%;
+            transition: background 0.2s;
         }
 
         .btn-submit:hover {
@@ -422,6 +424,7 @@
                     Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
                     Verwalte hier deine Abmeldungen, prüfe das Einheitsregelwerk und informiere dich über unsere Partnereinheiten.
                 </p>
+                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none; text-align: center;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
             </div>
 
             <div class="grid">
@@ -498,7 +501,7 @@
             </div>
         </div>
 
-        <!-- TAB 3: PARTNEREINHEITEN (Aus deinen Screenshots!) -->
+        <!-- TAB 3: PARTNEREINHEITEN -->
         <div id="partner" class="tab-content">
             <div class="section-title">
                 <h2>Befreundete Partnereinheiten</h2>
@@ -557,46 +560,46 @@
             </div>
         </div>
 
-        <!-- TAB 5: ABMELDUNG -->
+        <!-- TAB 5: ABMELDUNG (AUTOMATISCHER DISCORD VERSAND) -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
                 <h2>Einheits-Abmeldung</h2>
-                <p>Trage hier deine Abmeldung ein, falls du inaktiv bist.</p>
+                <p>Trage hier deine Abmeldung ein. Sie wird direkt auf den Discord-Server gesendet.</p>
             </div>
 
             <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <form onsubmit="alert('Abmeldung wurde eingereicht!'); return false;">
+                <form id="abmeldungForm" onsubmit="sendToDiscord(event)">
                     <div class="form-group">
                         <label>Ingame Name & Rang:</label>
-                        <input type="text" placeholder="z.B. SGT 1234 Test" required>
+                        <input type="text" id="name" placeholder="z.B. SGT 1234 Test" required>
                     </div>
 
                     <div class="form-group">
                         <label>Untereinheit:</label>
-                        <select required>
+                        <select id="untereinheit" required>
                             <option value="">Bitte wählen...</option>
-                            <option value="2nd">2nd Airborne Company</option>
-                            <option value="ghc">Ghost Company</option>
-                            <option value="keine">Keine (PFC)</option>
+                            <option value="2nd Airborne Company">2nd Airborne Company</option>
+                            <option value="Ghost Company">Ghost Company</option>
+                            <option value="Haupteinheit (PFC)">Haupteinheit (PFC)</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Abgemeldet von:</label>
-                        <input type="date" required>
+                        <input type="date" id="von" required>
                     </div>
 
                     <div class="form-group">
                         <label>Abgemeldet bis:</label>
-                        <input type="date" required>
+                        <input type="date" id="bis" required>
                     </div>
 
                     <div class="form-group">
                         <label>Grund (Optional/Privat):</label>
-                        <textarea rows="3" placeholder="Grund angeben..."></textarea>
+                        <textarea id="grund" rows="3" placeholder="Grund angeben..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung einreichen</button>
+                    <button type="submit" class="btn-submit" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden</button>
                 </form>
             </div>
         </div>
@@ -624,12 +627,6 @@
                             <td>Schwerer Regelbruch / Fehlverhalten</td>
                             <td>Commander Cody</td>
                             <td><span class="tag" style="background: rgba(255,0,0,0.1); color: red; border-color: red;">Permanent</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: var(--danger-red);">BeispielUser / 2222</strong></td>
-                            <td>Aktivitätsvergehen & Respektlosigkeit</td>
-                            <td>Major Thunder</td>
-                            <td><span class="tag-sub">Bis 31.12.2026</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -668,6 +665,61 @@
                 content.style.display = "block";
                 icon.className = "fa-solid fa-chevron-up";
             }
+        }
+
+        /* DISCORD WEBHOOK INTEGRATION */
+        function sendToDiscord(event) {
+            event.preventDefault();
+
+            // Dein persönlicher Discord-Webhook:
+            const webhookURL = "https://discord.com/api/webhooks/1544515038071623751/kP0aGZAu49ugT6qt-yrGCgv3j_7jLmkCr4Y0d1i7HxTIxDMBOlydPEhQp7do4gEOW37O";
+
+            const name = document.getElementById('name').value;
+            const untereinheit = document.getElementById('untereinheit').value;
+            const von = document.getElementById('von').value;
+            const bis = document.getElementById('bis').value;
+            const grund = document.getElementById('grund').value || "Kein Grund angegeben";
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = "Wird gesendet...";
+
+            const requestPayload = {
+                embeds: [{
+                    title: "📋 Neue 212th Abmeldung eingegangen",
+                    color: 16737280, // Orange (#FF6600)
+                    fields: [
+                        { name: "Name & Rang", value: name, inline: true },
+                        { name: "Untereinheit", value: untereinheit, inline: true },
+                        { name: "Zeitraum", value: `Von: **${von}**\nBis: **${bis}**`, inline: false },
+                        { name: "Grund", value: grund, inline: false }
+                    ],
+                    footer: { text: "212th Angriffsbataillon | Webseiten-System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestPayload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Deine Abmeldung wurde erfolgreich an Discord übermittelt!');
+                    document.getElementById('abmeldungForm').reset();
+                } else {
+                    alert('Fehler beim Senden der Abmeldung.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Netzwerkfehler beim Senden an Discord.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
+            });
         }
     </script>
 </body>
