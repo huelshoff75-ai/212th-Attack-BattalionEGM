@@ -165,7 +165,6 @@
             color: var(--primary-orange);
         }
 
-        /* Lautstärkeregler Styling */
         .volume-slider {
             -webkit-appearance: none;
             appearance: none;
@@ -191,6 +190,59 @@
 
         .volume-slider::-webkit-slider-thumb:hover {
             transform: scale(1.2);
+        }
+
+        /* TO Announcement Box */
+        .to-banner {
+            background: linear-gradient(90deg, rgba(255, 102, 0, 0.15) 0%, rgba(18, 18, 22, 0.95) 100%);
+            border: 1px solid var(--primary-orange);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+            position: relative;
+        }
+
+        .to-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .to-icon {
+            font-size: 2rem;
+            color: var(--primary-orange);
+        }
+
+        .to-details h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .to-details p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .to-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .to-close-btn:hover {
+            color: var(--danger-red);
+            background: rgba(255, 51, 51, 0.1);
         }
 
         /* Container & Tabs */
@@ -611,7 +663,6 @@
             <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Musik Ein/Aus" id="musicBtn">
                 <i class="fa-solid fa-music"></i>
             </button>
-            <!-- Lautstärkeregler (Standard mäßig auf 30% Lautstärke gestellt) -->
             <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)" title="Lautstärke regeln">
         </div>
     </header>
@@ -620,6 +671,22 @@
         
         <!-- TAB 1: STARTSEITE -->
         <div id="startseite" class="tab-content active">
+            
+            <!-- TO / BESPRECHUNG ANKÜNDIGUNG (SCHLIESSBAR & DURCH FE VERÄNDERBAR) -->
+            <div id="toBanner" class="to-banner">
+                <div class="to-info">
+                    <div class="to-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div class="to-details">
+                        <h3><span id="toTitleText">Nächstes Tryout / Auswahlverfahren</span></h3>
+                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Haupt-Ankerplatz / Rekrutierungsraum</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button id="feEditToBtn" onclick="editToTime()" style="display: none; background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
+                    <button class="to-close-btn" onclick="closeToBanner()" title="Ankündigung schließen"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
             <div class="hero-card">
                 <span class="badge"><i class="fa-solid fa-signal"></i> KARRIERE- & EINHEITSPORTAL</span>
                 <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
@@ -1079,7 +1146,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <div>
                         <h4 style="color: var(--primary-orange);"><i class="fa-solid fa-lock"></i> Führungsebenen-Zugang</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um Einträge hinzuzufügen oder zu löschen.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um Einträge hinzuzufügen oder TO-Zeiten zu ändern.</p>
                     </div>
                     <button class="btn-submit" id="feLoginBtn" onclick="toggleFeLogin()" style="width: auto; padding: 8px 16px;"><i class="fa-solid fa-key"></i> FE Login</button>
                 </div>
@@ -1152,7 +1219,7 @@
 
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-        // Musik-Lautstärke auf den Standardwert des Sliders setzen (30%)
+        // Lautstärke beim Laden einstellen
         window.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('bgMusic');
             const slider = document.getElementById('volumeControl');
@@ -1165,6 +1232,30 @@
             const audio = document.getElementById('bgMusic');
             if (audio) {
                 audio.volume = val;
+            }
+        }
+
+        /* Banner schließen */
+        function closeToBanner() {
+            playClickSound();
+            document.getElementById('toBanner').style.display = 'none';
+        }
+
+        /* FE Zeit ändern */
+        function editToTime() {
+            if (!isFeLoggedIn) {
+                alert("Du musst als Führungsebene eingeloggt sein!");
+                return;
+            }
+            const newTitle = prompt("Titel der Ankündigung angeben (z.B. Nächstes Tryout / Einheitsbesprechung):", document.getElementById('toTitleText').innerText);
+            if (newTitle !== null && newTitle.trim() !== "") {
+                document.getElementById('toTitleText').innerText = newTitle;
+            }
+
+            const newTime = prompt("Neues Datum & Uhrzeit angeben (z.B. Samstag, 18:00 Uhr):", document.getElementById('toTimeText').innerText);
+            if (newTime !== null && newTime.trim() !== "") {
+                document.getElementById('toTimeText').innerText = newTime;
+                alert("Ereigniszeit erfolgreich aktualisiert!");
             }
         }
 
@@ -1223,7 +1314,7 @@
                     btn.style.borderColor = 'var(--primary-orange)';
                 }).catch(err => {
                     console.log("Musik konnte nicht abgespielt werden:", err);
-                    alert("Konnte vode_an.mp3 nicht abspielen. Stelle sicher, dass die Datei genau so heißt und im selben Ordner wie diese HTML-Datei liegt!");
+                    alert("Konnte vode_an.mp3 nicht abspielen. Stelle sicher, dass die Datei im selben Ordner liegt!");
                 });
             } else {
                 audio.pause();
@@ -1275,6 +1366,7 @@
                 if (inputPassword === FE_PASSWORD) {
                     isFeLoggedIn = true;
                     document.getElementById('feBlacklistFormContainer').style.display = 'block';
+                    document.getElementById('feEditToBtn').style.display = 'inline-block';
                     document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-unlock"></i> FE Ausloggen';
                     alert("Erfolgreich als Führungsebene angemeldet.");
                 } else if (inputPassword !== null) {
@@ -1283,6 +1375,7 @@
             } else {
                 isFeLoggedIn = false;
                 document.getElementById('feBlacklistFormContainer').style.display = 'none';
+                document.getElementById('feEditToBtn').style.display = 'none';
                 document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-key"></i> FE Login';
                 alert("Erfolgreich ausgeloggt.");
             }
