@@ -4,126 +4,393 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>212th Angriffsbataillon | EGM Community</title>
+    <!-- FontAwesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #ff6600; /* 212th Orange */
-            --bg-dark: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #ffffff;
-            --text-secondary: #b0b0b0;
+            --primary-orange: #ff6600;
+            --orange-hover: #e65c00;
+            --bg-dark: #0f0f12;
+            --card-bg: #16161a;
+            --card-border: #26262b;
+            --hero-bg: #141824; /* Dunkler Kontrast-Karten-Hintergrund */
+            --text-main: #ffffff;
+            --text-muted: #9a9a9e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-dark);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* 1. Header Navigation Bar */
         header {
             background-color: var(--card-bg);
-            border-bottom: 3px solid var(--primary-color);
-            padding: 2rem;
-            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            margin: 0;
-            color: var(--primary-color);
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.5px;
         }
 
-        header p {
-            margin-top: 0.5rem;
-            color: var(--text-secondary);
+        .brand-icon {
+            background-color: rgba(255, 102, 0, 0.15);
+            color: var(--primary-orange);
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 102, 0, 0.3);
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            background-color: #181818;
-            padding: 0.5rem;
+            gap: 15px;
         }
 
         nav a {
-            color: var(--text-color);
+            color: var(--text-muted);
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            margin: 0 0.5rem;
-            border-radius: 4px;
-            transition: background 0.3s;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        nav a:hover {
-            background-color: var(--primary-color);
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
+        .user-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #1f1f25;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            font-size: 0.85rem;
+        }
+
+        .user-status i {
+            color: var(--primary-orange);
+        }
+
+        /* Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        /* 2. Hero Card Section (Wie im Bild) */
+        .hero-card {
+            background: linear-gradient(135deg, #181d2a 0%, #10121a 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--primary-orange);
+            filter: blur(120px);
+            opacity: 0.25;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-card h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero-card h1 span {
+            color: var(--primary-orange);
+        }
+
+        .hero-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 750px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-orange);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* 3. Ticker / Meldungen Bereich */
+        .ticker-card {
+            background-color: rgba(0, 200, 81, 0.05);
+            border: 1px solid rgba(0, 200, 81, 0.2);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .ticker-card .icon {
+            background-color: rgba(0, 200, 81, 0.2);
+            color: #00c851;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .ticker-card h3 {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .ticker-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 4. Section & Cards Grid (Kerndienstleistungen / Bereiche) */
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-left: 4px solid var(--primary-color);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .card h2 {
-            margin-top: 0;
-            color: var(--primary-color);
+        .card:hover {
+            border-color: rgba(255, 102, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            color: var(--primary-orange);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         footer {
+            margin-top: auto;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--card-border);
             text-align: center;
             padding: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid #2a2a2a;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-card h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
-        <h1>212th Angriffsbataillon</h1>
-        <p>EGM Community — Star Wars RP</p>
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            212th Angriffsbataillon
+        </div>
+
+        <nav>
+            <a href="#" class="active"><i class="fa-solid fa-house"></i> Startseite</a>
+            <a href="#mitglieder"><i class="fa-solid fa-users"></i> Mitglieder</a>
+            <a href="#ausruestung"><i class="fa-solid fa-gun"></i> Ausrüstung</a>
+            <a href="#regeln"><i class="fa-solid fa-book"></i> Regeln</a>
+        </nav>
+
+        <div class="user-status">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>EGM Community Portal</span>
+        </div>
     </header>
 
-    <nav>
-        <a href="#about">Über uns</a>
-        <a href="#rules">Regeln</a>
-        <a href="#join">Tryout / Beitritt</a>
-    </nav>
-
     <div class="container">
-        <section id="about" class="card">
-            <h2>Willkommen beim 212th Angriffsbataillon</h2>
-            <p>Das 212th Angriffsbataillon ist eine spezialisierte Einheit der Großen Armee der Republik. Wir stehen für Disziplin, Taktik und Zusammenhalt auf dem EGM-Server.</p>
-        </section>
+        
+        <!-- Hero Card (Exakt wie Vorlage) -->
+        <div class="hero-card">
+            <span class="badge">● EINHEITS- & KARRIEREPORTAL</span>
+            <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
+            <p>
+                Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
+                Nutzen Sie unsere Übersicht, um Einheitsregeln, Ränge, Spezialeinheiten sowie Ausrüstung einzusehen. 
+                Rekruten können sich direkt über unser Tryout-System melden.
+            </p>
+            <div class="hero-buttons">
+                <a href="#tryout" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Tryout anfordern</a>
+                <a href="#regeln" class="btn btn-secondary"><i class="fa-solid fa-scroll"></i> Einheitsregeln ansehen</a>
+            </div>
+        </div>
 
-        <section id="rules" class="card">
-            <h2>Einheitsregeln</h2>
-            <ul>
-                <li>Den Anweisungen der Führungsebene ist Folge zu leisten.</li>
-                <li>Gegenseitiger Respekt innerhalb und außerhalb der Einheit ist Pflicht.</li>
-                <li>Aktivität auf dem Server und im TeamSpeak wird vorausgesetzt.</li>
-            </ul>
-        </section>
+        <!-- Status Ticker Box (Exakt wie Vorlage) -->
+        <div class="ticker-card">
+            <div class="icon"><i class="fa-solid fa-check"></i></div>
+            <h3>Aktuell Rekrutierung aktiv</h3>
+            <p>Tryouts finden täglich auf dem EGM Clone Wars RP Server statt.</p>
+        </div>
 
-        <section id="join" class="card">
-            <h2>Wie kann ich beitreten?</h2>
-            <p>Du möchtest Teil des 212th Angriffsbataillons werden? Besuche uns im TeamSpeak der EGM-Community oder melde dich ingame bei einem Mitglied der Führungsebene für ein Tryout.</p>
-        </section>
+        <!-- Kerndienstleistungen / Bereiche -->
+        <div class="section-title">
+            <h2>Unsere Spezialeinheiten & Aufgaben</h2>
+            <p>Wir garantieren höchste Effizienz und Kampfkraft für die Republik.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card" id="mitglieder">
+                <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>Mitglieder & Ränge</h3>
+                <p>Übersicht aller Einheitsmitglieder, Führungsebenen und aktuellen Besetzungen der 212th.</p>
+            </div>
+
+            <div class="card" id="ausruestung">
+                <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <h3>Ausrüstung & Waffen</h3>
+                <p>Standardbewaffnung (DC-15A, DC-15S), Greifhaken und Spezialausrüstung der Airborne-Division.</p>
+            </div>
+
+            <div class="card" id="regeln">
+                <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
+                <h3>Einheitsregeln</h3>
+                <p>Verhaltensregeln, Befehlskette und Pflichten jedes Klonkriegers innerhalb des Bataillons.</p>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 212th Angriffsbataillon | EGM Community</p>
+        <p>&copy; 2026 212th Angriffsbataillon | EGM Community — Star Wars RP</p>
     </footer>
 
 </body>
