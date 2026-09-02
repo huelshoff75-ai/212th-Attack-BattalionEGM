@@ -13,7 +13,7 @@
             --bg-dark: #0f0f12;
             --card-bg: #16161a;
             --card-border: #26262b;
-            --hero-bg: #141824; /* Dunkler Kontrast-Karten-Hintergrund */
+            --hero-bg: #141824;
             --text-main: #ffffff;
             --text-muted: #9a9a9e;
         }
@@ -33,7 +33,7 @@
             flex-direction: column;
         }
 
-        /* 1. Header Navigation Bar */
+        /* Header Navigation Bar */
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--card-border);
@@ -111,7 +111,7 @@
             width: 100%;
         }
 
-        /* 2. Hero Card Section (Wie im Bild) */
+        /* Hero Card Section */
         .hero-card {
             background: linear-gradient(135deg, #181d2a 0%, #10121a 100%);
             border: 1px solid var(--card-border);
@@ -208,7 +208,7 @@
             transform: translateY(-2px);
         }
 
-        /* 3. Ticker / Meldungen Bereich */
+        /* Status Ticker Box */
         .ticker-card {
             background-color: rgba(0, 200, 81, 0.05);
             border: 1px solid rgba(0, 200, 81, 0.2);
@@ -241,10 +241,10 @@
             color: var(--text-muted);
         }
 
-        /* 4. Section & Cards Grid (Kerndienstleistungen / Bereiche) */
+        /* Section Layout */
         .section-title {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin: 3rem 0 1.5rem 0;
         }
 
         .section-title h2 {
@@ -294,8 +294,26 @@
             line-height: 1.5;
         }
 
+        /* Tags für Ausrüstung */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: rgba(255, 102, 0, 0.1);
+            color: var(--primary-orange);
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
         footer {
-            margin-top: auto;
+            margin-top: 4rem;
             background-color: var(--card-bg);
             border-top: 1px solid var(--card-border);
             text-align: center;
@@ -326,8 +344,8 @@
 
         <nav>
             <a href="#" class="active"><i class="fa-solid fa-house"></i> Startseite</a>
-            <a href="#mitglieder"><i class="fa-solid fa-users"></i> Mitglieder</a>
             <a href="#ausruestung"><i class="fa-solid fa-gun"></i> Ausrüstung</a>
+            <a href="#mitglieder"><i class="fa-solid fa-users"></i> Mitglieder</a>
             <a href="#regeln"><i class="fa-solid fa-book"></i> Regeln</a>
         </nav>
 
@@ -339,52 +357,92 @@
 
     <div class="container">
         
-        <!-- Hero Card (Exakt wie Vorlage) -->
+        <!-- Hero Card -->
         <div class="hero-card">
             <span class="badge">● EINHEITS- & KARRIEREPORTAL</span>
             <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
             <p>
                 Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
-                Nutzen Sie unsere Übersicht, um Einheitsregeln, Ränge, Spezialeinheiten sowie Ausrüstung einzusehen. 
-                Rekruten können sich direkt über unser Tryout-System melden.
+                Hier findest du alle wichtigen Informationen über unsere Waffen, Spezialausrüstungen, Mitglieder und Verhaltensregeln.
             </p>
             <div class="hero-buttons">
-                <a href="#tryout" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Tryout anfordern</a>
-                <a href="#regeln" class="btn btn-secondary"><i class="fa-solid fa-scroll"></i> Einheitsregeln ansehen</a>
+                <a href="#ausruestung" class="btn btn-primary"><i class="fa-solid fa-gun"></i> Ausrüstung ansehen</a>
+                <a href="#regeln" class="btn btn-secondary"><i class="fa-solid fa-scroll"></i> Einheitsregeln</a>
             </div>
         </div>
 
-        <!-- Status Ticker Box (Exakt wie Vorlage) -->
+        <!-- Status Ticker Box -->
         <div class="ticker-card">
             <div class="icon"><i class="fa-solid fa-check"></i></div>
             <h3>Aktuell Rekrutierung aktiv</h3>
-            <p>Tryouts finden täglich auf dem EGM Clone Wars RP Server statt.</p>
+            <p>Tryouts finden regelmäßig auf dem EGM Clone Wars RP Server statt.</p>
         </div>
 
-        <!-- Kerndienstleistungen / Bereiche -->
-        <div class="section-title">
-            <h2>Unsere Spezialeinheiten & Aufgaben</h2>
-            <p>Wir garantieren höchste Effizienz und Kampfkraft für die Republik.</p>
+        <!-- Ausrüstung Bereich -->
+        <div class="section-title" id="ausruestung">
+            <h2>Waffen & Ausrüstung</h2>
+            <p>Die Bewaffnung und Ausrüstung des 212th Angriffsbataillons.</p>
         </div>
 
         <div class="grid">
-            <div class="card" id="mitglieder">
-                <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
-                <h3>Mitglieder & Ränge</h3>
-                <p>Übersicht aller Einheitsmitglieder, Führungsebenen und aktuellen Besetzungen der 212th.</p>
-            </div>
-
-            <div class="card" id="ausruestung">
+            <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                <h3>Ausrüstung & Waffen</h3>
-                <p>Standardbewaffnung (DC-15A, DC-15S), Greifhaken und Spezialausrüstung der Airborne-Division.</p>
+                <h3>Standard-Bewaffnung</h3>
+                <p>Unsere primären Blastergewehre für Nah- und Fernkampf im Gefecht.</p>
+                <div class="tag-list">
+                    <span class="tag">DC-15A Blastergewehr</span>
+                    <span class="tag">DC-15S Blasterkarabiner</span>
+                </div>
             </div>
 
-            <div class="card" id="regeln">
-                <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
-                <h3>Einheitsregeln</h3>
-                <p>Verhaltensregeln, Befehlskette und Pflichten jedes Klonkriegers innerhalb des Bataillons.</p>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-explosion"></i></div>
+                <h3>Schwere Artillerie</h3>
+                <p>Einsatz gegen gepanzerte Fahrzeuge und feindliche Truppenansammlungen.</p>
+                <div class="tag-list">
+                    <span class="tag">RPS-6 Raketenwerfer</span>
+                </div>
             </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-vest-patches"></i></div>
+                <h3>Spezial-Rüstungen</h3>
+                <p>Spezialisierte Rüstungssätze für veränderte Geländebedingungen und Luftlande-Operationen.</p>
+                <div class="tag-list">
+                    <span class="tag">ARF Rüstung</span>
+                    <span class="tag">Airborne Rüstung</span>
+                    <span class="tag">JT-12 Jetpack</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-truck-monster"></i></div>
+                <h3>Gepanzerte Fahrzeuge</h3>
+                <p>Schwere Feuerunterstützung und Transport für Bodenoffensive.</p>
+                <div class="tag-list">
+                    <span class="tag">TX-130 Säbel-Klasse Panzer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platzhalter für Mitglieder -->
+        <div class="section-title" id="mitglieder">
+            <h2>Mitglieder & Ränge</h2>
+            <p>Sobald du bereit bist, schicke mir eure Mitgliederliste, um sie hier einzufügen!</p>
+        </div>
+
+        <div class="card">
+            <p style="text-align: center; color: var(--text-muted);">Mitgliederliste wird in Kürze hinzugefügt...</p>
+        </div>
+
+        <!-- Platzhalter für Regeln -->
+        <div class="section-title" id="regeln">
+            <h2>Einheitsregeln</h2>
+            <p>Sobald du bereit bist, schicke mir eure Regeln, um sie hier einzufügen!</p>
+        </div>
+
+        <div class="card">
+            <p style="text-align: center; color: var(--text-muted);">Regeln werden in Kürze hinzugefügt...</p>
         </div>
 
     </div>
