@@ -1149,7 +1149,10 @@
     </footer>
 
     <script>
-        const DISCORD_WEBHOOK_URL = "DEIN_DISCORD_WEBHOOK_URL_HIER"; 
+        // Webhook URLs
+        const ABMELDUNG_WEBHOOK_URL = "https://discord.com/api/webhooks/1544515038071623751/kP0aGZAu49ugT6qt-yrGCgv3j_7jLmkCr4Y0d1i7HxTIxDMBOlydPEhQp7do4gEOW37O";
+        const BLACKLIST_WEBHOOK_URL = "https://discord.com/api/webhooks/1544521263458816020/gWs-6ShU_tFlPcfJhpyYZx_rEZlJ89dFrFsFkzmUvRKIG4kt-ycLtRg2OpVlON1jMLMH";
+        
         const FE_PASSWORD = "212"; 
 
         let isFeLoggedIn = false;
@@ -1244,7 +1247,7 @@
             document.getElementById('bgMusic').volume = val;
         }
 
-        // DISCORD SUBMITS
+        // ABMELDUNG AN DISCORD SENDEN
         async function sendToDiscord(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
@@ -1272,38 +1275,75 @@
             };
 
             try {
-                if (DISCORD_WEBHOOK_URL === "DEIN_DISCORD_WEBHOOK_URL_HIER") {
-                    alert("Abmeldung simuliert! (Hinterlege deine Discord Webhook URL im JavaScript für echten Versand)");
-                } else {
-                    await fetch(DISCORD_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
+                const response = await fetch(ABMELDUNG_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
                     alert("Abmeldung erfolgreich übermittelt!");
+                    document.getElementById('abmeldungForm').reset();
+                } else {
+                    alert("Fehler beim Senden der Abmeldung an Discord.");
                 }
-                document.getElementById('abmeldungForm').reset();
             } catch (error) {
-                alert("Fehler beim Verarbeiten der Anfrage.");
+                alert("Verbindungsfehler beim Versenden der Abmeldung.");
             } finally {
                 submitBtn.disabled = false;
             }
         }
 
+        // BLACKLIST AN DISCORD SENDEN & TABELLE ERWEITERN
         async function sendBlacklistToDiscord(e) {
             e.preventDefault();
+            const blSubmitBtn = document.getElementById('blSubmitBtn');
+            blSubmitBtn.disabled = true;
+
             const blName = document.getElementById('blName').value;
             const blDauer = document.getElementById('blDauer').value;
             const blFE = document.getElementById('blFE').value;
             const blGrund = document.getElementById('blGrund').value;
 
-            const tbody = document.querySelector('#blacklistTable tbody');
-            const row = document.createElement('tr');
-            row.innerHTML = `<td><strong style="color: var(--danger-red);">${blName}</strong></td><td>${blDauer}</td><td>${blGrund}</td><td>${blFE}</td>`;
-            tbody.appendChild(row);
+            const payload = {
+                embeds: [{
+                    title: "🚫 Neuer Blacklist-Eintrag",
+                    color: 16711680,
+                    fields: [
+                        { name: "👤 Spieler Name / ID", value: blName, inline: true },
+                        { name: "⏳ Dauer", value: blDauer, inline: true },
+                        { name: "👮 Eingetragen von", value: blFE, inline: true },
+                        { name: "📝 Grund", value: blGrund, inline: false }
+                    ],
+                    footer: { text: "212th Blacklist System" },
+                    timestamp: new Date()
+                }]
+            };
 
-            alert("Blacklist-Eintrag hinzugefügt!");
-            document.getElementById('blacklistForm').reset();
+            try {
+                const response = await fetch(BLACKLIST_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    // Zeile zur Tabelle hinzufügen
+                    const tbody = document.querySelector('#blacklistTable tbody');
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td><strong style="color: var(--danger-red);">${blName}</strong></td><td>${blDauer}</td><td>${blGrund}</td><td>${blFE}</td>`;
+                    tbody.appendChild(row);
+
+                    alert("Blacklist-Eintrag erfolgreich an Discord gesendet und eingetragen!");
+                    document.getElementById('blacklistForm').reset();
+                } else {
+                    alert("Fehler beim Senden des Blacklist-Eintrags an Discord.");
+                }
+            } catch (error) {
+                alert("Verbindungsfehler beim Senden des Blacklist-Eintrags.");
+            } finally {
+                blSubmitBtn.disabled = false;
+            }
         }
     </script>
 </body>
