@@ -672,7 +672,7 @@
         <!-- TAB 1: STARTSEITE -->
         <div id="startseite" class="tab-content active">
             
-            <!-- TO / BESPRECHUNG ANKÜNDIGUNG (SCHLIESSBAR & DURCH FE VERÄNDERBAR) -->
+            <!-- TO / BESPRECHUNG ANKÜNDIGUNG -->
             <div id="toBanner" class="to-banner">
                 <div class="to-info">
                     <div class="to-icon"><i class="fa-solid fa-bullhorn"></i></div>
@@ -682,7 +682,7 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <button id="feEditToBtn" onclick="editToTime()" style="display: none; background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
+                    <button id="feEditToBtn" onclick="editToTime()" style="background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
                     <button class="to-close-btn" onclick="closeToBanner()" title="Ankündigung schließen"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
@@ -694,7 +694,7 @@
                     Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
                     Verwalte hier deine Abmeldungen, prüfe die galaktische Lage und informiere dich über unsere Partnereinheiten.
                 </p>
-                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" onclick="playActionSound()" style="display: inline-block; width: auto; text-decoration: none; text-align: center;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
+                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none; text-align: center;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
             </div>
 
             <div class="grid">
@@ -862,641 +862,67 @@
                             <td><strong>Sergeant</strong></td>
                             <td>Tentef</td>
                             <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>Parjai Squad | <span class="tag-sub">Adjutant: RMC</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sergeant</strong></td>
-                            <td>Slick</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sergeant</strong></td>
-                            <td>Peel | Ender</td>
-                            <td><span class="tag">Ghost Company</span></td>
-                            <td>JT-12 Jetpack, Paratrooper, Formationen</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hoher General</strong></td>
-                            <td>Obi-Wan Kenobi | Glow</td>
-                            <td><span class="tag-sub">Einheitsjedi</span></td>
-                            <td>Führungsebene</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Captain (Jedi)</strong></td>
-                            <td>Nexar Tyne</td>
-                            <td><span class="tag-sub">Einheitsjedi</span></td>
-                            <td>Führungsebene</td>
+                            <td><span class="tag-sub">Parjai Squad</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- TAB 4: UNTEREINHEITEN -->
-        <div id="untereinheiten" class="tab-content">
-            <div class="section-title">
-                <h2>Untereinheiten der 212th</h2>
-                <p>Übersicht der Spezialeinheiten und Squads innerhalb des Bataillons.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card" style="border-top: 4px solid var(--primary-orange);">
-                    <div class="card-icon"><i class="fa-solid fa-ghost"></i></div>
-                    <h3>Ghost Company (GHC)</h3>
-                    <p style="margin-bottom: 1rem;">Die Hauptkampfkraft des Bataillons. Spezialisiert auf städtischen Häuserkampf, schweres Gefecht an der Frontlinie und strategische Angriffe.</p>
-                    
-                    <h4 style="color: var(--primary-orange); font-size: 0.95rem; margin-top: 1rem;">Spezialisierungen & Squads:</h4>
-                    <ul style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6;">
-                        <li><strong>Recon Squad:</strong> Aufklärungs- und Infiltrationstrupp für verdeckte Operationen.</li>
-                        <li><strong>JT-12 Jetpack & Paratrooper:</strong> Taktische Luftunterstützung bei städtischen Einsätzen.</li>
-                        <li><strong>Formationen & Taktik:</strong> Erfahrene Führung bei komplexen Truppenbewegungen.</li>
-                    </ul>
-
-                    <div class="tag-list" style="margin-top: 1.5rem;">
-                        <span class="tag">GHC Leader: Cody & Ref</span>
-                        <span class="tag-sub">Recon Squad: Vuiq</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-top: 4px solid #00a2ff;">
-                    <div class="card-icon" style="color: #00a2ff;"><i class="fa-solid fa-jet-fighter-up"></i></div>
-                    <h3>2nd Airborne Company</h3>
-                    <p style="margin-bottom: 1rem;">Die Eliteluftlandeeinheit der 212th. Spezialisiert auf Luftlandungen aus großer Höhe, hochmobile Gefechtsführung und Drop-Zone-Sicherung.</p>
-                    
-                    <h4 style="color: #00a2ff; font-size: 0.95rem; margin-top: 1rem;">Spezialisierungen & Squads:</h4>
-                    <ul style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6;">
-                        <li><strong>Parjai Squad:</strong> Elitesquad für Hochrisiko-Luftlandeoperationen und feindliche Stellungen.</li>
-                        <li><strong>Jetpack Spezialisten:</strong> Beherrschen den vertikalen Kampf und schnelle Verlegung.</li>
-                        <li><strong>Luft-Boden-Koordination:</strong> Sicherung von Landezonen für Verstärkung.</li>
-                    </ul>
-
-                    <div class="tag-list" style="margin-top: 1.5rem;">
-                        <span class="tag" style="background-color: rgba(0, 162, 255, 0.1); color: #00a2ff; border-color: rgba(0, 162, 255, 0.3);">Airborne Leader: Whiteaxe</span>
-                        <span class="tag-sub">Parjai Squad: Tentef</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 5: PARTNEREINHEITEN -->
-        <div id="partner" class="tab-content">
-            <div class="section-title">
-                <h2>Befreundete Partnereinheiten</h2>
-                <p>Einheiten, mit denen die 212th eng auf dem Schlachtfeld zusammenarbeitet.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card" style="border-top: 4px solid #0066cc;">
-                    <div class="card-icon" style="color: #0066cc;"><i class="fa-solid fa-users-gear"></i></div>
-                    <h3>501st Legion</h3>
-                    <p>Enge Zusammenarbeit bei Frontoffensive und Sturmangriffen unter Captain Rex und General Skywalker.</p>
-                    <div class="tag-list">
-                        <span class="tag-sub">Partnereinheit</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-top: 4px solid #888888;">
-                    <div class="card-icon" style="color: #aaaaaa;"><i class="fa-solid fa-paw"></i></div>
-                    <h3>104th Wolfpack</h3>
-                    <p>Spezialisiert auf Wüsten- und Rettungseinsätze unter Commander Wolffe.</p>
-                    <div class="tag-list">
-                        <span class="tag-sub">Partnereinheit</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-top: 4px solid #cc0000;">
-                    <div class="card-icon" style="color: #cc0000;"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3>Galactic Marines</h3>
-                    <p>Spezialeinheit für extreme Umweltbedingungen und schwere Belagerungen.</p>
-                    <div class="tag-list">
-                        <span class="tag-sub">Partnereinheit</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 6: GUIDES & FUNKCODES -->
-        <div id="guides" class="tab-content">
-            <div class="section-title">
-                <h2>Einheits-Guides & Funkcodes</h2>
-                <p>Wichtige Informationen für Rekruten und Truppler im Einsatz.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-walkie-talkie"></i></div>
-                    <h3>Wichtige 10er-Funkcodes</h3>
-                    <p><strong>10-4:</strong> Verstanden / Bestätigt</p>
-                    <p><strong>10-8:</strong> Einsatzbereit im Dienst</p>
-                    <p><strong>10-20:</strong> Derzeitiger Standort</p>
-                    <p><strong>10-33:</strong> Notruf / Benötige sofort Verstärkung!</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-chess-board"></i></div>
-                    <h3>Standard-Formationen</h3>
-                    <p><strong>Linie:</strong> Nebeneinander aufschließen für maximale Feuerkraft nach vorne.</p>
-                    <p><strong>Pfeil (V-Form):</strong> Gut geeignet für Vorstöße im Gelände.</p>
-                    <p><strong>Schildwall / Reihe:</strong> Hintereinander aufreihen bei engen Gängen.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 7: AUSZEICHNUNGEN -->
-        <div id="orden" class="tab-content">
-            <div class="section-title">
-                <h2>Orden & Auszeichnungen</h2>
-                <p>Besondere Verdienste und Verleihungen innerhalb des 212th Bataillons.</p>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Auszeichnung</th>
-                            <th>Träger</th>
-                            <th>Grund der Verleihung</th>
-                            <th>Datum</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong style="color: gold;"><i class="fa-solid fa-medal"></i> Ehrenkreuz der Republik</strong></td>
-                            <td>Commander Cody</td>
-                            <td>Herausragende Führung in der Schlacht von Utapau.</td>
-                            <td>12. Aug 2026</td>
-                        </tr>
-                        <tr>
-                            <td><strong style="color: silver;"><i class="fa-solid fa-award"></i> Tapferkeitsmedaille II. Klasse</strong></td>
-                            <td>Captain Ref</td>
-                            <td>Mutiger Einsatz zur Rettung verwundeter Brüder unter Beschuss.</td>
-                            <td>20. Aug 2026</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- TAB 8: REGELWERK -->
-        <div id="regeln" class="tab-content">
-            <div class="section-title">
-                <h2>Einheitsregelwerk</h2>
-                <p>Lies dir das Regelwerk aufmerksam durch.</p>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§1: Allgemeine Regeln</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§1.1:</strong> Mindestalter beträgt 13 Jahre.</p>
-                    <p><strong>§1.2:</strong> Vorschläge müssen vorher mit der FE besprochen werden.</p>
-                    <p><strong>§1.3:</strong> Ingame/Discord/TS Erreichbarkeit ist Pflicht.</p>
-                    <p><strong>§1.4:</strong> Fehlverhalten in anderen Einheiten spiegelt sich auch hier wider.</p>
-                    <p><strong>§1.5:</strong> Beförderungsfragen werden mit Sperre oder Degradierung geahndet.</p>
-                    <p><strong>§1.6:</strong> Respektvoller Umgang miteinander ist Pflicht.</p>
-                    <p><strong>§1.7:</strong> Anweisungen der Führungsebene ist Folge zu leisten.</p>
-                    <p><strong>§1.8:</strong> Trolling oder ausnutzen von Mechanics wird mit direktem Rauswurf geahndet.</p>
-                    <p><strong>§1.9:</strong> Inaktive Mitglieder ohne Abmeldung werden nach 7 Tagen degradiert/rausgeworfen.</p>
-                    <p><strong>§1.10:</strong> Bei Einheitsaustritt gilt eine Sperre von 2 Wochen für einen Wiedereintritt.</p>
-                    <p><strong>§1.11:</strong> Abmeldungen über 2 Wochen müssen direkt mit dem Commander besprochen werden.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§2: Ausrüstungs- & Ingame-Regeln</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§2.1:</strong> Die Ausrüstung darf nicht ohne Erlaubnis an Dritte weitergegeben werden.</p>
-                    <p><strong>§2.2:</strong> Jetpacks dürfen nur von der 2nd Airborne Company genutzt werden.</p>
-                    <p><strong>§2.3:</strong> Greifhaken dürfen nur in zugewiesenen Gebieten genutzt werden.</p>
-                    <p><strong>§2.4:</strong> Das Nutzen von Fahrzeugen erfordert die entsprechende Erlaubnis/Spezialisierung.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§3: Verhalten in Einheits-Sitzungen</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p><strong>§3.1:</strong> Die Teilnahme an der wöchentlichen Einheitsbesprechung ist Pflicht (oder rechtzeitige Abmeldung).</p>
-                    <p><strong>§3.2:</strong> Während der EB herrscht Mute-Pflicht für Nicht-Sprecher.</p>
-                    <p><strong>§3.3:</strong> Störungen der EB werden mit Strike geahndet.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 9: ABMELDUNG -->
-        <div id="abmeldung" class="tab-content">
-            <div class="section-title">
-                <h2>Einheits-Abmeldung</h2>
-                <p>Trage hier deine Abmeldung ein. Sie wird direkt auf den Discord-Server gesendet.</p>
-            </div>
-
-            <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <form id="abmeldungForm" onsubmit="sendToDiscord(event)">
-                    <div class="form-group">
-                        <label>Ingame Name & Rang:</label>
-                        <input type="text" id="name" placeholder="z.B. SGT 1234 Test" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Untereinheit:</label>
-                        <select id="untereinheit" required>
-                            <option value="">Bitte wählen...</option>
-                            <option value="2nd Airborne Company">2nd Airborne Company</option>
-                            <option value="Ghost Company (GHC)">Ghost Company (GHC)</option>
-                            <option value="Haupteinheit (PFC)">Haupteinheit (PFC)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Abgemeldet von:</label>
-                        <input type="date" id="von" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Abgemeldet bis:</label>
-                        <input type="date" id="bis" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Grund (Optional/Privat):</label>
-                        <textarea id="grund" rows="3" placeholder="Grund angeben..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- TAB 10: BLACKLIST -->
-        <div id="blacklist" class="tab-content">
-            <div class="section-title">
-                <h2>Einheits-Blacklist</h2>
-                <p>Personen auf dieser Liste sind dauerhaft oder temporär von der 212th ausgeschlossen.</p>
-            </div>
-
-            <div class="card" style="margin-bottom: 2rem; background-color: #16161e;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                    <div>
-                        <h4 style="color: var(--primary-orange);"><i class="fa-solid fa-lock"></i> Führungsebenen-Zugang</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Nutze dein FE-Passwort, um Einträge hinzuzufügen oder TO-Zeiten zu ändern.</p>
-                    </div>
-                    <button class="btn-submit" id="feLoginBtn" onclick="toggleFeLogin()" style="width: auto; padding: 8px 16px;"><i class="fa-solid fa-key"></i> FE Login</button>
-                </div>
-
-                <div id="feBlacklistFormContainer" style="display: none; margin-top: 1.5rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
-                    <h3 style="margin-bottom: 1rem; color: var(--danger-red);"><i class="fa-solid fa-user-slash"></i> Neuen Blacklist-Eintrag hinzufügen</h3>
-                    
-                    <form id="blacklistForm" onsubmit="sendBlacklistToDiscord(event)">
-                        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                            <div class="form-group">
-                                <label>Name / ID des Spielers:</label>
-                                <input type="text" id="blName" placeholder="z.B. Max / 1234" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Dauer der Sperre:</label>
-                                <input type="text" id="blDauer" placeholder="z.B. Permanent oder 2 Wochen" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Eingetragen von (FE Name):</label>
-                                <input type="text" id="blFE" placeholder="z.B. Commander Cody" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Grund für den Eintrag:</label>
-                            <textarea id="blGrund" rows="2" placeholder="Grund für die Blacklist angeben..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-submit btn-danger" id="blSubmitBtn"><i class="fa-solid fa-ban"></i> Eintrag auf Discord senden</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="table-wrapper">
-                <table id="blacklistTable">
-                    <thead>
-                        <tr>
-                            <th>Spieler Name / ID</th>
-                            <th>Dauer</th>
-                            <th>Grund</th>
-                            <th>Eingetragen von</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong style="color: var(--danger-red);">Beispieluser / 9999</strong></td>
-                            <td>Permanent</td>
-                            <td>Massives Trolling & Insubordination</td>
-                            <td>FE Leitung</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <!-- WEITERE TABS ALS PLATZHALTER -->
+        <div id="untereinheiten" class="tab-content"><div class="section-title"><h2>Untereinheiten</h2></div></div>
+        <div id="partner" class="tab-content"><div class="section-title"><h2>Partner</h2></div></div>
+        <div id="guides" class="tab-content"><div class="section-title"><h2>Guides & Codes</h2></div></div>
+        <div id="orden" class="tab-content"><div class="section-title"><h2>Auszeichnungen</h2></div></div>
+        <div id="regeln" class="tab-content"><div class="section-title"><h2>Regeln</h2></div></div>
+        <div id="abmeldung" class="tab-content"><div class="section-title"><h2>Abmeldung</h2></div></div>
+        <div id="blacklist" class="tab-content"><div class="section-title"><h2>Blacklist</h2></div></div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 212th Angriffsbataillon | EGM Community. Alle Rechte vorbehalten.</p>
+        &copy; 212th Angriffsbataillon - EGM Community
     </footer>
 
+    <!-- JS Skripte -->
     <script>
-        const DISCORD_WEBHOOK_URL = "DEIN_DISCORD_WEBHOOK_URL_HIER"; 
-        const FE_PASSWORD = "212"; 
-
-        let isFeLoggedIn = false;
-        let isMusicPlaying = false;
-
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-        // Lautstärke beim Laden einstellen
-        window.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('bgMusic');
-            const slider = document.getElementById('volumeControl');
-            if (audio && slider) {
-                audio.volume = slider.value;
-            }
-        });
-
-        function changeVolume(val) {
-            const audio = document.getElementById('bgMusic');
-            if (audio) {
-                audio.volume = val;
-            }
-        }
-
-        /* Banner schließen */
-        function closeToBanner() {
-            playClickSound();
-            document.getElementById('toBanner').style.display = 'none';
-        }
-
-        /* FE Zeit ändern */
-        function editToTime() {
-            if (!isFeLoggedIn) {
-                alert("Du musst als Führungsebene eingeloggt sein!");
-                return;
-            }
-            const newTitle = prompt("Titel der Ankündigung angeben (z.B. Nächstes Tryout / Einheitsbesprechung):", document.getElementById('toTitleText').innerText);
-            if (newTitle !== null && newTitle.trim() !== "") {
-                document.getElementById('toTitleText').innerText = newTitle;
-            }
-
-            const newTime = prompt("Neues Datum & Uhrzeit angeben (z.B. Samstag, 18:00 Uhr):", document.getElementById('toTimeText').innerText);
-            if (newTime !== null && newTime.trim() !== "") {
-                document.getElementById('toTimeText').innerText = newTime;
-                alert("Ereigniszeit erfolgreich aktualisiert!");
-            }
-        }
-
-        function playClickSound() {
-            try {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
-                
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-                
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.05);
-            } catch (e) {}
-        }
-
-        function playActionSound() {
-            try {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.12);
-                
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
-                
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.12);
-            } catch (e) {}
-        }
-
-        function toggleBackgroundMusic() {
-            const audio = document.getElementById('bgMusic');
-            const btn = document.getElementById('musicBtn');
-
-            if (!isMusicPlaying) {
-                audio.play().then(() => {
-                    isMusicPlaying = true;
-                    btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-                    btn.style.color = 'var(--primary-orange)';
-                    btn.style.boxShadow = '0 0 10px var(--orange-glow)';
-                    btn.style.borderColor = 'var(--primary-orange)';
-                }).catch(err => {
-                    console.log("Musik konnte nicht abgespielt werden:", err);
-                    alert("Konnte vode_an.mp3 nicht abspielen. Stelle sicher, dass die Datei im selben Ordner liegt!");
-                });
-            } else {
-                audio.pause();
-                isMusicPlaying = false;
-                btn.innerHTML = '<i class="fa-solid fa-music"></i>';
-                btn.style.color = 'var(--text-muted)';
-                btn.style.boxShadow = 'none';
-                btn.style.borderColor = 'var(--card-border)';
-            }
-        }
-
-        document.addEventListener('click', function startOnFirstClick() {
-            if (!isMusicPlaying) {
-                toggleBackgroundMusic();
-            }
-            document.removeEventListener('click', startOnFirstClick);
-        }, { once: true });
-
-        function switchTab(tabId, btn) {
-            playClickSound();
+        // Tab Steuerung
+        function switchTab(tabId, element) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(button => button.classList.remove('active'));
+            const navBtns = document.querySelectorAll('nav button');
+            navBtns.forEach(btn => btn.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
-            btn.classList.add('active');
+            element.classList.add('active');
         }
 
-        function toggleAccordion(button) {
-            playClickSound();
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('i');
+        // Banner schließen
+        function closeToBanner() {
+            document.getElementById('toBanner').style.display = 'none';
+        }
 
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                icon.className = "fa-solid fa-chevron-down";
+        // Banner bearbeiten
+        function editToTime() {
+            const newTime = prompt("Neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
+            if (newTime) {
+                document.getElementById('toTimeText').innerText = newTime;
+            }
+        }
+
+        // Audio-Steuerung
+        const audio = document.getElementById('bgMusic');
+        function toggleBackgroundMusic() {
+            if (audio.paused) {
+                audio.play();
             } else {
-                content.style.display = "block";
-                icon.className = "fa-solid fa-chevron-up";
+                audio.pause();
             }
         }
 
-        function toggleFeLogin() {
-            playClickSound();
-            if (!isFeLoggedIn) {
-                const inputPassword = prompt("Bitte gebe das Führungsebenen-Passwort ein:");
-                if (inputPassword === FE_PASSWORD) {
-                    isFeLoggedIn = true;
-                    document.getElementById('feBlacklistFormContainer').style.display = 'block';
-                    document.getElementById('feEditToBtn').style.display = 'inline-block';
-                    document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-unlock"></i> FE Ausloggen';
-                    alert("Erfolgreich als Führungsebene angemeldet.");
-                } else if (inputPassword !== null) {
-                    alert("Falsches Passwort!");
-                }
-            } else {
-                isFeLoggedIn = false;
-                document.getElementById('feBlacklistFormContainer').style.display = 'none';
-                document.getElementById('feEditToBtn').style.display = 'none';
-                document.getElementById('feLoginBtn').innerHTML = '<i class="fa-solid fa-key"></i> FE Login';
-                alert("Erfolgreich ausgeloggt.");
-            }
-        }
-
-        async function sendToDiscord(event) {
-            event.preventDefault();
-            playActionSound();
-
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Wird gesendet...";
-
-            const name = document.getElementById('name').value;
-            const untereinheit = document.getElementById('untereinheit').value;
-            const von = document.getElementById('von').value;
-            const bis = document.getElementById('bis').value;
-            const grund = document.getElementById('grund').value || "Kein Grund angegeben";
-
-            const payload = {
-                embeds: [{
-                    title: "📋 Neue Einheits-Abmeldung",
-                    color: 16737792,
-                    fields: [
-                        { name: "👤 Name & Rang", value: name, inline: true },
-                        { name: "🛡️ Untereinheit", value: untereinheit, inline: true },
-                        { name: "📅 Zeitraum", value: `Von: **${von}**\nBis: **${bis}**`, inline: false },
-                        { name: "📝 Grund", value: grund, inline: false }
-                    ],
-                    footer: { text: "212th Portal System" },
-                    timestamp: new Date()
-                }]
-            };
-
-            try {
-                if (DISCORD_WEBHOOK_URL === "DEIN_DISCORD_WEBHOOK_URL_HIER") {
-                    alert("Fehler: Bitte hinterlege zuerst eine gültige Discord Webhook URL im JavaScript Code!");
-                } else {
-                    const response = await fetch(DISCORD_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.ok) {
-                        alert("Abmeldung erfolgreich übermittelt!");
-                        document.getElementById('abmeldungForm').reset();
-                    } else {
-                        alert("Fehler beim Senden an Discord. Prüfe deine Webhook-URL.");
-                    }
-                }
-            } catch (error) {
-                console.error("Fehler:", error);
-                alert("Fehler beim Verarbeiten der Anfrage.");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Abmeldung an Discord senden';
-            }
-        }
-
-        async function sendBlacklistToDiscord(event) {
-            event.preventDefault();
-            playActionSound();
-
-            const submitBtn = document.getElementById('blSubmitBtn');
-            submitBtn.disabled = true;
-
-            const blName = document.getElementById('blName').value;
-            const blDauer = document.getElementById('blDauer').value;
-            const blFE = document.getElementById('blFE').value;
-            const blGrund = document.getElementById('blGrund').value;
-
-            const payload = {
-                embeds: [{
-                    title: "⛔ Neuer Blacklist-Eintrag",
-                    color: 16724787,
-                    fields: [
-                        { name: "👤 Name / ID", value: blName, inline: true },
-                        { name: "⏳ Dauer", value: blDauer, inline: true },
-                        { name: "🛡️ Eingetragen von", value: blFE, inline: true },
-                        { name: "📝 Grund", value: blGrund, inline: false }
-                    ],
-                    footer: { text: "212th Portal System - Blacklist" },
-                    timestamp: new Date()
-                }]
-            };
-
-            try {
-                if (DISCORD_WEBHOOK_URL === "DEIN_DISCORD_WEBHOOK_URL_HIER") {
-                    alert("Fehler: Bitte hinterlege zuerst eine gültige Discord Webhook URL im JavaScript Code!");
-                } else {
-                    const response = await fetch(DISCORD_WEBHOOK_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.ok) {
-                        alert("Blacklist-Eintrag erfolgreich an Discord gesendet!");
-                        
-                        const tbody = document.querySelector('#blacklistTable tbody');
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td><strong style="color: var(--danger-red);">${blName}</strong></td>
-                            <td>${blDauer}</td>
-                            <td>${blGrund}</td>
-                            <td>${blFE}</td>
-                        `;
-                        tbody.appendChild(row);
-
-                        document.getElementById('blacklistForm').reset();
-                    } else {
-                        alert("Fehler beim Senden an Discord. Prüfe deine Webhook-URL.");
-                    }
-                }
-            } catch (error) {
-                console.error("Fehler:", error);
-                alert("Fehler beim Verarbeiten der Anfrage.");
-            } finally {
-                submitBtn.disabled = false;
-            }
+        function changeVolume(val) {
+            audio.volume = val;
         }
     </script>
 </body>
