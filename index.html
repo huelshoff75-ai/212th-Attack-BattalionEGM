@@ -260,7 +260,7 @@
         /* Grid Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 1.5rem;
         }
@@ -281,6 +281,26 @@
         .card-icon { color: var(--primary-orange); font-size: 1.6rem; margin-bottom: 1rem; }
         .card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
         .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+        .equipment-list {
+            margin-top: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .equipment-list li {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .equipment-list li i {
+            color: var(--primary-orange);
+            font-size: 0.8rem;
+        }
 
         /* Forms & Inputs */
         .form-group { margin-bottom: 1.2rem; }
@@ -319,6 +339,16 @@
             font-weight: 700;
         }
 
+        .tag-danger {
+            background-color: rgba(255, 51, 51, 0.1);
+            color: var(--danger-red);
+            border: 1px solid rgba(255, 51, 51, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
         .btn-submit {
             background-color: var(--primary-orange);
             color: white;
@@ -333,6 +363,17 @@
         }
 
         .btn-submit:hover { background-color: var(--orange-hover); }
+
+        .btn-danger {
+            background-color: var(--danger-red);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
 
         footer {
             margin-top: 4rem;
@@ -365,10 +406,11 @@
 
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
+            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
             <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-globe"></i> Sektoren</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
-            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
             <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Blacklist</button>
             <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regeln</button>
         </nav>
 
@@ -401,7 +443,7 @@
             <div class="hero-card">
                 <span class="badge"><i class="fa-solid fa-signal"></i> KARRIERE- & EINHEITSPORTAL</span>
                 <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
-                <p>Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. Verwalte hier deine Abmeldungen, prüfe den Status der Truppen und erhalte alle wichtigen Informationen.</p>
+                <p>Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. Verwalte hier deine Abmeldungen, prüfe den Status der Spezialabteilungen und erhalte alle wichtigen Informationen.</p>
                 <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
             </div>
 
@@ -409,17 +451,52 @@
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-plane-arrival"></i></div>
                     <h3>2nd Airborne Company</h3>
-                    <p>Luftlandeeinheit für schnelle Verlegung hinter feindliche Linien mittels Jetpacks.</p>
+                    <p>Spezialisierte Luftlandeeinheit für vertikale Umfassung und schnelle Verlegungen.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3>Ghost Company (GHC)</h3>
-                    <p>Schwere Infanterie für direkte Frontangriffe und städtische Offensive.</p>
+                    <p>Schwere Infanterie & Aufklärung für direkte Frontangriffe und unwegsames Gelände.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: SEKTOREN -->
+        <!-- TAB 2: UNTEREINHEITEN -->
+        <div id="untereinheiten" class="tab-content">
+            <div class="section-title">
+                <h2>Spezialeinheiten & Ausrüstung</h2>
+                <p>Die zwei Speerspitzen des 212th Angriffsbataillons</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
+                    <h3>2nd Airborne Company</h3>
+                    <p>Die Luftlandeeinheit ist darauf trainiert, tief hinter feindlichen Linien abzuspringen und strategische Punkte einzunehmen.</p>
+                    <hr style="border-color: var(--card-border); margin: 12px 0;">
+                    <strong style="font-size: 0.85rem; color: var(--primary-orange); text-transform: uppercase;">Spezialausrüstung:</strong>
+                    <ul class="equipment-list">
+                        <li><i class="fa-solid fa-shield"></i> Airborne-Rüstung (Erweiterter Hitzeschutz)</li>
+                        <li><i class="fa-solid fa-rocket"></i> JT-12 Jetpack</li>
+                        <li><i class="fa-solid fa-burst"></i> Impact-Granaten</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3>Ghost Company</h3>
+                    <p>Spezialisierte Front- und Aufklärungseinheit. Sie agiert als Speerspitze bei der Zerstörung feindlicher Panzerungen und Festungen.</p>
+                    <hr style="border-color: var(--card-border); margin: 12px 0;">
+                    <strong style="font-size: 0.85rem; color: var(--primary-orange); text-transform: uppercase;">Spezialausrüstung:</strong>
+                    <ul class="equipment-list">
+                        <li><i class="fa-solid fa-mask"></i> ARF-Rüstung (Advanced Recon Force)</li>
+                        <li><i class="fa-solid fa-rocket"></i> RPS-6 Raketenwerfer</li>
+                        <li><i class="fa-solid fa-explosion"></i> Anti-Fahrzeug-Minen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: SEKTOREN -->
         <div id="planeten" class="tab-content">
             <div class="section-title">
                 <h2>Galaktische Strategie-Karte</h2>
@@ -437,11 +514,11 @@
             </div>
         </div>
 
-        <!-- TAB 3: MITGLIEDER -->
+        <!-- TAB 4: MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsmitglieder</h2>
-                <p>Aktuelle Fühungsebene und Soldaten.</p>
+                <p>Aktuelle Führungsebene und Soldaten.</p>
             </div>
             <div class="table-wrapper">
                 <table>
@@ -465,20 +542,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-
-        <!-- TAB 4: UNTEREINHEITEN -->
-        <div id="untereinheiten" class="tab-content">
-            <div class="section-title">
-                <h2>Spezialeinheiten</h2>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-person-military-rifle"></i></div>
-                    <h3>Parjai Squad</h3>
-                    <p>Elite-Infiltrationstruppe der Airborne Division.</p>
-                </div>
             </div>
         </div>
 
@@ -507,7 +570,57 @@
             </div>
         </div>
 
-        <!-- TAB 6: REGELN -->
+        <!-- TAB 6: BLACKLIST (NEU) -->
+        <div id="blacklist" class="tab-content">
+            <div class="section-title">
+                <h2>Einheits-Blacklist</h2>
+                <p>Übersicht über gesperrte Personen und Rekrutierungsverbote.</p>
+            </div>
+
+            <div class="card" style="max-width: 600px; margin: 0 auto 2rem auto;">
+                <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-slash"></i> Person Hinzufügen</h3>
+                <form id="blacklistForm" onsubmit="addBlacklistEntry(event)">
+                    <div class="form-group">
+                        <label>Name / ID</label>
+                        <input type="text" id="blName" class="form-control" placeholder="z.B. CT-9999 Troll" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Grund</label>
+                        <input type="text" id="blReason" class="form-control" placeholder="z.B. Fehlverhalten, Server-Laufzeit-Bann" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Eingetragen von</label>
+                        <input type="text" id="blBy" class="form-control" placeholder="z.B. CPT Cody" required>
+                    </div>
+                    <button type="submit" class="btn-submit" style="background-color: var(--danger-red);"><i class="fa-solid fa-ban"></i> Auf Blacklist Setzen</button>
+                </form>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name / ID</th>
+                            <th>Grund</th>
+                            <th>Eingetragen von</th>
+                            <th>Status</th>
+                            <th>Aktion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="blacklistTableBody">
+                        <tr>
+                            <td>CT-0000 Disruptor</td>
+                            <td>Ressourcen-Verschwendung & Befehlsverweigerung</td>
+                            <td>CMD Cody</td>
+                            <td><span class="tag-danger">Dauerhaft</span></td>
+                            <td><button class="btn-danger" onclick="removeBlacklistEntry(this)"><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 7: REGELN -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
                 <h2>Einheitsregelwerk</h2>
@@ -553,7 +666,7 @@
         const bgMusic = document.getElementById('bgMusic');
         function toggleBackgroundMusic() {
             if (bgMusic.paused) {
-                bgMusic.play().catch(() => alert("Bitte Interaktion auf der Seite durchführen, um Audio abzuspielen."));
+                bgMusic.play().catch(() => alert("Bitte zuerst einmal auf die Seite klicken, damit Audio abgespielt werden darf."));
                 document.getElementById('musicBtn').style.color = 'var(--primary-orange)';
             } else {
                 bgMusic.pause();
@@ -569,6 +682,35 @@
             e.preventDefault();
             alert("Deine Abmeldung wurde erfolgreich übermittelt!");
             document.getElementById('abmeldeForm').reset();
+        }
+
+        /* Blacklist Logik */
+        function addBlacklistEntry(e) {
+            e.preventDefault();
+            const name = document.getElementById('blName').value;
+            const reason = document.getElementById('blReason').value;
+            const by = document.getElementById('blBy').value;
+
+            const tbody = document.getElementById('blacklistTableBody');
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
+                <td>${name}</td>
+                <td>${reason}</td>
+                <td>${by}</td>
+                <td><span class="tag-danger">Aktiv</span></td>
+                <td><button class="btn-danger" onclick="removeBlacklistEntry(this)"><i class="fa-solid fa-trash"></i></button></td>
+            `;
+
+            tbody.appendChild(tr);
+            document.getElementById('blacklistForm').reset();
+        }
+
+        function removeBlacklistEntry(btn) {
+            if(confirm("Möchtest du diesen Eintrag wirklich von der Blacklist entfernen?")) {
+                const row = btn.closest('tr');
+                row.remove();
+            }
         }
     </script>
 </body>
