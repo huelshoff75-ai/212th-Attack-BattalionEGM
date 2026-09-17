@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -251,11 +250,11 @@
         }
 
         .tab-content {
-            display: none !important;
+            display: none;
         }
 
         .tab-content.active {
-            display: block !important;
+            display: block;
             animation: fadeIn 0.25s ease-out;
         }
 
@@ -464,84 +463,6 @@
             font-size: 0.8rem;
         }
 
-        /* Accordion Style für Regeln */
-        .accordion-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-
-        .accordion-header {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 16px 20px;
-            color: var(--text-main);
-            font-size: 1rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .accordion-header:hover {
-            background-color: rgba(255, 102, 0, 0.08);
-            color: var(--primary-orange);
-        }
-
-        .accordion-content {
-            display: none;
-            padding: 15px 20px;
-            border-top: 1px solid var(--card-border);
-            background-color: rgba(0, 0, 0, 0.25);
-            font-size: 0.92rem;
-            line-height: 1.7;
-            color: #d0d0d5;
-        }
-
-        /* Formulare */
-        .form-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            font-size: 0.88rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 10px 14px;
-            background-color: #0b0b0d;
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            color: white;
-            font-size: 0.95rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-orange);
-            box-shadow: 0 0 8px var(--orange-glow);
-        }
-
         .btn-submit {
             background-color: var(--primary-orange);
             color: white;
@@ -596,12 +517,6 @@
             <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-globe"></i> Sektoren</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
             <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
-            <button class="nav-btn" onclick="switchTab('partner', this)"><i class="fa-solid fa-handshake"></i> Partner</button>
-            <button class="nav-btn" onclick="switchTab('guides', this)"><i class="fa-solid fa-graduation-cap"></i> Guides</button>
-            <button class="nav-btn" onclick="switchTab('orden', this)"><i class="fa-solid fa-award"></i> Auszeichnungen</button>
-            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regeln</button>
-            <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-xmark"></i> Abmeldung</button>
-            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Blacklist</button>
         </nav>
 
         <div class="header-controls">
@@ -679,64 +594,6 @@
                     <h3>Coruscant</h3>
                     <p><strong>Sektor:</strong> Kernwelten | <strong>Klima:</strong> Stadtplanet</p>
                     <p style="margin-top: 8px;">Hauptsitz des Senats und des Jedi-Tempels. Höchste Sicherheitsstufe der Republik.</p>
-                    <div class="tag-list">
-                        <span class="tag-sub">Hauptquartier</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
-                    <div class="card-icon"><i class="fa-solid fa-water"></i></div>
-                    <h3>Kamino</h3>
-                    <p><strong>Sektor:</strong> Wild Raum | <strong>Klima:</strong> Ozean</p>
-                    <p style="margin-top: 8px;">Klonanlagen von Tipoca-Stadt. Strategischer Schlüsselort für den Truppennachschub.</p>
-                    <div class="tag-list">
-                        <span class="tag-sub">Klon-Produktion</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
-                    <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-                    <h3>Utapau</h3>
-                    <p><strong>Sektor:</strong> Äußerer Rand | <strong>Klima:</strong> Dolinen / Felsig</p>
-                    <p style="margin-top: 8px;">Erfolgreich von der 212th gesichert. Hauptbasis der lokalen Operationsgruppe.</p>
-                    <div class="tag-list">
-                        <span class="tag">212th Hauptbasis</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-color: var(--warning-yellow);">
-                    <span class="status-badge status-contested"><i class="fa-solid fa-triangle-exclamation"></i> Umkämpft</span>
-                    <div class="card-icon" style="color: var(--warning-yellow);"><i class="fa-solid fa-tree"></i></div>
-                    <h3>Felucia</h3>
-                    <p><strong>Sektor:</strong> Äußerer Rand | <strong>Klima:</strong> Pilzdschungel</p>
-                    <p style="margin-top: 8px;">Heftige Gefechte mit Droidenstreitkräften im Dschungelgebiet. Hoher Bedarf an Luftlande-Einheiten!</p>
-                    <div class="tag-list">
-                        <span class="tag" style="background-color: rgba(255, 204, 0, 0.1); color: var(--warning-yellow); border-color: rgba(255, 204, 0, 0.3);">Ziel: Airborne Drop</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-color: var(--danger-red);">
-                    <span class="status-badge status-enemy"><i class="fa-solid fa-crosshairs"></i> Einzunehmen (KUS)</span>
-                    <div class="card-icon" style="color: var(--danger-red);"><i class="fa-solid fa-skull-crossbones"></i></div>
-                    <h3>Geonosis</h3>
-                    <p><strong>Sektor:</strong> Äußerer Rand | <strong>Klima:</strong> Wüste / Canyons</p>
-                    <p style="margin-top: 8px;">Hauptproduktionsstätte für Droidenfabriken der KUS. Großoffensive in Vorbereitung.</p>
-                    <div class="tag-list">
-                        <span class="tag" style="background-color: rgba(255, 51, 51, 0.1); color: var(--danger-red); border-color: rgba(255, 51, 51, 0.3);">Priorität Alpha</span>
-                    </div>
-                </div>
-
-                <div class="card" style="border-color: var(--danger-red);">
-                    <span class="status-badge status-enemy"><i class="fa-solid fa-crosshairs"></i> Einzunehmen (KUS)</span>
-                    <div class="card-icon" style="color: var(--danger-red);"><i class="fa-solid fa-moon"></i></div>
-                    <h3>Umbara</h3>
-                    <p><strong>Sektor:</strong> Geisternebel | <strong>Klima:</strong> Ewige Dunkelheit</p>
-                    <p style="margin-top: 8px;">Feindliche Milizen und KUS-Truppen befestigen Stellungen. Taktische Infiltration durch Ghost Company nötig.</p>
-                    <div class="tag-list">
-                        <span class="tag" style="background-color: rgba(255, 51, 51, 0.1); color: var(--danger-red); border-color: rgba(255, 51, 51, 0.3);">Ziel: Ghost Company</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -755,7 +612,7 @@
                             <th>Rang</th>
                             <th>Name</th>
                             <th>Abteilung</th>
-                            <th>Position / Zusatz / Adjutant</th>
+                            <th>Position / Zusatz</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -764,72 +621,6 @@
                             <td>Cody | Nymphix</td>
                             <td><span class="tag">Ghost Company</span></td>
                             <td>Einheitsleitung</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Major</strong></td>
-                            <td>Thunder | Comet</td>
-                            <td><span class="tag-sub">Hohe FE</span></td>
-                            <td><span class="tag-sub">Adjutant: CTP</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Captain</strong></td>
-                            <td>Ref</td>
-                            <td><span class="tag">Ghost Company</span></td>
-                            <td>Hohe Führungsebene | <span class="tag-sub">Adjutant: RMC</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Captain</strong></td>
-                            <td>Whiteaxe | Derbi</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>Hohe Führungsebene</td>
-                        </tr>
-                        <tr>
-                            <td><strong>First Lieutenant</strong></td>
-                            <td>Vuiq</td>
-                            <td><span class="tag">Ghost Company</span></td>
-                            <td>Führungsebene | Recon Squad</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lieutenant</strong></td>
-                            <td>Demon</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lieutenant</strong></td>
-                            <td>Able | Raphi</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>Führungsebene | Testzeit bis 27. 8.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sergeant</strong></td>
-                            <td>Tentef</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>Parjai Squad | <span class="tag-sub">Adjutant: RMC</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sergeant</strong></td>
-                            <td>Slick</td>
-                            <td><span class="tag">2nd Airborne Company</span></td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sergeant</strong></td>
-                            <td>Peel | Ender</td>
-                            <td><span class="tag">Ghost Company</span></td>
-                            <td>JT-12 Jetpack, Paratrooper, Formationen</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hoher General</strong></td>
-                            <td>Obi-Wan Kenobi | Glow</td>
-                            <td><span class="tag-sub">Einheitsjedi</span></td>
-                            <td>Führungsebene</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Captain (Jedi)</strong></td>
-                            <td>Nexar Tyne</td>
-                            <td><span class="tag-sub">Einheitsjedi</span></td>
-                            <td>Führungsebene</td>
                         </tr>
                     </tbody>
                 </table>
@@ -840,253 +631,64 @@
         <div id="untereinheiten" class="tab-content">
             <div class="section-title">
                 <h2>Untereinheiten der 212th</h2>
-                <p>Übersicht der Spezialeinheiten und Squads innerhalb des Bataillons.</p>
+                <p>Übersicht der Spezialisierungen und Einheiten.</p>
             </div>
-
             <div class="grid">
-                <div class="card" style="border-top: 4px solid var(--primary-orange);">
-                    <div class="card-icon"><i class="fa-solid fa-ghost"></i></div>
-                    <h3>Ghost Company (GHC)</h3>
-                    <p>Die primäre Fronteinheit für schwere Infanteriegefechte, Infiltration und taktische Verteidigung unter direkter Führung des Commanders.</p>
-                </div>
-
-                <div class="card" style="border-top: 4px solid var(--holo-blue);">
-                    <div class="card-icon"><i class="fa-solid fa-plane-deployment"></i></div>
-                    <h3>2nd Airborne Company</h3>
-                    <p>Spezialisierte Fallschirm- und Jetpack-Truppen für Überraschungsangriffe aus der Luft und schnelle Verlegungen an kritische Frontabschnitte.</p>
-                </div>
-
-                <div class="card" style="border-top: 4px solid var(--warning-yellow);">
-                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-person-military-rifle"></i></div>
                     <h3>Parjai Squad</h3>
-                    <p>Elitäres Squad innerhalb der Airborne Company, spezialisiert auf riskante Spezialoperationen und Präzisionsschläge.</p>
+                    <p>Spezialisierter Trupp der 2nd Airborne Company für präzise Infiltrationen.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- TAB 5: PARTNER -->
-        <div id="partner" class="tab-content">
-            <div class="section-title">
-                <h2>Partnereinheiten</h2>
-                <p>Verbündete Einheiten innerhalb der EGM-Community.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    <h3>Republic Medical Corps (RMC)</h3>
-                    <p>Medizinische Unterstützung an der Front. Unsere zugewiesenen Adjutanten sorgen für die Notfallversorgung verwundeter Klone.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
-                    <h3>Clone Transport Pilots (CTP)</h3>
-                    <p>Verantwortlich für den Lufttransport via LAAT/i und die Bereitstellung von Luftunterstützung in Gefechtszonen.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 6: GUIDES -->
-        <div id="guides" class="tab-content">
-            <div class="section-title">
-                <h2>Ausbildungs-Guides & Leitfäden</h2>
-                <p>Wichtige Dokumente für Anwärter und Bataillonsmitglieder.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
-                    <h3>Rekrutierungs-Guide</h3>
-                    <p>Grundlegendes Wissen zu Formationen, Funksprüchen und Verhaltensregeln im 212th Angriffsbataillon.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <h3>Jetpack & Airborne Schulung</h3>
-                    <p>Sicherheitsregeln und Flugtaktiken für Mitglieder der 2nd Airborne Company.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 7: ORDEN -->
-        <div id="orden" class="tab-content">
-            <div class="section-title">
-                <h2>Auszeichnungen & Orden</h2>
-                <p>Verliehene Ehrenzeichen für herausragende Verdienste im Einsatz.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="font-size: 2.5rem; color: var(--warning-yellow);"><i class="fa-solid fa-medal"></i></div>
-                    <h3>Kreuz der Republik</h3>
-                    <p>Höchste Auszeichnung für außergewöhnlichen Mut unter direktem Feindbeschuss.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="font-size: 2.5rem; color: var(--holo-blue);"><i class="fa-solid fa-award"></i></div>
-                    <h3>Airborne Badge</h3>
-                    <p>Wird an Soldaten nach erfolgreicher Absolvierung von 50 Kampfabsprüngen verliehen.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 8: REGELN -->
-        <div id="regeln" class="tab-content">
-            <div class="section-title">
-                <h2>Verhaltens- & Einheitsregeln</h2>
-                <p>Die Kodizes des 212th Angriffsbataillons.</p>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§1 Disziplin & Befehlskette</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    Befehle von höherrangigen Offizieren sind unverzüglich auszuführen. Respektvoller Umgang innerhalb und außerhalb der Einheit ist Pflicht.
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>§2 Aktivität & Abmeldungen</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    Jedes Mitglied hat sich aktiv am Einheitsleben zu beteiligen. Längere Inaktivitäten müssen vorab im Abmelde-Formular eingetragen werden.
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 9: ABMELDUNG -->
-        <div id="abmeldung" class="tab-content">
-            <div class="section-title">
-                <h2>Abmelde-Formular</h2>
-                <p>Reiche hier deine Abmeldung ein, falls du an Pflichtterminen oder Einsätzen nicht teilnehmen kannst.</p>
-            </div>
-
-            <div class="form-container">
-                <form id="abmeldungForm" onsubmit="submitAbmeldung(event)">
-                    <div class="form-group">
-                        <label for="abName">Ingame Name & Rang</label>
-                        <input type="text" id="abName" placeholder="z. B. CPT Ref" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="abDateFrom">Abgemeldet von</label>
-                        <input type="date" id="abDateFrom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="abDateTo">Abgemeldet bis</label>
-                        <input type="date" id="abDateTo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="abReason">Grund</label>
-                        <textarea id="abReason" rows="4" placeholder="Kurze Begründung für die Abmeldung..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung Absenden</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- TAB 10: BLACKLIST -->
-        <div id="blacklist" class="tab-content">
-            <div class="section-title">
-                <h2>Einheits-Blacklist</h2>
-                <p>Personen auf dieser Liste sind für das 212th Angriffsbataillon gesperrt.</p>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name / ID</th>
-                            <th>Grund</th>
-                            <th>Eingetragen von</th>
-                            <th>Dauer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CT 00-0000 "Unbekannt"</td>
-                            <td>Schwerer Fehltritt &amp; Befehlsverweigerung</td>
-                            <td>Führungsebene</td>
-                            <td><span class="tag" style="background: rgba(255,51,51,0.2); color: var(--danger-red);">Permanent</span></td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 212th Angriffsbataillon | EGM Community. Alle Rechte vorbehalten.</p>
+        &copy; 212th Angriffsbataillon - EGM Community
     </footer>
 
+    <!-- JS Skripte für Interaktivität -->
     <script>
-        // Tab-Steuerung
-        function switchTab(tabId, btnElement) {
+        // Tab Umschaltung
+        function switchTab(tabId, btn) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
             const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
-            btnElement.classList.add('active');
+            btn.classList.add('active');
         }
 
-        // Accordion-Steuerung
-        function toggleAccordion(headerElement) {
-            const content = headerElement.nextElementSibling;
-            const icon = headerElement.querySelector('i');
-            
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                icon.className = "fa-solid fa-chevron-down";
-            } else {
-                content.style.display = "block";
-                icon.className = "fa-solid fa-chevron-up";
-            }
-        }
-
-        // Banner ausblenden
+        // Banner schliessen
         function closeToBanner() {
             document.getElementById('toBanner').style.display = 'none';
         }
 
-        // Tryout-Zeitpunkt bearbeiten
+        // Zeit ändern
         function editToTime() {
-            const newTime = prompt("Neuen Zeitpunkt für das Tryout eingeben:", "Samstag, 18:00 Uhr");
+            const newTime = prompt("Bitte neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
             if (newTime) {
                 document.getElementById('toTimeText').innerText = newTime;
             }
         }
 
-        // Audio-Steuerung
-        const audio = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-
+        // Audio Steuerung
+        const bgMusic = document.getElementById('bgMusic');
         function toggleBackgroundMusic() {
-            if (audio.paused) {
-                audio.play();
-                musicBtn.style.color = "var(--primary-orange)";
-                musicBtn.style.boxShadow = "0 0 10px var(--orange-glow)";
+            if (bgMusic.paused) {
+                bgMusic.play();
+                document.getElementById('musicBtn').style.color = 'var(--primary-orange)';
             } else {
-                audio.pause();
-                musicBtn.style.color = "var(--text-muted)";
-                musicBtn.style.boxShadow = "none";
+                bgMusic.pause();
+                document.getElementById('musicBtn').style.color = 'var(--text-muted)';
             }
         }
 
-        function changeVolume(val) {
-            audio.volume = val;
-        }
-
-        // Abmeldung senden
-        function submitAbmeldung(event) {
-            event.preventDefault();
-            const name = document.getElementById('abName').value;
-            alert(`Abmeldung für ${name} wurde erfolgreich übermittelt!`);
-            document.getElementById('abmeldungForm').reset();
+        function changeVolume(value) {
+            bgMusic.volume = value;
         }
     </script>
 </body>
