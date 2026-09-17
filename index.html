@@ -134,7 +134,6 @@
             border-color: var(--primary-orange);
         }
 
-        /* Header Audio Controls */
         .header-controls {
             display: flex;
             align-items: center;
@@ -185,10 +184,9 @@
             background: var(--primary-orange);
             cursor: pointer;
             box-shadow: 0 0 8px var(--orange-glow);
-            transition: transform 0.1s;
         }
 
-        /* TO Announcement Box */
+        /* Banner & Container */
         .to-banner {
             background: linear-gradient(90deg, rgba(255, 102, 0, 0.15) 0%, rgba(18, 18, 22, 0.95) 100%);
             border: 1px solid var(--primary-orange);
@@ -201,46 +199,11 @@
             box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
         }
 
-        .to-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .to-info { display: flex; align-items: center; gap: 15px; }
+        .to-icon { font-size: 2rem; color: var(--primary-orange); }
+        .to-details h3 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; text-transform: uppercase; }
+        .to-details p { color: var(--text-muted); font-size: 0.9rem; }
 
-        .to-icon {
-            font-size: 2rem;
-            color: var(--primary-orange);
-        }
-
-        .to-details h3 {
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-
-        .to-details p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .to-close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: all 0.2s;
-        }
-
-        .to-close-btn:hover {
-            color: var(--danger-red);
-            background: rgba(255, 51, 51, 0.1);
-        }
-
-        /* Container & Tabs */
         .container {
             max-width: 1150px;
             margin: 2rem auto;
@@ -249,10 +212,7 @@
             flex: 1;
         }
 
-        .tab-content {
-            display: none;
-        }
-
+        .tab-content { display: none; }
         .tab-content.active {
             display: block;
             animation: fadeIn 0.25s ease-out;
@@ -263,14 +223,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Banner */
+        /* Hero & Section Styles */
         .hero-card {
             position: relative;
             background: linear-gradient(180deg, rgba(9, 9, 11, 0.3) 0%, rgba(9, 9, 11, 0.95) 100%), 
                         url('https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1638290230283-Q48D2M83H9HQ319RJL37/hot-toys-star-wars-212th-attack-battalion-clone-trooper.jpg') center 20%/cover no-repeat;
             border: 1px solid var(--primary-orange);
             border-radius: 12px;
-            padding: 5rem 2.5rem 3rem 2.5rem;
+            padding: 4rem 2.5rem 3rem 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 102, 0, 0.15);
         }
@@ -289,41 +249,13 @@
             margin-bottom: 1.2rem;
         }
 
-        .hero-card h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
+        .hero-card h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .hero-card h1 span { color: var(--primary-orange); }
+        .hero-card p { color: #d0d0d8; font-size: 1rem; line-height: 1.6; max-width: 750px; margin-bottom: 2rem; }
 
-        .hero-card h1 span {
-            color: var(--primary-orange);
-        }
-
-        .hero-card p {
-            color: #d0d0d8;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            max-width: 750px;
-            margin-bottom: 2rem;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            margin: 2rem 0 1.5rem 0;
-        }
-
-        .section-title h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .section-title { text-align: center; margin: 2rem 0 1.5rem 0; }
+        .section-title h2 { font-size: 1.8rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .section-title p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* Grid Cards */
         .grid {
@@ -346,96 +278,26 @@
             transform: translateY(-3px);
         }
 
-        .card-icon {
-            color: var(--primary-orange);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
+        .card-icon { color: var(--primary-orange); font-size: 1.6rem; margin-bottom: 1rem; }
+        .card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        .card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Badges & Tags */
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .status-controlled { background-color: rgba(0, 255, 102, 0.1); color: var(--success-green); border: 1px solid rgba(0, 255, 102, 0.3); }
-        .status-contested { background-color: rgba(255, 204, 0, 0.1); color: var(--warning-yellow); border: 1px solid rgba(255, 204, 0, 0.3); }
-        .status-enemy { background-color: rgba(255, 51, 51, 0.1); color: var(--danger-red); border: 1px solid rgba(255, 51, 51, 0.3); }
-
-        .progress-bar-container {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .progress-title {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-        }
-
-        .progress-bar-bg {
+        /* Forms & Inputs */
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
+        .form-control {
             width: 100%;
-            height: 18px;
+            padding: 12px;
             background: #09090b;
-            border-radius: 9px;
-            overflow: hidden;
             border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
         }
+        .form-control:focus { border-color: var(--primary-orange); }
 
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-orange), var(--holo-blue));
-        }
-
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .tag {
-            background-color: rgba(255, 102, 0, 0.1);
-            color: var(--primary-orange);
-            border: 1px solid rgba(255, 102, 0, 0.3);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.78rem;
-            font-weight: 700;
-        }
-
-        .tag-sub {
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
-            border: 1px solid var(--card-border);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-        }
-
-        /* Tabellen */
+        /* Table */
         .table-wrapper {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -443,24 +305,18 @@
             overflow-x: auto;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.92rem;
-        }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; }
+        th, td { padding: 14px 18px; border-bottom: 1px solid var(--card-border); }
+        th { background-color: rgba(255, 102, 0, 0.05); color: var(--primary-orange); text-transform: uppercase; font-size: 0.8rem; }
 
-        th, td {
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        th {
-            background-color: rgba(255, 102, 0, 0.05);
+        .tag {
+            background-color: rgba(255, 102, 0, 0.1);
             color: var(--primary-orange);
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.78rem;
             font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.8rem;
         }
 
         .btn-submit {
@@ -476,9 +332,7 @@
             text-transform: uppercase;
         }
 
-        .btn-submit:hover {
-            background-color: var(--orange-hover);
-        }
+        .btn-submit:hover { background-color: var(--orange-hover); }
 
         footer {
             margin-top: 4rem;
@@ -493,19 +347,16 @@
 </head>
 <body>
 
-    <!-- Lokale Audio-Datei -->
     <audio id="bgMusic" loop preload="auto">
         <source src="vode_an.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Live Ticker Banner -->
     <div class="holo-ticker">
         <div class="holo-ticker-content">
             ⚡ EGM 212th STATUS: BATTALION READY FOR DEPLOYMENT /// AKTUELLER SEKTOR-EINSATZ: FELUCIA SEKTOR /// NÄCHSTE EINHEITSBESPRECHUNG: SONNTAG 18:00 UHR ⚡
         </div>
     </div>
 
-    <!-- Navigation Header -->
     <header>
         <div class="brand">
             <img src="https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294" alt="212th Logo" class="brand-logo-img">
@@ -517,6 +368,8 @@
             <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-globe"></i> Sektoren</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
             <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
+            <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
+            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regeln</button>
         </nav>
 
         <div class="header-controls">
@@ -535,24 +388,21 @@
                 <div class="to-info">
                     <div class="to-icon"><i class="fa-solid fa-bullhorn"></i></div>
                     <div class="to-details">
-                        <h3><span id="toTitleText">Nächstes Tryout / Auswahlverfahren</span></h3>
-                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Haupt-Ankerplatz / Rekrutierungsraum</p>
+                        <h3>Nächstes Tryout / Auswahlverfahren</h3>
+                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Haupt-Ankerplatz</p>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <button id="feEditToBtn" onclick="editToTime()" style="background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
-                    <button class="to-close-btn" onclick="closeToBanner()" title="Ankündigung schließen"><i class="fa-solid fa-xmark"></i></button>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="editToTime()" style="background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
+                    <button onclick="closeToBanner()" style="background:none; border:none; color:var(--text-muted); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
 
             <div class="hero-card">
                 <span class="badge"><i class="fa-solid fa-signal"></i> KARRIERE- & EINHEITSPORTAL</span>
                 <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
-                <p>
-                    Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. 
-                    Verwalte hier deine Abmeldungen, prüfe die galaktische Lage und informiere dich über unsere Partnereinheiten.
-                </p>
-                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none; text-align: center;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
+                <p>Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. Verwalte hier deine Abmeldungen, prüfe den Status der Truppen und erhalte alle wichtigen Informationen.</p>
+                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
             </div>
 
             <div class="grid">
@@ -561,39 +411,28 @@
                     <h3>2nd Airborne Company</h3>
                     <p>Luftlandeeinheit für schnelle Verlegung hinter feindliche Linien mittels Jetpacks.</p>
                 </div>
-
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3>Ghost Company (GHC)</h3>
-                    <p>Schwere Infanterie für direkte Frontangriffe und städtische Offensive. Ausgerüstet mit ARF-Rüstung, RPS-6 Raketenwerfern &amp; Minen.</p>
+                    <p>Schwere Infanterie für direkte Frontangriffe und städtische Offensive.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: SEKTOREN & PLANETEN -->
+        <!-- TAB 2: SEKTOREN -->
         <div id="planeten" class="tab-content">
             <div class="section-title">
                 <h2>Galaktische Strategie-Karte</h2>
-                <p>Status der Planeten der Galaktischen Republik und bevorstehende Offensive-Ziele.</p>
+                <p>Status der Planeten der Galaktischen Republik.</p>
             </div>
-
-            <div class="progress-bar-container">
-                <div class="progress-title">
-                    <span><i class="fa-solid fa-chart-line"></i> Kontrolle der Galaxis durch die Republik</span>
-                    <span style="color: var(--primary-orange);">60% Gesichert</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" style="width: 60%;"></div>
-                </div>
-            </div>
-
             <div class="grid">
                 <div class="card">
-                    <span class="status-badge status-controlled"><i class="fa-solid fa-check"></i> Kontrolliert</span>
-                    <div class="card-icon"><i class="fa-solid fa-city"></i></div>
                     <h3>Coruscant</h3>
-                    <p><strong>Sektor:</strong> Kernwelten | <strong>Klima:</strong> Stadtplanet</p>
-                    <p style="margin-top: 8px;">Hauptsitz des Senats und des Jedi-Tempels. Höchste Sicherheitsstufe der Republik.</p>
+                    <p><strong>Sektor:</strong> Kernwelten | <strong>Status:</strong> Gesichert</p>
+                </div>
+                <div class="card">
+                    <h3>Felucia</h3>
+                    <p><strong>Sektor:</strong> Äußerer Rand | <strong>Status:</strong> Umkämpft</p>
                 </div>
             </div>
         </div>
@@ -601,10 +440,9 @@
         <!-- TAB 3: MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
-                <h2>Einheitsmitglieder & Führungsebene</h2>
-                <p>Aktuelle Mitgliederübersicht des 212th Angriffsbataillons.</p>
+                <h2>Einheitsmitglieder</h2>
+                <p>Aktuelle Fühungsebene und Soldaten.</p>
             </div>
-
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -612,7 +450,6 @@
                             <th>Rang</th>
                             <th>Name</th>
                             <th>Abteilung</th>
-                            <th>Position / Zusatz</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -620,7 +457,11 @@
                             <td><strong>Commander</strong></td>
                             <td>Cody | Nymphix</td>
                             <td><span class="tag">Ghost Company</span></td>
-                            <td>Einheitsleitung</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Major</strong></td>
+                            <td>Waxer</td>
+                            <td><span class="tag">2nd Airborne</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -630,14 +471,56 @@
         <!-- TAB 4: UNTEREINHEITEN -->
         <div id="untereinheiten" class="tab-content">
             <div class="section-title">
-                <h2>Untereinheiten der 212th</h2>
-                <p>Übersicht der Spezialisierungen und Einheiten.</p>
+                <h2>Spezialeinheiten</h2>
             </div>
             <div class="grid">
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-person-military-rifle"></i></div>
                     <h3>Parjai Squad</h3>
-                    <p>Spezialisierter Trupp der 2nd Airborne Company für präzise Infiltrationen.</p>
+                    <p>Elite-Infiltrationstruppe der Airborne Division.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: ABMELDUNG -->
+        <div id="abmeldung" class="tab-content">
+            <div class="section-title">
+                <h2>Abmelde-Formular</h2>
+                <p>Trage hier deine Abwesenheit ein, um Punkteabzug zu vermeiden.</p>
+            </div>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <form id="abmeldeForm" onsubmit="submitAbmeldung(event)">
+                    <div class="form-group">
+                        <label>Ingame Name &amp; Rang</label>
+                        <input type="text" class="form-control" placeholder="z.B. SGT 1234 Cody" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Abgemeldet von - bis</label>
+                        <input type="text" class="form-control" placeholder="z.B. 12.10. - 18.10." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Grund (Optional)</label>
+                        <textarea class="form-control" rows="3" placeholder="Privat / Schule / Arbeit"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung Absenden</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB 6: REGELN -->
+        <div id="regeln" class="tab-content">
+            <div class="section-title">
+                <h2>Einheitsregelwerk</h2>
+                <p>Verhaltensregeln und Pflichten innerhalb der 212th.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>§1 Disziplin &amp; Befehlskette</h3>
+                    <p>Den Anweisungen von ranghöheren Einheitsmitgliedern ist Folge zu leisten. Respektvoller Umgang im Funk ist Pflicht.</p>
+                </div>
+                <div class="card">
+                    <h3>§2 Aktivität &amp; Abmeldung</h3>
+                    <p>Jedes Mitglied muss aktiv am Einheitsleben teilnehmen. Bei längerer Inaktivität ist unaufgefordert eine Abmeldung einzureichen.</p>
                 </div>
             </div>
         </div>
@@ -648,38 +531,29 @@
         &copy; 212th Angriffsbataillon - EGM Community
     </footer>
 
-    <!-- JS Skripte für Interaktivität -->
     <script>
-        // Tab Umschaltung
         function switchTab(tabId, btn) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(button => button.classList.remove('active'));
-
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             btn.classList.add('active');
         }
 
-        // Banner schliessen
         function closeToBanner() {
             document.getElementById('toBanner').style.display = 'none';
         }
 
-        // Zeit ändern
         function editToTime() {
-            const newTime = prompt("Bitte neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
+            const newTime = prompt("Neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
             if (newTime) {
                 document.getElementById('toTimeText').innerText = newTime;
             }
         }
 
-        // Audio Steuerung
         const bgMusic = document.getElementById('bgMusic');
         function toggleBackgroundMusic() {
             if (bgMusic.paused) {
-                bgMusic.play();
+                bgMusic.play().catch(() => alert("Bitte Interaktion auf der Seite durchführen, um Audio abzuspielen."));
                 document.getElementById('musicBtn').style.color = 'var(--primary-orange)';
             } else {
                 bgMusic.pause();
@@ -687,8 +561,14 @@
             }
         }
 
-        function changeVolume(value) {
-            bgMusic.volume = value;
+        function changeVolume(val) {
+            bgMusic.volume = val;
+        }
+
+        function submitAbmeldung(e) {
+            e.preventDefault();
+            alert("Deine Abmeldung wurde erfolgreich übermittelt!");
+            document.getElementById('abmeldeForm').reset();
         }
     </script>
 </body>
