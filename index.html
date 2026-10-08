@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTF Epsilon-11 "Nine-Tailed Fox" | SCP Foundation</title>
+    <title>MTF Epsilon-11 "Nine-Tailed Fox" | SCP Foundation Terminal</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,13 +12,14 @@
             --blue-hover: #0066cc;
             --blue-glow: rgba(0, 136, 255, 0.4);
             --bg-dark: #080a0f;
-            --card-bg: #0f141d;
-            --card-border: #1e293b;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --danger-red: #ef4444;
-            --warning-yellow: #f59e0b;
-            --success-green: #10b981;
+            --card-bg: #0f131d;
+            --card-border: #1e2638;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --danger-red: #ff3333;
+            --red-glow: rgba(255, 51, 51, 0.4);
+            --warning-amber: #ffaa00;
+            --success-green: #00ff66;
         }
 
         * {
@@ -36,7 +37,7 @@
             flex-direction: column;
             background-image: 
                 radial-gradient(circle at 15% 15%, rgba(0, 136, 255, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(239, 68, 68, 0.03) 0%, transparent 40%);
+                radial-gradient(circle at 85% 85%, rgba(255, 51, 51, 0.03) 0%, transparent 40%);
         }
 
         /* Top Announcement Ticker */
@@ -65,7 +66,7 @@
 
         /* Navigation Header */
         header {
-            background-color: rgba(15, 20, 29, 0.9);
+            background-color: rgba(15, 19, 29, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
@@ -86,15 +87,6 @@
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .brand-logo-img {
-            width: 38px;
-            height: 38px;
-            border-radius: 6px;
-            object-fit: cover;
-            border: 1px solid var(--primary-blue);
-            box-shadow: 0 0 10px var(--blue-glow);
         }
 
         nav {
@@ -169,7 +161,7 @@
             width: 80px;
             height: 4px;
             border-radius: 2px;
-            background: #1e293b;
+            background: #1e2638;
             outline: none;
             cursor: pointer;
         }
@@ -187,7 +179,7 @@
 
         /* Banner & Container */
         .to-banner {
-            background: linear-gradient(90deg, rgba(0, 136, 255, 0.15) 0%, rgba(15, 20, 29, 0.95) 100%);
+            background: linear-gradient(90deg, rgba(0, 136, 255, 0.15) 0%, rgba(15, 19, 29, 0.95) 100%);
             border: 1px solid var(--primary-blue);
             border-radius: 10px;
             padding: 1.2rem;
@@ -225,8 +217,8 @@
         /* Hero & Section Styles */
         .hero-card {
             position: relative;
-            background: linear-gradient(180deg, rgba(8, 10, 15, 0.4) 0%, rgba(8, 10, 15, 0.95) 100%), 
-                        url('https://static.wikia.nocookie.net/scp-wiki/images/6/6f/Nine_Tailed_Fox.jpg/revision/latest?cb=20200806161427') center 20%/cover no-repeat;
+            background: linear-gradient(180deg, rgba(8, 10, 15, 0.7) 0%, rgba(8, 10, 15, 0.98) 100%), 
+                        url('https://static.wikia.nocookie.net/scp-wiki-de/images/e/ec/SCP_Foundation_Logo.png/revision/latest?cb=20180905183307') center center/contain no-repeat;
             border: 1px solid var(--primary-blue);
             border-radius: 12px;
             padding: 4rem 2.5rem 3rem 2.5rem;
@@ -339,9 +331,9 @@
         }
 
         .tag-danger {
-            background-color: rgba(239, 68, 68, 0.1);
+            background-color: rgba(255, 51, 51, 0.1);
             color: var(--danger-red);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(255, 51, 51, 0.3);
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.78rem;
@@ -388,33 +380,33 @@
 <body>
 
     <audio id="bgMusic" loop preload="auto">
-        <source src="scp_theme.mp3" type="audio/mpeg">
+        <source src="https://ia801503.us.archive.org/15/items/SCPFoundationTheme/SCPFoundationTheme.mp3" type="audio/mpeg">
     </audio>
 
     <div class="holo-ticker">
         <div class="holo-ticker-content">
-            ⚠️ SCP FOUNDATION ALERT /// MTF EPSILON-11 "NINE-TAILED FOX" STATUS: ACTIVE /// CURRENT LOCATION: SITE-19 CONTAINER BREACH /// NEXT SQUAD BRIEFING: SATURDAY 18:00 UTC ⚠️
+            ⚠️ MTF EPSILON-11 STATUS: ALERTTUFE ALPHA /// AKTUELLER SEKTOR-EINSATZ: SITE-19 CONTAINMENT BREACH /// NÄCHSTE EINHEITSBESPRECHUNG: SONNTAG 18:00 UHR ⚠️
         </div>
     </div>
 
     <header>
         <div class="brand">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/SCP_Foundation_logo.svg" alt="SCP Logo" class="brand-logo-img">
-            MTF Epsilon-11
+            <i class="fa-solid fa-shield-cat" style="color: var(--primary-blue); font-size: 1.5rem;"></i>
+            MTF Epsilon-11 "NTF"
         </div>
 
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
             <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Spezialisierungen</button>
-            <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-shield-cat"></i> Containment Sites</button>
+            <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-building-shield"></i> Sites & Einrichtungen</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Personal</button>
             <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
-            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Terminations / Blacklist</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Terminations & Bans</button>
             <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Protokolle</button>
         </nav>
 
         <div class="header-controls">
-            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Musik Ein/Aus" id="musicBtn">
+            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Ambience Ein/Aus" id="musicBtn">
                 <i class="fa-solid fa-music"></i>
             </button>
             <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)">
@@ -427,10 +419,10 @@
         <div id="startseite" class="tab-content active">
             <div id="toBanner" class="to-banner">
                 <div class="to-info">
-                    <div class="to-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="to-icon"><i class="fa-solid fa-bullhorn"></i></div>
                     <div class="to-details">
-                        <h3>Nächstes Rekrutierungs- / Auswahlverfahren</h3>
-                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Briefing Room Alpha (Site-19)</p>
+                        <h3>Nächstes E-11 Rekrutierungstraining / Tryout</h3>
+                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Site-19 Briefingraum 03</p>
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -440,106 +432,104 @@
             </div>
 
             <div class="hero-card">
-                <span class="badge"><i class="fa-solid fa-shield-halved"></i> MOBILE TASK FORCE E-11 PORTAL</span>
-                <h1>Sichern, Verwahren, <span>Beschützen.</span></h1>
-                <p>Willkommen im Einsatzportal der Mobile Task Force Epsilon-11 ("Nine-Tailed Fox"). Diese Spezialeinheit wird eingesetzt, um schwere Containment Breaches zu bereinigen und entkommene SCP-Objekte zu re-containen.</p>
-                <a href="https://discord.gg" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Command Discord</a>
+                <span class="badge"><i class="fa-solid fa-radiation"></i> SECURE. CONTAIN. PROTECT.</span>
+                <h1>Mobile Task Force <span>Epsilon-11 "Nine-Tailed Fox"</span></h1>
+                <p>Willkommen auf dem Befehlsportal der Mobile Task Force Epsilon-11. Unsere Einheit wird bei extremen Containment Breaches und Bedrohungen durch gefährliche SCP-Objekte eingesetzt, um die Eindämmung wiederherzustellen und Überlebende zu sichern.</p>
+                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Command Discord</a>
             </div>
 
             <div class="grid">
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                    <h3>Re-Containment Unit</h3>
-                    <p>Spezialisiert auf die Sicherung von Euclid- und Keter-Klasse SCPs unter extremen Bedingungen.</p>
+                    <div class="card-title"><h3>Re-Containment Force</h3></div>
+                    <p>Spezialisierte Einheiten zur Wiederherstellung der Sicherheitskontrolle von Keter- und Euclid-Klasse SCPs.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-skull-crossbones"></i></div>
-                    <h3>Breach Response Team</h3>
-                    <p>Ersthelfer bei katastrophalen Eindämmungsfehlern und direkten Angriffen auf Foundation-Einrichtungen.</p>
+                    <div class="card-icon"><i class="fa-solid fa-biohazard"></i></div>
+                    <div class="card-title"><h3>Hazardous Environment Unit</h3></div>
+                    <p>Einsatzkräfte ausgerüstet für extrem verstrahlte, biochemische oder anomale Umweltbedingungen.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: SPEZIALISIERUNGEN -->
+        <!-- TAB 2: UNTEREINHEITEN / SPEZIALISIERUNGEN -->
         <div id="untereinheiten" class="tab-content">
             <div class="section-title">
-                <h2>Spezialabteilungen & Ausrüstung</h2>
-                <p>Taktische Ausrüstung der Mobile Task Force Epsilon-11</p>
+                <h2>Spezialeinheiten & Tactical Gear</h2>
+                <p>Die operativen Abteilungen von Epsilon-11 "Nine-Tailed Fox"</p>
             </div>
             <div class="grid">
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-gun"></i></div>
-                    <h3>Assault & Breach Operator</h3>
-                    <p>Taktische Speerspitze für Nahkampf in engen Korridoren und Säuberung von Sektoren.</p>
+                    <h3>Assault & Breach Division</h3>
+                    <p>Eingreiftruppe für schwer bewaffnete Bedrohungen, feindliche GOIs (Groups of Interest) und unkooperative Class-D Aufstände.</p>
                     <hr style="border-color: var(--card-border); margin: 12px 0;">
-                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Ausrüstung:</strong>
+                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Standard-Ausrüstung:</strong>
                     <ul class="equipment-list">
-                        <li><i class="fa-solid fa-shield"></i> Heavy Tactical Ballistic Armor</li>
-                        <li><i class="fa-solid fa-crosshairs"></i> HK P90 / P90 Tactical Submachine Gun</li>
-                        <li><i class="fa-solid fa-flash"></i> Flashbangs & EMP Grenades</li>
+                        <li><i class="fa-solid fa-shield"></i> Schwerer Tac-Armor & Ballistisches Schild</li>
+                        <li><i class="fa-solid fa-burst"></i> FN P90 / HK 416 Modifizierter Karabiner</li>
+                        <li><i class="fa-solid fa-explosion"></i> Blendgranaten & Thermal-Detonatoren</li>
                     </ul>
                 </div>
 
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-biohazard"></i></div>
-                    <h3>Hazmat & Containment Specialist</h3>
-                    <p>Experten für biohazarde, chemische und memetische Gefahren im E-11 Einsatzbereich.</p>
+                    <div class="card-icon"><i class="fa-solid fa-mask-ventilator"></i></div>
+                    <h3>CBRN & Containment Squad</h3>
+                    <p>Expertenteam zur Identifikation, Isolierung und Re-Containment von biologischen, chemischen und memetischen Anomalien.</p>
                     <hr style="border-color: var(--card-border); margin: 12px 0;">
-                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Ausrüstung:</strong>
+                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Spezialausrüstung:</strong>
                     <ul class="equipment-list">
-                        <li><i class="fa-solid fa-mask-ventilator"></i> CBRN Level-A Schutzanzug</li>
-                        <li><i class="fa-solid fa-syringe"></i> Class-A Amnestika Injectors</li>
-                        <li><i class="fa-solid fa-box-archive"></i> Portable Scranton-Realitätsanker</li>
+                        <li><i class="fa-solid fa-person-military-to-person"></i> Hazmat Haz-Suit Level 4 (Atmungsschutz)</li>
+                        <li><i class="fa-solid fa-box-archive"></i> Tragbare S-SCR Containment-Zellen</li>
+                        <li><i class="fa-solid fa-syringe"></i> Amnestika Typ-A/B & Sedative Injectors</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 3: CONTAINMENT SITES -->
+        <!-- TAB 3: SITES & EINRICHTUNGEN -->
         <div id="planeten" class="tab-content">
             <div class="section-title">
-                <h2>Aktivitätszonen & Facilities</h2>
-                <p>Aktuelle Einsatzorte der Foundation-Einrichtungen.</p>
+                <h2>Operative Foundation Einrichtungen</h2>
+                <p>Überwachungs- und Einsatzsektoren der MTF Epsilon-11.</p>
             </div>
             <div class="grid">
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-building-shield"></i></div>
                     <h3>Site-19</h3>
-                    <p><strong>Sektor:</strong> Hauptkomplex | <strong>Status:</strong> Severe Breach Alarm</p>
+                    <p><strong>Sektor:</strong> Sektor-4 (Unterirdisch) | <strong>Status:</strong> <span style="color: var(--danger-red);">Containment Breach</span></p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
-                    <h3>Area-02</h3>
-                    <p><strong>Sektor:</strong> Unterirdisch | <strong>Status:</strong> Gesichert</p>
+                    <h3>Site-02</h3>
+                    <p><strong>Sektor:</strong> Nord-Zone | <strong>Status:</strong> <span style="color: var(--warning-amber);">Erhöhte Alarmbereitschaft</span></p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 4: PERSONAL -->
+        <!-- TAB 4: PERSONAL / MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
-                <h2>E-11 Squad Manifest</h2>
-                <p>Aktuelles Führungspersonal und Einsatzkräfte.</p>
+                <h2>Operatives Personal</h2>
+                <p>Offiziere und MTF Agenten der Epsilon-11 Einheit.</p>
             </div>
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
-                            <th>Rang</th>
-                            <th>Codename / ID</th>
-                            <th>Abteilung</th>
+                            <th>Position / Rang</th>
+                            <th>Codename</th>
+                            <th>Spezialisierung</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Commander</strong></td>
-                            <td>NTF Commander "Fox-1"</td>
-                            <td><span class="tag">Breach Command</span></td>
+                            <td><strong>Breach Command</strong></td>
+                            <td>E-11-231 Gold</td>
+                            <td><span class="tag">Tactical Command</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Lieutenant</strong></td>
-                            <td>NTF "Nine-Tailed-2"</td>
-                            <td><span class="tag">Containment Lead</span></td>
+                            <td><strong>Containment Lead</strong></td>
+                            <td>E-11-231 Hit</td>
+                            <td><span class="tag">Re-Containment Lead</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -549,49 +539,49 @@
         <!-- TAB 5: ABMELDUNG -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
-                <h2>Abmelde-Formular</h2>
-                <p>Reiche deine Abwesenheit ein, um deinen Aktivitätsstatus zu wahren.</p>
+                <h2>Abmelde-Protokoll</h2>
+                <p>Reiche deine Dienstbefreiung ein, um Inaktivitäts-Disziplinarmaßnahmen zu vermeiden.</p>
             </div>
             <div class="card" style="max-width: 600px; margin: 0 auto;">
                 <form id="abmeldeForm" onsubmit="submitAbmeldung(event)">
                     <div class="form-group">
-                        <label>Codename & ID</label>
-                        <input type="text" class="form-control" placeholder="z.B. N7-4022 Commander Alpha" required>
+                        <label>Agent Name & Operative ID</label>
+                        <input type="text" class="form-control" placeholder="z.B. E-11-231 Gold" required>
                     </div>
                     <div class="form-group">
-                        <label>Abgemeldet von - bis</label>
+                        <label>Dienstbefreiung von - bis</label>
                         <input type="text" class="form-control" placeholder="z.B. 12.10. - 18.10." required>
                     </div>
                     <div class="form-group">
-                        <label>Grund (Optional)</label>
-                        <textarea class="form-control" rows="3" placeholder="Privat / Dienstausfall"></textarea>
+                        <label>Grund (Freiwillige Angabe / O5-Gesperrt)</label>
+                        <textarea class="form-control" rows="3" placeholder="Urlaub / Medizinisch / Reallife"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung Absenden</button>
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Protokoll Absenden</button>
                 </form>
             </div>
         </div>
 
-        <!-- TAB 6: BLACKLIST -->
+        <!-- TAB 6: BLACKLIST / TERMINATIONS -->
         <div id="blacklist" class="tab-content">
             <div class="section-title">
                 <h2>Terminations & Blacklist</h2>
-                <p>Übersicht über gesperrte Personen, Klasse-D Subjekte und Terminations.</p>
+                <p>Register über suspendiertes Personal, Spione und Subjekte mit Rekrutierungsverbot.</p>
             </div>
 
             <div class="card" style="max-width: 600px; margin: 0 auto 2rem auto;">
-                <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-slash"></i> Person Hinzufügen</h3>
+                <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-slash"></i> Eintrag Hinzufügen</h3>
                 <form id="blacklistForm" onsubmit="addBlacklistEntry(event)">
                     <div class="form-group">
-                        <label>Name / ID / Subject-ID</label>
-                        <input type="text" id="blName" class="form-control" placeholder="z.B. D-9382 oder Rogue Agent" required>
+                        <label>Agent / Subjekt / ID</label>
+                        <input type="text" id="blName" class="form-control" placeholder="z.B. Agent Rogue-9" required>
                     </div>
                     <div class="form-group">
-                        <label>Grund</label>
-                        <input type="text" id="blReason" class="form-control" placeholder="z.B. Treuebruch, Keter Containment Sabotage" required>
+                        <label>Verstoß / Grund</label>
+                        <input type="text" id="blReason" class="form-control" placeholder="z.B. Verrat an die Chaos Insurgency, Beihilfe zum Breach" required>
                     </div>
                     <div class="form-group">
-                        <label>Eingetragen von</label>
-                        <input type="text" id="blBy" class="form-control" placeholder="z.B. E-11 Commander" required>
+                        <label>Autorisiert von</label>
+                        <input type="text" id="blBy" class="form-control" placeholder="z.B. E-11-231 Gold" required>
                     </div>
                     <button type="submit" class="btn-submit" style="background-color: var(--danger-red);"><i class="fa-solid fa-ban"></i> Auf Blacklist Setzen</button>
                 </form>
@@ -610,10 +600,10 @@
                     </thead>
                     <tbody id="blacklistTableBody">
                         <tr>
-                            <td>D-8821 Renegade</td>
-                            <td>Sabotage an SCP-096 Cell Gate</td>
-                            <td>NTF Commander</td>
-                            <td><span class="tag-danger">Terminated / K.I.A</span></td>
+                            <td>Subject D-9999</td>
+                            <td>Sabotage der Schweren Eindämmungszone</td>
+                            <td>E-11-231 Gold</td>
+                            <td><span class="tag-danger">Terminiert</span></td>
                             <td><button class="btn-danger" onclick="removeBlacklistEntry(this)"><i class="fa-solid fa-trash"></i></button></td>
                         </tr>
                     </tbody>
@@ -621,22 +611,20 @@
             </div>
         </div>
 
-        <!-- TAB 7: REGELN -->
+        <!-- TAB 7: PROTOKOLLE / REGELN -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
-                <h2>E-11 Einsatzprotokolle</h2>
-                <p>Verhaltensregeln und Sicherheitsdirektiven der SCP Foundation.</p>
+                <h2>Einsatzprotokolle & Direktiven</h2>
+                <p>Standard-Verhaltensregeln der Mobile Task Force Epsilon-11.</p>
             </div>
             <div class="grid">
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-shield-cat"></i></div>
-                    <h3>§1 Befehlskette & Re-Containment Priority</h3>
-                    <p>Den Anweisungen der E-11 Führungsriege ist uneingeschränkt Folge zu leisten. Die Wiederherstellung der Eindämmung hat oberste Priorität vor Menschenleben.</p>
+                    <h3>§1 Befehlskette & Funkdisziplin</h3>
+                    <p>Den Anweisungen von Breach Command (E-11-231 Gold) und Containment Lead (E-11-231 Hit) ist strikt Folge zu leisten. Während eines Containment Breaches gilt absolute Funkdisziplin auf Kanal Alpha.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user-lock"></i></div>
-                    <h3>§2 Geheimhaltung & Klassifizierung</h3>
-                    <p>Informationen über SCP-Objekte dürfen keinesfalls an nicht autorisiertes Personal oder D-Klassen weitergegeben werden. Verstöße führen zur umgehenden Termination.</p>
+                    <h3>§2 Umgang mit D-Klassen & Chaos Insurgency</h3>
+                    <p>Class-D Personal ist während eines Breaches mit Höchstvorsicht zu behandeln. Bei aktivem Widerstand oder versuchter Entweichung gilt sofortiges Schießgebot. Feindliche GOIs sind ohne Vorwarnung zu neutralisieren.</p>
                 </div>
             </div>
         </div>
@@ -644,7 +632,7 @@
     </div>
 
     <footer>
-        &copy; Mobile Task Force Epsilon-11 "Nine-Tailed Fox" - SCP Foundation Security Database
+        &copy; Mobile Task Force Epsilon-11 "Nine-Tailed Fox" - SCP Foundation Secure Terminal
     </footer>
 
     <script>
@@ -660,7 +648,7 @@
         }
 
         function editToTime() {
-            const newTime = prompt("Neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
+            const newTime = prompt("Neuen Zeitpunkt für Tryout eingeben:", "Samstag, 18:00 Uhr");
             if (newTime) {
                 document.getElementById('toTimeText').innerText = newTime;
             }
@@ -683,7 +671,7 @@
 
         function submitAbmeldung(e) {
             e.preventDefault();
-            alert("Deine Abmeldung wurde erfolgreich im Foundation-System registriert!");
+            alert("Deine Abmeldung wurde erfolgreich im Foundation-Terminal registriert!");
             document.getElementById('abmeldeForm').reset();
         }
 
@@ -710,7 +698,7 @@
         }
 
         function removeBlacklistEntry(btn) {
-            if(confirm("Möchtest du diesen Eintrag wirklich von der Blacklist entfernen?")) {
+            if(confirm("Möchtest du diesen Eintrag wirklich aus dem Register entfernen?")) {
                 const row = btn.closest('tr');
                 row.remove();
             }
