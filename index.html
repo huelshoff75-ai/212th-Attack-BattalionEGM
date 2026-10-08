@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>212th Angriffsbataillon | EGM Community</title>
+    <title>MTF Epsilon-11 "Nine-Tailed Fox" | SCP Foundation Terminal</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-orange: #ff6600;
-            --orange-hover: #e65c00;
-            --orange-glow: rgba(255, 102, 0, 0.4);
-            --bg-dark: #09090b;
-            --card-bg: #121216;
-            --card-border: #23232a;
-            --text-main: #f0f0f5;
-            --text-muted: #8a8a93;
+            --primary-blue: #0088ff;
+            --blue-hover: #0066cc;
+            --blue-glow: rgba(0, 136, 255, 0.4);
+            --bg-dark: #080a0f;
+            --card-bg: #0f131d;
+            --card-border: #1e2638;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
             --danger-red: #ff3333;
-            --holo-blue: #00d2ff;
+            --red-glow: rgba(255, 51, 51, 0.4);
+            --warning-amber: #ffaa00;
             --success-green: #00ff66;
-            --warning-yellow: #ffcc00;
         }
 
         * {
@@ -36,15 +36,15 @@
             display: flex;
             flex-direction: column;
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(255, 102, 0, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(0, 210, 255, 0.03) 0%, transparent 40%);
+                radial-gradient(circle at 15% 15%, rgba(0, 136, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(255, 51, 51, 0.03) 0%, transparent 40%);
         }
 
         /* Top Announcement Ticker */
         .holo-ticker {
-            background: rgba(255, 102, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 102, 0, 0.3);
-            color: var(--primary-orange);
+            background: rgba(0, 136, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 136, 255, 0.3);
+            color: var(--primary-blue);
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1px;
@@ -66,7 +66,7 @@
 
         /* Navigation Header */
         header {
-            background-color: rgba(18, 18, 22, 0.9);
+            background-color: rgba(15, 19, 29, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
@@ -92,10 +92,10 @@
         .brand-logo-img {
             width: 38px;
             height: 38px;
-            border-radius: 6px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 1px solid var(--primary-orange);
-            box-shadow: 0 0 10px var(--orange-glow);
+            border: 1px solid var(--primary-blue);
+            box-shadow: 0 0 10px var(--blue-glow);
         }
 
         nav {
@@ -129,9 +129,9 @@
 
         nav button.active {
             color: var(--text-main);
-            background-color: var(--primary-orange);
-            box-shadow: 0 0 12px var(--orange-glow);
-            border-color: var(--primary-orange);
+            background-color: var(--primary-blue);
+            box-shadow: 0 0 12px var(--blue-glow);
+            border-color: var(--primary-blue);
         }
 
         .header-controls {
@@ -159,9 +159,9 @@
         }
 
         .sound-toggle:hover {
-            background: rgba(255, 102, 0, 0.2);
-            box-shadow: 0 0 10px var(--orange-glow);
-            color: var(--primary-orange);
+            background: rgba(0, 136, 255, 0.2);
+            box-shadow: 0 0 10px var(--blue-glow);
+            color: var(--primary-blue);
         }
 
         .volume-slider {
@@ -170,7 +170,7 @@
             width: 80px;
             height: 4px;
             border-radius: 2px;
-            background: #2a2a35;
+            background: #1e2638;
             outline: none;
             cursor: pointer;
         }
@@ -181,26 +181,26 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--primary-orange);
+            background: var(--primary-blue);
             cursor: pointer;
-            box-shadow: 0 0 8px var(--orange-glow);
+            box-shadow: 0 0 8px var(--blue-glow);
         }
 
         /* Banner & Container */
         .to-banner {
-            background: linear-gradient(90deg, rgba(255, 102, 0, 0.15) 0%, rgba(18, 18, 22, 0.95) 100%);
-            border: 1px solid var(--primary-orange);
+            background: linear-gradient(90deg, rgba(0, 136, 255, 0.15) 0%, rgba(15, 19, 29, 0.95) 100%);
+            border: 1px solid var(--primary-blue);
             border-radius: 10px;
             padding: 1.2rem;
             margin-bottom: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
         }
 
         .to-info { display: flex; align-items: center; gap: 15px; }
-        .to-icon { font-size: 2rem; color: var(--primary-orange); }
+        .to-icon { font-size: 2rem; color: var(--primary-blue); }
         .to-details h3 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; text-transform: uppercase; }
         .to-details p { color: var(--text-muted); font-size: 0.9rem; }
 
@@ -226,20 +226,20 @@
         /* Hero & Section Styles */
         .hero-card {
             position: relative;
-            background: linear-gradient(180deg, rgba(9, 9, 11, 0.3) 0%, rgba(9, 9, 11, 0.95) 100%), 
-                        url('https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1638290230283-Q48D2M83H9HQ319RJL37/hot-toys-star-wars-212th-attack-battalion-clone-trooper.jpg') center 20%/cover no-repeat;
-            border: 1px solid var(--primary-orange);
+            background: linear-gradient(180deg, rgba(8, 10, 15, 0.7) 0%, rgba(8, 10, 15, 0.98) 100%), 
+                        url('https://static.wikia.nocookie.net/scp-wiki-de/images/e/ec/SCP_Foundation_Logo.png/revision/latest?cb=20180905183307') center center/contain no-repeat;
+            border: 1px solid var(--primary-blue);
             border-radius: 12px;
             padding: 4rem 2.5rem 3rem 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 102, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 136, 255, 0.15);
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background-color: var(--primary-orange);
+            background-color: var(--primary-blue);
             color: #ffffff;
             font-size: 0.75rem;
             font-weight: 800;
@@ -250,7 +250,7 @@
         }
 
         .hero-card h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
-        .hero-card h1 span { color: var(--primary-orange); }
+        .hero-card h1 span { color: var(--primary-blue); }
         .hero-card p { color: #d0d0d8; font-size: 1rem; line-height: 1.6; max-width: 750px; margin-bottom: 2rem; }
 
         .section-title { text-align: center; margin: 2rem 0 1.5rem 0; }
@@ -274,11 +274,11 @@
         }
 
         .card:hover {
-            border-color: var(--primary-orange);
+            border-color: var(--primary-blue);
             transform: translateY(-3px);
         }
 
-        .card-icon { color: var(--primary-orange); font-size: 1.6rem; margin-bottom: 1rem; }
+        .card-icon { color: var(--primary-blue); font-size: 1.6rem; margin-bottom: 1rem; }
         .card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
         .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
@@ -298,7 +298,7 @@
         }
 
         .equipment-list li i {
-            color: var(--primary-orange);
+            color: var(--primary-blue);
             font-size: 0.8rem;
         }
 
@@ -308,14 +308,14 @@
         .form-control {
             width: 100%;
             padding: 12px;
-            background: #09090b;
+            background: #080a0f;
             border: 1px solid var(--card-border);
             border-radius: 6px;
             color: var(--text-main);
             font-size: 0.95rem;
             outline: none;
         }
-        .form-control:focus { border-color: var(--primary-orange); }
+        .form-control:focus { border-color: var(--primary-blue); }
 
         /* Table */
         .table-wrapper {
@@ -327,12 +327,12 @@
 
         table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; }
         th, td { padding: 14px 18px; border-bottom: 1px solid var(--card-border); }
-        th { background-color: rgba(255, 102, 0, 0.05); color: var(--primary-orange); text-transform: uppercase; font-size: 0.8rem; }
+        th { background-color: rgba(0, 136, 255, 0.05); color: var(--primary-blue); text-transform: uppercase; font-size: 0.8rem; }
 
         .tag {
-            background-color: rgba(255, 102, 0, 0.1);
-            color: var(--primary-orange);
-            border: 1px solid rgba(255, 102, 0, 0.3);
+            background-color: rgba(0, 136, 255, 0.1);
+            color: var(--primary-blue);
+            border: 1px solid rgba(0, 136, 255, 0.3);
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.78rem;
@@ -350,7 +350,7 @@
         }
 
         .btn-submit {
-            background-color: var(--primary-orange);
+            background-color: var(--primary-blue);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -362,7 +362,7 @@
             text-transform: uppercase;
         }
 
-        .btn-submit:hover { background-color: var(--orange-hover); }
+        .btn-submit:hover { background-color: var(--blue-hover); }
 
         .btn-danger {
             background-color: var(--danger-red);
@@ -389,33 +389,33 @@
 <body>
 
     <audio id="bgMusic" loop preload="auto">
-        <source src="vode_an.mp3" type="audio/mpeg">
+        <source src="https://ia801503.us.archive.org/15/items/SCPFoundationTheme/SCPFoundationTheme.mp3" type="audio/mpeg">
     </audio>
 
     <div class="holo-ticker">
         <div class="holo-ticker-content">
-            ⚡ EGM 212th STATUS: BATTALION READY FOR DEPLOYMENT /// AKTUELLER SEKTOR-EINSATZ: FELUCIA SEKTOR /// NÄCHSTE EINHEITSBESPRECHUNG: SONNTAG 18:00 UHR ⚡
+            ⚠️ MTF EPSILON-11 STATUS: ALERTTUFE ALPHA /// AKTUELLER SEKTOR-EINSATZ: SITE-19 CONTAINMENT BREACH /// NÄCHSTE EINHEITSBESPRECHUNG: SONNTAG 18:00 UHR ⚠️
         </div>
     </div>
 
     <header>
         <div class="brand">
-            <img src="https://twilight-zone.nl/wp-content/uploads/2025/11/x_hot915101_a.jpg?x69294" alt="212th Logo" class="brand-logo-img">
-            212th Bataillon
+            <i class="fa-solid fa-shield-cat" style="color: var(--primary-blue); font-size: 1.5rem;"></i>
+            MTF Epsilon-11 "NTF"
         </div>
 
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
-            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Untereinheiten</button>
-            <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-globe"></i> Sektoren</button>
-            <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Mitglieder</button>
+            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Spezialisierungen</button>
+            <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-building-shield"></i> Sites & Einrichtungen</button>
+            <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Personal</button>
             <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
-            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Blacklist</button>
-            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Regeln</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Terminations & Bans</button>
+            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Protokolle</button>
         </nav>
 
         <div class="header-controls">
-            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Musik Ein/Aus" id="musicBtn">
+            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Ambience Ein/Aus" id="musicBtn">
                 <i class="fa-solid fa-music"></i>
             </button>
             <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)">
@@ -430,115 +430,115 @@
                 <div class="to-info">
                     <div class="to-icon"><i class="fa-solid fa-bullhorn"></i></div>
                     <div class="to-details">
-                        <h3>Nächstes Tryout / Auswahlverfahren</h3>
-                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Haupt-Ankerplatz</p>
+                        <h3>Nächstes E-11 Rekrutierungstraining / Tryout</h3>
+                        <p><i class="fa-regular fa-clock"></i> <strong>Zeitpunkt:</strong> <span id="toTimeText">Samstag, 18:00 Uhr</span> | 📍 <strong>Ort:</strong> Site-19 Briefingraum 03</p>
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button onclick="editToTime()" style="background: rgba(255,102,0,0.2); border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
+                    <button onclick="editToTime()" style="background: rgba(0,136,255,0.2); border: 1px solid var(--primary-blue); color: var(--primary-blue); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;"><i class="fa-solid fa-pen"></i> Zeit ändern</button>
                     <button onclick="closeToBanner()" style="background:none; border:none; color:var(--text-muted); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
 
             <div class="hero-card">
-                <span class="badge"><i class="fa-solid fa-signal"></i> KARRIERE- & EINHEITSPORTAL</span>
-                <h1>Wir sichern die Republik <span>an vorderster Front!</span></h1>
-                <p>Willkommen auf dem offiziellen Portal des 212th Angriffsbataillons der EGM-Community. Verwalte hier deine Abmeldungen, prüfe den Status der Spezialabteilungen und erhalte alle wichtigen Informationen.</p>
-                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Discord Server</a>
+                <span class="badge"><i class="fa-solid fa-radiation"></i> SECURE. CONTAIN. PROTECT.</span>
+                <h1>Mobile Task Force <span>Epsilon-11 "Nine-Tailed Fox"</span></h1>
+                <p>Willkommen auf dem Befehlsportal der Mobile Task Force Epsilon-11. Unsere Einheit wird bei extremen Containment Breaches und Bedrohungen durch gefährliche SCP-Objekte eingesetzt, um die Eindämmung wiederherzustellen und Überlebende zu sichern.</p>
+                <a href="https://discord.gg/A5SXqf8yw" target="_blank" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;"><i class="fa-brands fa-discord"></i> Zum Command Discord</a>
             </div>
 
             <div class="grid">
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-plane-arrival"></i></div>
-                    <h3>2nd Airborne Company</h3>
-                    <p>Spezialisierte Luftlandeeinheit für vertikale Umfassung und schnelle Verlegungen.</p>
+                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                    <div class="card-title"><h3>Re-Containment Force</h3></div>
+                    <p>Spezialisierte Einheiten zur Wiederherstellung der Sicherheitskontrolle von Keter- und Euclid-Klasse SCPs.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Ghost Company (GHC)</h3>
-                    <p>Schwere Infanterie & Aufklärung für direkte Frontangriffe und unwegsames Gelände.</p>
+                    <div class="card-icon"><i class="fa-solid fa-biohazard"></i></div>
+                    <div class="card-title"><h3>Hazardous Environment Unit</h3></div>
+                    <p>Einsatzkräfte ausgerüstet für extrem verstrahlte, biochemische oder anomale Umweltbedingungen.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: UNTEREINHEITEN -->
+        <!-- TAB 2: UNTEREINHEITEN / SPEZIALISIERUNGEN -->
         <div id="untereinheiten" class="tab-content">
             <div class="section-title">
-                <h2>Spezialeinheiten & Ausrüstung</h2>
-                <p>Die zwei Speerspitzen des 212th Angriffsbataillons</p>
+                <h2>Spezialeinheiten & Tactical Gear</h2>
+                <p>Die operativen Abteilungen von Epsilon-11 "Nine-Tailed Fox"</p>
             </div>
             <div class="grid">
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
-                    <h3>2nd Airborne Company</h3>
-                    <p>Die Luftlandeeinheit ist darauf trainiert, tief hinter feindlichen Linien abzuspringen und strategische Punkte einzunehmen.</p>
+                    <div class="card-icon"><i class="fa-solid fa-gun"></i></div>
+                    <h3>Assault & Breach Division</h3>
+                    <p>Eingreiftruppe für schwer bewaffnete Bedrohungen, feindliche GOIs (Groups of Interest) und unkooperative Class-D Aufstände.</p>
                     <hr style="border-color: var(--card-border); margin: 12px 0;">
-                    <strong style="font-size: 0.85rem; color: var(--primary-orange); text-transform: uppercase;">Spezialausrüstung:</strong>
+                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Standard-Ausrüstung:</strong>
                     <ul class="equipment-list">
-                        <li><i class="fa-solid fa-shield"></i> Airborne-Rüstung (Erweiterter Hitzeschutz)</li>
-                        <li><i class="fa-solid fa-rocket"></i> JT-12 Jetpack</li>
-                        <li><i class="fa-solid fa-burst"></i> Impact-Granaten</li>
+                        <li><i class="fa-solid fa-shield"></i> Schwerer Tac-Armor & Ballistisches Schild</li>
+                        <li><i class="fa-solid fa-burst"></i> FN P90 / HK 416 Modifizierter Karabiner</li>
+                        <li><i class="fa-solid fa-explosion"></i> Blendgranaten & Thermal-Detonatoren</li>
                     </ul>
                 </div>
 
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user-ninja"></i></div>
-                    <h3>Ghost Company</h3>
-                    <p>Spezialisierte Front- und Aufklärungseinheit. Sie agiert als Speerspitze bei der Zerstörung feindlicher Panzerungen und Festungen.</p>
+                    <div class="card-icon"><i class="fa-solid fa-mask-ventilator"></i></div>
+                    <h3>CBRN & Containment Squad</h3>
+                    <p>Expertenteam zur Identifikation, Isolierung und Re-Containment von biologischen, chemischen und memetischen Anomalien.</p>
                     <hr style="border-color: var(--card-border); margin: 12px 0;">
-                    <strong style="font-size: 0.85rem; color: var(--primary-orange); text-transform: uppercase;">Spezialausrüstung:</strong>
+                    <strong style="font-size: 0.85rem; color: var(--primary-blue); text-transform: uppercase;">Spezialausrüstung:</strong>
                     <ul class="equipment-list">
-                        <li><i class="fa-solid fa-mask"></i> ARF-Rüstung (Advanced Recon Force)</li>
-                        <li><i class="fa-solid fa-rocket"></i> RPS-6 Raketenwerfer</li>
-                        <li><i class="fa-solid fa-explosion"></i> Anti-Fahrzeug-Minen</li>
+                        <li><i class="fa-solid fa-person-military-to-person"></i> Hazmat Haz-Suit Level 4 (Atmungsschutz)</li>
+                        <li><i class="fa-solid fa-box-archive"></i> Tragbare S-SCR Containment-Zellen</li>
+                        <li><i class="fa-solid fa-syringe"></i> Amnestika Typ-A/B & Sedative Injectors</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 3: SEKTOREN -->
+        <!-- TAB 3: SITES & EINRICHTUNGEN -->
         <div id="planeten" class="tab-content">
             <div class="section-title">
-                <h2>Galaktische Strategie-Karte</h2>
-                <p>Status der Planeten der Galaktischen Republik.</p>
+                <h2>Operative Foundation Einrichtungen</h2>
+                <p>Überwachungs- und Einsatzsektoren der MTF Epsilon-11.</p>
             </div>
             <div class="grid">
                 <div class="card">
-                    <h3>Coruscant</h3>
-                    <p><strong>Sektor:</strong> Kernwelten | <strong>Status:</strong> Gesichert</p>
+                    <h3>Site-19</h3>
+                    <p><strong>Sektor:</strong> Sektor-4 (Unterirdisch) | <strong>Status:</strong> <span style="color: var(--danger-red);">Containment Breach</span></p>
                 </div>
                 <div class="card">
-                    <h3>Felucia</h3>
-                    <p><strong>Sektor:</strong> Äußerer Rand | <strong>Status:</strong> Umkämpft</p>
+                    <h3>Site-02</h3>
+                    <p><strong>Sektor:</strong> Nord-Zone | <strong>Status:</strong> <span style="color: var(--warning-amber);">Erhöhte Alarmbereitschaft</span></p>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 4: MITGLIEDER -->
+        <!-- TAB 4: PERSONAL / MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
-                <h2>Einheitsmitglieder</h2>
-                <p>Aktuelle Führungsebene und Soldaten.</p>
+                <h2>Operatives Personal</h2>
+                <p>Offiziere und MTF Agenten der Epsilon-11 Einheit.</p>
             </div>
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
                             <th>Rang</th>
-                            <th>Name</th>
-                            <th>Abteilung</th>
+                            <th>Codename</th>
+                            <th>Spezialisierung</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Commander</strong></td>
-                            <td>Cody | Nymphix</td>
-                            <td><span class="tag">Ghost Company</span></td>
+                            <td><strong>Task Force Commander</strong></td>
+                            <td>Nymphix / "Fox-1"</td>
+                            <td><span class="tag">Command & Strategy</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Major</strong></td>
-                            <td>Waxer</td>
-                            <td><span class="tag">2nd Airborne</span></td>
+                            <td><strong>Lieutenant</strong></td>
+                            <td>Waxer / "Fox-2"</td>
+                            <td><span class="tag">Breach & Assault</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -548,49 +548,49 @@
         <!-- TAB 5: ABMELDUNG -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
-                <h2>Abmelde-Formular</h2>
-                <p>Trage hier deine Abwesenheit ein, um Punkteabzug zu vermeiden.</p>
+                <h2>Abmelde-Protokoll</h2>
+                <p>Reiche deine Dienstbefreiung ein, um Inaktivitäts-Disziplinarmaßnahmen zu vermeiden.</p>
             </div>
             <div class="card" style="max-width: 600px; margin: 0 auto;">
                 <form id="abmeldeForm" onsubmit="submitAbmeldung(event)">
                     <div class="form-group">
-                        <label>Ingame Name &amp; Rang</label>
-                        <input type="text" class="form-control" placeholder="z.B. SGT 1234 Cody" required>
+                        <label>Agent Name & Operative ID</label>
+                        <input type="text" class="form-control" placeholder="z.B. E11-SGT-1234 Fox" required>
                     </div>
                     <div class="form-group">
-                        <label>Abgemeldet von - bis</label>
+                        <label>Dienstbefreiung von - bis</label>
                         <input type="text" class="form-control" placeholder="z.B. 12.10. - 18.10." required>
                     </div>
                     <div class="form-group">
-                        <label>Grund (Optional)</label>
-                        <textarea class="form-control" rows="3" placeholder="Privat / Schule / Arbeit"></textarea>
+                        <label>Grund (Freiwillige Angabe / O5-Gesperrt)</label>
+                        <textarea class="form-control" rows="3" placeholder="Urlaub / Medizinisch / Reallife"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Abmeldung Absenden</button>
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Protokoll Absenden</button>
                 </form>
             </div>
         </div>
 
-        <!-- TAB 6: BLACKLIST (NEU) -->
+        <!-- TAB 6: BLACKLIST / TERMINATIONS -->
         <div id="blacklist" class="tab-content">
             <div class="section-title">
-                <h2>Einheits-Blacklist</h2>
-                <p>Übersicht über gesperrte Personen und Rekrutierungsverbote.</p>
+                <h2>Terminations & Blacklist</h2>
+                <p>Register über suspendiertes Personal, Spione und Subjekte mit Rekrutierungsverbot.</p>
             </div>
 
             <div class="card" style="max-width: 600px; margin: 0 auto 2rem auto;">
-                <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-slash"></i> Person Hinzufügen</h3>
+                <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-slash"></i> Eintrag Hinzufügen</h3>
                 <form id="blacklistForm" onsubmit="addBlacklistEntry(event)">
                     <div class="form-group">
-                        <label>Name / ID</label>
-                        <input type="text" id="blName" class="form-control" placeholder="z.B. CT-9999 Troll" required>
+                        <label>Agent / Subjekt / ID</label>
+                        <input type="text" id="blName" class="form-control" placeholder="z.B. Agent Rogue-9" required>
                     </div>
                     <div class="form-group">
-                        <label>Grund</label>
-                        <input type="text" id="blReason" class="form-control" placeholder="z.B. Fehlverhalten, Server-Laufzeit-Bann" required>
+                        <label>Verstoß / Grund</label>
+                        <input type="text" id="blReason" class="form-control" placeholder="z.B. Verrat an die Chaos Insurgency, Beihilfe zum Breach" required>
                     </div>
                     <div class="form-group">
-                        <label>Eingetragen von</label>
-                        <input type="text" id="blBy" class="form-control" placeholder="z.B. CPT Cody" required>
+                        <label>Autorisiert von</label>
+                        <input type="text" id="blBy" class="form-control" placeholder="z.B. Commander Fox-1" required>
                     </div>
                     <button type="submit" class="btn-submit" style="background-color: var(--danger-red);"><i class="fa-solid fa-ban"></i> Auf Blacklist Setzen</button>
                 </form>
@@ -609,10 +609,10 @@
                     </thead>
                     <tbody id="blacklistTableBody">
                         <tr>
-                            <td>CT-0000 Disruptor</td>
-                            <td>Ressourcen-Verschwendung & Befehlsverweigerung</td>
-                            <td>CMD Cody</td>
-                            <td><span class="tag-danger">Dauerhaft</span></td>
+                            <td>Subject D-9999</td>
+                            <td>Sabotage der Schweren Eindämmungszone</td>
+                            <td>CMD Fox-1</td>
+                            <td><span class="tag-danger">Terminiert</span></td>
                             <td><button class="btn-danger" onclick="removeBlacklistEntry(this)"><i class="fa-solid fa-trash"></i></button></td>
                         </tr>
                     </tbody>
@@ -620,20 +620,20 @@
             </div>
         </div>
 
-        <!-- TAB 7: REGELN -->
+        <!-- TAB 7: PROTOKOLLE / REGELN -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
-                <h2>Einheitsregelwerk</h2>
-                <p>Verhaltensregeln und Pflichten innerhalb der 212th.</p>
+                <h2>Einsatzprotokolle & Direktiven</h2>
+                <p>Standard-Verhaltensregeln der Mobile Task Force Epsilon-11.</p>
             </div>
             <div class="grid">
                 <div class="card">
-                    <h3>§1 Disziplin &amp; Befehlskette</h3>
-                    <p>Den Anweisungen von ranghöheren Einheitsmitgliedern ist Folge zu leisten. Respektvoller Umgang im Funk ist Pflicht.</p>
+                    <h3>§1 Befehlskette & Funkdisziplin</h3>
+                    <p>Den Anweisungen der Task Force Commanders und Lieutenants ist strikt Folge zu leisten. Während eines Containment Breaches gilt absolute Funkdisziplin auf Kanal Alpha.</p>
                 </div>
                 <div class="card">
-                    <h3>§2 Aktivität &amp; Abmeldung</h3>
-                    <p>Jedes Mitglied muss aktiv am Einheitsleben teilnehmen. Bei längerer Inaktivität ist unaufgefordert eine Abmeldung einzureichen.</p>
+                    <h3>§2 Umgang mit D-Klassen & Chaos Insurgency</h3>
+                    <p>Class-D Personal ist während eines Breaches mit Höchstvorsicht zu behandeln. Bei aktivem Widerstand oder versuchter Entweichung gilt sofortiges Schießgebot. Feindliche GOIs sind ohne Vorwarnung zu neutralisieren.</p>
                 </div>
             </div>
         </div>
@@ -641,7 +641,7 @@
     </div>
 
     <footer>
-        &copy; 212th Angriffsbataillon - EGM Community
+        &copy; Mobile Task Force Epsilon-11 "Nine-Tailed Fox" - SCP Foundation Secure Terminal
     </footer>
 
     <script>
@@ -657,7 +657,7 @@
         }
 
         function editToTime() {
-            const newTime = prompt("Neuen Zeitpunkt eingeben:", "Samstag, 18:00 Uhr");
+            const newTime = prompt("Neuen Zeitpunkt für Tryout eingeben:", "Samstag, 18:00 Uhr");
             if (newTime) {
                 document.getElementById('toTimeText').innerText = newTime;
             }
@@ -667,7 +667,7 @@
         function toggleBackgroundMusic() {
             if (bgMusic.paused) {
                 bgMusic.play().catch(() => alert("Bitte zuerst einmal auf die Seite klicken, damit Audio abgespielt werden darf."));
-                document.getElementById('musicBtn').style.color = 'var(--primary-orange)';
+                document.getElementById('musicBtn').style.color = 'var(--primary-blue)';
             } else {
                 bgMusic.pause();
                 document.getElementById('musicBtn').style.color = 'var(--text-muted)';
@@ -680,7 +680,7 @@
 
         function submitAbmeldung(e) {
             e.preventDefault();
-            alert("Deine Abmeldung wurde erfolgreich übermittelt!");
+            alert("Deine Abmeldung wurde erfolgreich im Foundation-Terminal registriert!");
             document.getElementById('abmeldeForm').reset();
         }
 
@@ -695,23 +695,3 @@
             const tr = document.createElement('tr');
 
             tr.innerHTML = `
-                <td>${name}</td>
-                <td>${reason}</td>
-                <td>${by}</td>
-                <td><span class="tag-danger">Aktiv</span></td>
-                <td><button class="btn-danger" onclick="removeBlacklistEntry(this)"><i class="fa-solid fa-trash"></i></button></td>
-            `;
-
-            tbody.appendChild(tr);
-            document.getElementById('blacklistForm').reset();
-        }
-
-        function removeBlacklistEntry(btn) {
-            if(confirm("Möchtest du diesen Eintrag wirklich von der Blacklist entfernen?")) {
-                const row = btn.closest('tr');
-                row.remove();
-            }
-        }
-    </script>
-</body>
-</html>
