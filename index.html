@@ -293,6 +293,64 @@
             font-size: 0.8rem;
         }
 
+        /* SCP Cards Styling */
+        .scp-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scp-card.keter { border-left-color: var(--danger-red); }
+        .scp-card.euclid { border-left-color: var(--warning-amber); }
+        .scp-card.safe { border-left-color: var(--success-green); }
+
+        .scp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.8rem;
+        }
+
+        .scp-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .class-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .class-badge.keter { background: rgba(255, 51, 51, 0.15); color: var(--danger-red); border: 1px solid var(--danger-red); }
+        .class-badge.euclid { background: rgba(255, 170, 0, 0.15); color: var(--warning-amber); border: 1px solid var(--warning-amber); }
+        .class-badge.safe { background: rgba(0, 255, 102, 0.15); color: var(--success-green); border: 1px solid var(--success-green); }
+
+        .scp-instruction {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 0.8rem;
+            border: 1px dashed var(--card-border);
+        }
+
+        .scp-instruction h4 {
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         /* Forms & Inputs */
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
@@ -398,6 +456,7 @@
         <nav>
             <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
             <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Spezialisierungen</button>
+            <button class="nav-btn" onclick="switchTab('scps', this)"><i class="fa-solid fa-biohazard"></i> SCP Datenbank</button>
             <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-building-shield"></i> Sites & Einrichtungen</button>
             <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Personal</button>
             <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
@@ -487,7 +546,105 @@
             </div>
         </div>
 
-        <!-- TAB 3: SITES & EINRICHTUNGEN -->
+        <!-- TAB 3: SCP DATENBANK & RE-CONTAINMENT -->
+        <div id="scps" class="tab-content">
+            <div class="section-title">
+                <h2>SCP Re-Containment Leitfaden</h2>
+                <p>Anweisungen zur Sicheren Wiedereindämmung entkommener Anomalien.</p>
+            </div>
+
+            <!-- SCP-173 -->
+            <div class="scp-card euclid">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-173 - "Die Skulptur"</div>
+                    <span class="class-badge euclid">Euclid</span>
+                </div>
+                <p>Eine aus Beton und Armierungseisen bestehende Skulptur. Sie ist extrem aggressiv und bewegt sich ungeheuer schnell, solange sie nicht im direkten Blickfeld steht.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-hand-holding-hand"></i> Re-Containment Protokoll:</h4>
+                    <p>• Mindestens <strong>3 Operatives</strong> sind erforderlich.<br>
+                       • Ununterbrochener Augenkontakt! Vor dem Blinzeln muss der Partner gewarnt werden.<br>
+                       • Zwei Einheiten nähern sich mit einem speziellen Eindämmungskäfig/Box und drängen SCP-173 zurück in die Zelle. Zelle verschließen!</p>
+                </div>
+            </div>
+
+            <!-- SCP-096 -->
+            <div class="scp-card keter">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-096 - "Der Schüchterne Mann"</div>
+                    <span class="class-badge keter">Keter</span>
+                </div>
+                <p>Humanoides Wesen. Wenn jemand sein Gesicht sieht (direkt, auf Fotos oder Video), gerät es in einen unkontrollierbaren Wutanfall und jagt das Ziel unaufhaltsam.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-eye-slash"></i> Re-Containment Protokoll:</h4>
+                    <p>• <strong>NIEMALS</strong> direkt in das Gesicht sehen! Blick auf den Boden richten.<br>
+                       • Warten, bis der Rage-Zustand (nach Neutralisierung des Ziels) endet und SCP-096 sich wieder beruhigt hat.<br>
+                       • Einen lichtundurchlässigen Sack (Bagging Kit) über seinen Kopf stülpen, mit Beruhigungsmitteln injizieren und im Eindämmungsbehälter abtransportieren.</p>
+                </div>
+            </div>
+
+            <!-- SCP-106 -->
+            <div class="scp-card keter">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-106 - "Der Alte Mann"</div>
+                    <span class="class-badge keter">Keter</span>
+                </div>
+                <p>Verwesendes humanoides Wesen, das feste Materie durchqueren kann und Opfer in seine Taschendimension zieht. Verursacht Korrosion.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-skull"></i> Re-Containment Protokoll:</h4>
+                    <p>• Direkter Angriff mit Waffen ist wirkungslos.<br>
+                       • Zurücklocken mittels <strong>Femur Breaker Protocol</strong> (Schmerz-Audiosignale über Lautsprecher in der Zelle auslösen).<br>
+                       • Sobald SCP-106 die Zelle durch die Wand betritt, muss der Magnetschwebe-Eindämmungsraum sofort versiegelt werden.</p>
+                </div>
+            </div>
+
+            <!-- SCP-049 -->
+            <div class="scp-card euclid">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-049 - "Pestdoktor"</div>
+                    <span class="class-badge euclid">Euclid</span>
+                </div>
+                <p>Humanoides Wesen im Gewand eines mittelalterlichen Pestdoktors. Seine Berührung tötet augenblicklich, danach führt er chirurgische Eingriffe durch, um Opfer als SCP-049-2 (Zombies) zu reanimieren.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-syringe"></i> Re-Containment Protokoll:</h4>
+                    <p>• Ausreichenden Sicherheitsabstand einhalten (Distanzwaffen nutzen).<br>
+                       • Einsatz von Betäubungs- oder Beruhigungsgewehren (Sedatives).<br>
+                       • Nach Bewusstlosigkeit mit einer Zwangsjacke sichern und reanimierte Instanzen (SCP-049-2) terminieren.</p>
+                </div>
+            </div>
+
+            <!-- SCP-939 -->
+            <div class="scp-card keter">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-939 - "Mit vielen Stimmen"</div>
+                    <span class="class-badge keter">Keter</span>
+                </div>
+                <p>Rotkopfige, raubtierartige Wesen ohne Augen, die Stimmen früherer Opfer nachahmen können, um Beute anzulocken. Reagieren extrem empfindlich auf Geräusche.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-volume-xmark"></i> Re-Containment Protokoll:</h4>
+                    <p>• <strong>Schleichmodus:</strong> Absolutes Stillsein, keine Schritte oder Funkgespräche in direkter Nähe.<br>
+                       • Einsatz von Schall-Ablenkungsgranaten (Decoys), um die Kreaturen in die Zelle zu locken.<br>
+                       • Betäubungsgas in die Kammer einleiten und Schwerlasttore verriegeln.</p>
+                </div>
+            </div>
+
+            <!-- SCP-999 -->
+            <div class="scp-card safe">
+                <div class="scp-header">
+                    <div class="scp-title">SCP-999 - "Das Kitzelmonster"</div>
+                    <span class="class-badge safe">Safe</span>
+                </div>
+                <p>Eine große, orangefarbene, amorphe Gallertmasse mit spielerischer Persönlichkeit. Löst bei Kontakt sofortige Glücksgefühle aus.</p>
+                <div class="scp-instruction">
+                    <h4><i class="fa-solid fa-face-smile"></i> Re-Containment Protokoll:</h4>
+                    <p>• Keine Gewalt erforderlich!<br>
+                       • Kann einfach mit Erdnussbutter oder Süßigkeiten zurück in seine Kammer gelockt werden.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB 4: SITES & EINRICHTUNGEN -->
         <div id="planeten" class="tab-content">
             <div class="section-title">
                 <h2>Operative Foundation Einrichtungen</h2>
@@ -505,7 +662,7 @@
             </div>
         </div>
 
-        <!-- TAB 4: PERSONAL / MITGLIEDER -->
+        <!-- TAB 5: PERSONAL / MITGLIEDER -->
         <div id="mitglieder" class="tab-content">
             <div class="section-title">
                 <h2>Operatives Personal</h2>
@@ -536,7 +693,7 @@
             </div>
         </div>
 
-        <!-- TAB 5: ABMELDUNG -->
+        <!-- TAB 6: ABMELDUNG -->
         <div id="abmeldung" class="tab-content">
             <div class="section-title">
                 <h2>Abmelde-Protokoll</h2>
@@ -561,7 +718,7 @@
             </div>
         </div>
 
-        <!-- TAB 6: BLACKLIST / TERMINATIONS -->
+        <!-- TAB 7: BLACKLIST / TERMINATIONS -->
         <div id="blacklist" class="tab-content">
             <div class="section-title">
                 <h2>Terminations & Blacklist</h2>
@@ -611,7 +768,7 @@
             </div>
         </div>
 
-        <!-- TAB 7: PROTOKOLLE / REGELN -->
+        <!-- TAB 8: PROTOKOLLE / REGELN -->
         <div id="regeln" class="tab-content">
             <div class="section-title">
                 <h2>Einsatzprotokolle & Direktiven</h2>
@@ -706,3 +863,11 @@
     </script>
 </body>
 </html>
+```eof
+
+Ich habe den gesamten Code überarbeitet und an das SCP-Foundation-Thema der **MTF Epsilon-11 "Nine-Tailed Fox"** angepasst. 
+
+**Hauptänderungen:**
+1. **SCP Datenbank Tab:** Ein neuer Tab mit den bekanntesten SCPs (SCP-173, SCP-096, SCP-106, SCP-049, SCP-939, SCP-999) inklusive Einstufungen (Safe, Euclid, Keter) und Schritt-für-Schritt-Anleitungen zum Wiedereinfangen.
+2. **Branding & Farben:** Wechsel von Star Wars 212th (Orange) zu Epsilon-11 / SCP-Terminal (Blau/Schatten-Optik).
+3. **Foundation-Design:** SCP-Icons, Ticker-Meldungen bezüglich Containment Breaches und eine SCP-Foundation Ambience-Hintergrundmusik.
