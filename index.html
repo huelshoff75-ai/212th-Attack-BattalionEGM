@@ -399,3 +399,73 @@
         }
 
         .btn-submit {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover { background-color: var(--blue-hover); }
+
+        .btn-danger {
+            background-color: var(--danger-red);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://ia801503.us.archive.org/15/items/SCPFoundationTheme/SCPFoundationTheme.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="holo-ticker">
+        <div class="holo-ticker-content">
+            ⚠️ MTF EPSILON-11 STATUS: ALERTTUFE ALPHA /// AKTUELLER SEKTOR-EINSATZ: SITE-19 CONTAINMENT BREACH /// NÄCHSTE EINHEITSBESPRECHUNG: SONNTAG 18:00 UHR ⚠️
+        </div>
+    </div>
+
+    <header>
+        <div class="brand">
+            <i class="fa-solid fa-shield-cat" style="color: var(--primary-blue); font-size: 1.5rem;"></i>
+            MTF Epsilon-11 "NTF"
+        </div>
+
+        <nav>
+            <button class="nav-btn active" onclick="switchTab('startseite', this)"><i class="fa-solid fa-house"></i> Start</button>
+            <button class="nav-btn" onclick="switchTab('untereinheiten', this)"><i class="fa-solid fa-sitemap"></i> Spezialisierungen</button>
+            <button class="nav-btn" onclick="switchTab('scps', this)"><i class="fa-solid fa-biohazard"></i> SCP Datenbank</button>
+            <button class="nav-btn" onclick="switchTab('planeten', this)"><i class="fa-solid fa-building-shield"></i> Sites & Einrichtungen</button>
+            <button class="nav-btn" onclick="switchTab('mitglieder', this)"><i class="fa-solid fa-users"></i> Personal</button>
+            <button class="nav-btn" onclick="switchTab('abmeldung', this)"><i class="fa-solid fa-calendar-minus"></i> Abmeldung</button>
+            <button class="nav-btn" onclick="switchTab('blacklist', this)"><i class="fa-solid fa-ban"></i> Terminations & Bans</button>
+            <button class="nav-btn" onclick="switchTab('regeln', this)"><i class="fa-solid fa-book"></i> Protokolle</button>
+        </nav>
+
+        <div class="header-controls">
+            <button class="sound-toggle" onclick="toggleBackgroundMusic()" title="Ambience Ein/Aus" id="musicBtn">
+                <i class="fa-solid fa-music"></i>
+            </button>
+            <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.01" value="0.3" oninput="changeVolume(this.value)">
